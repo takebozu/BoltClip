@@ -4,7 +4,6 @@ use_frameworks!
 target 'Clipy' do
 
   # Application
-  pod 'PINCache'
   pod 'Sauce'
   pod 'RxCocoa'
   pod 'RxSwift'

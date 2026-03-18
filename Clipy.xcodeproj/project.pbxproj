@@ -12,6 +12,7 @@
 		B7DB3F2A2F6A7A0400AE1E52 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F292F6A7A0400AE1E52 /* Sparkle */; };
 		B7DB3F2D2F6A7C0800AE1E52 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F2C2F6A7C0800AE1E52 /* Realm */; };
 		B7DB3F2F2F6A7C0800AE1E52 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F2E2F6A7C0800AE1E52 /* RealmSwift */; };
+		B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F312F6A7DE300AE1E52 /* PINCache */; };
 		C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift */; };
 		FA08EDF81D1FED7D000D1D13 /* HotKeyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */; };
 		FA0D5CE81DDCC61600AC9052 /* ClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5CE71DDCC61600AC9052 /* ClipService.swift */; };
@@ -237,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7DB3F2A2F6A7A0400AE1E52 /* Sparkle in Frameworks */,
+				B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */,
 				FAC43E2B1B35DFDF00C06102 /* WebKit.framework in Frameworks */,
 				FAC43E291B35DFDA00C06102 /* Cocoa.framework in Frameworks */,
 				B7DB3F2F2F6A7C0800AE1E52 /* RealmSwift in Frameworks */,
@@ -640,6 +642,7 @@
 			packageReferences = (
 				B7DB3F282F6A7A0400AE1E52 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				B7DB3F2B2F6A7C0800AE1E52 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				B7DB3F302F6A7DE300AE1E52 /* XCRemoteSwiftPackageReference "PINCache" */,
 			);
 			productRefGroup = FAC43DC71B35D8B100C06102 /* Products */;
 			projectDirPath = "";
@@ -696,8 +699,6 @@
 				"${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework",
 				"${BUILT_PRODUCTS_DIR}/LoginServiceKit/LoginServiceKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Magnet/Magnet.framework",
-				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
-				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxScreeen/RxScreeen.framework",
@@ -713,8 +714,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LetsMove.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoginServiceKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxScreeen.framework",
@@ -1311,6 +1310,14 @@
 				version = 10.7.2;
 			};
 		};
+		B7DB3F302F6A7DE300AE1E52 /* XCRemoteSwiftPackageReference "PINCache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pinterest/PINCache.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1328,6 +1335,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7DB3F2B2F6A7C0800AE1E52 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		B7DB3F312F6A7DE300AE1E52 /* PINCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F302F6A7DE300AE1E52 /* XCRemoteSwiftPackageReference "PINCache" */;
+			productName = PINCache;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

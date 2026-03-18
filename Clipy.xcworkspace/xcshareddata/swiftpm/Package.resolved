@@ -1,6 +1,24 @@
 {
-  "originHash" : "c13103ca378a9be06f00f145af51ad4e1306526d3683c4af65cbd0f92458c58c",
+  "originHash" : "1dbcdb474519389a80543467e2404815105e10f0c25921f26772e56187ebe199",
   "pins" : [
+    {
+      "identity" : "pincache",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pinterest/PINCache.git",
+      "state" : {
+        "revision" : "875c654984fb52b47ca65ae70d24852b0003ccd9",
+        "version" : "3.0.3"
+      }
+    },
+    {
+      "identity" : "pinoperation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pinterest/PINOperation.git",
+      "state" : {
+        "revision" : "a74f978733bdaf982758bfa23d70a189f4b4c1b6",
+        "version" : "1.2.3"
+      }
+    },
     {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",
