@@ -5,7 +5,6 @@ target 'Clipy' do
 
   # Application
   pod 'LoginServiceKit', :git => 'https://github.com/Clipy/LoginServiceKit.git'
-  pod 'AEXML'
   pod 'LetsMove'
   # Utility
   pod 'BartyCrouch', '~> 3.0'

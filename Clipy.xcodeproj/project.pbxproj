@@ -31,6 +31,7 @@
 		B7DB3F602F6A8A8400AE1E52 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F5F2F6A8A8400AE1E52 /* Nimble */; };
 		B7DB3F632F6A8AD600AE1E52 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F622F6A8AD600AE1E52 /* Quick */; };
 		B7DB3F662F6A8CBA00AE1E52 /* SwiftHEXColors in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F652F6A8CBA00AE1E52 /* SwiftHEXColors */; };
+		B7DB3F692F6A8E8B00AE1E52 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F682F6A8E8B00AE1E52 /* AEXML */; };
 		C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift */; };
 		FA08EDF81D1FED7D000D1D13 /* HotKeyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */; };
 		FA0D5CE81DDCC61600AC9052 /* ClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5CE71DDCC61600AC9052 /* ClipService.swift */; };
@@ -276,6 +277,7 @@
 				B7DB3F412F6A80DD00AE1E52 /* KeyHolder in Frameworks */,
 				B7DB3F472F6A819100AE1E52 /* Magnet in Frameworks */,
 				B7DB3F382F6A7FF200AE1E52 /* Sauce in Frameworks */,
+				B7DB3F692F6A8E8B00AE1E52 /* AEXML in Frameworks */,
 				FAC43E251B35DFD000C06102 /* AppKit.framework in Frameworks */,
 				B7DB3F352F6A7F5200AE1E52 /* KeyHolder in Frameworks */,
 				FAC43E231B35DFC800C06102 /* Foundation.framework in Frameworks */,
@@ -686,6 +688,7 @@
 				B7DB3F5E2F6A8A8400AE1E52 /* XCRemoteSwiftPackageReference "Nimble" */,
 				B7DB3F612F6A8AD600AE1E52 /* XCRemoteSwiftPackageReference "Quick" */,
 				B7DB3F642F6A8CBA00AE1E52 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */,
+				B7DB3F672F6A8E8B00AE1E52 /* XCRemoteSwiftPackageReference "AEXML" */,
 			);
 			productRefGroup = FAC43DC71B35D8B100C06102 /* Products */;
 			projectDirPath = "";
@@ -737,13 +740,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Clipy/Pods-Clipy-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AEXML/AEXML.framework",
 				"${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework",
 				"${BUILT_PRODUCTS_DIR}/LoginServiceKit/LoginServiceKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LetsMove.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoginServiceKit.framework",
 			);
@@ -1441,6 +1442,14 @@
 				version = 1.4.1;
 			};
 		};
+		B7DB3F672F6A8E8B00AE1E52 /* XCRemoteSwiftPackageReference "AEXML" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tadija/AEXML";
+			requirement = {
+				kind = exactVersion;
+				version = 4.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1553,6 +1562,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7DB3F642F6A8CBA00AE1E52 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */;
 			productName = SwiftHEXColors;
+		};
+		B7DB3F682F6A8E8B00AE1E52 /* AEXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F672F6A8E8B00AE1E52 /* XCRemoteSwiftPackageReference "AEXML" */;
+			productName = AEXML;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
