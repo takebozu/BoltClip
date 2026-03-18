@@ -28,6 +28,8 @@
 		B7DB3F582F6A84FE00AE1E52 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F572F6A84FE00AE1E52 /* RxRelay */; };
 		B7DB3F5A2F6A84FE00AE1E52 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F592F6A84FE00AE1E52 /* RxSwift */; };
 		B7DB3F5D2F6A853100AE1E52 /* RxScreeen in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F5C2F6A853100AE1E52 /* RxScreeen */; };
+		B7DB3F602F6A8A8400AE1E52 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F5F2F6A8A8400AE1E52 /* Nimble */; };
+		B7DB3F632F6A8AD600AE1E52 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F622F6A8AD600AE1E52 /* Quick */; };
 		C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift */; };
 		FA08EDF81D1FED7D000D1D13 /* HotKeyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */; };
 		FA0D5CE81DDCC61600AC9052 /* ClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5CE71DDCC61600AC9052 /* ClipService.swift */; };
@@ -284,7 +286,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7DB3F632F6A8AD600AE1E52 /* Quick in Frameworks */,
 				242EC2327861D35B7C3AE84E /* Pods_ClipyTests.framework in Frameworks */,
+				B7DB3F602F6A8A8400AE1E52 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,7 +623,6 @@
 				FAC43DD41B35D8B100C06102 /* Sources */,
 				FAC43DD51B35D8B100C06102 /* Frameworks */,
 				FAC43DD61B35D8B100C06102 /* Resources */,
-				321A1AC02A519AFA3A4D43D2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -678,6 +681,8 @@
 				B7DB3F4E2F6A825700AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */,
 				B7DB3F542F6A84FE00AE1E52 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				B7DB3F5B2F6A853100AE1E52 /* XCRemoteSwiftPackageReference "RxScreeen" */,
+				B7DB3F5E2F6A8A8400AE1E52 /* XCRemoteSwiftPackageReference "Nimble" */,
+				B7DB3F612F6A8AD600AE1E52 /* XCRemoteSwiftPackageReference "Quick" */,
 			);
 			productRefGroup = FAC43DC71B35D8B100C06102 /* Products */;
 			projectDirPath = "";
@@ -744,36 +749,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clipy/Pods-Clipy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		321A1AC02A519AFA3A4D43D2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ClipyTests/Pods-ClipyTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CwlCatchException/CwlCatchException.framework",
-				"${BUILT_PRODUCTS_DIR}/CwlCatchExceptionSupport/CwlCatchExceptionSupport.framework",
-				"${BUILT_PRODUCTS_DIR}/CwlMachBadInstructionHandler/CwlMachBadInstructionHandler.framework",
-				"${BUILT_PRODUCTS_DIR}/CwlPosixPreconditionTesting/CwlPosixPreconditionTesting.framework",
-				"${BUILT_PRODUCTS_DIR}/CwlPreconditionTesting/CwlPreconditionTesting.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlCatchException.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlCatchExceptionSupport.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlMachBadInstructionHandler.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlPosixPreconditionTesting.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlPreconditionTesting.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClipyTests/Pods-ClipyTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7BFBD366B210014B03083E71 /* [CP] Check Pods Manifest.lock */ = {
@@ -1441,6 +1416,22 @@
 				version = 2.0.0;
 			};
 		};
+		B7DB3F5E2F6A8A8400AE1E52 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = exactVersion;
+				version = 13.8.0;
+			};
+		};
+		B7DB3F612F6A8AD600AE1E52 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = exactVersion;
+				version = 7.6.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1538,6 +1529,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7DB3F5B2F6A853100AE1E52 /* XCRemoteSwiftPackageReference "RxScreeen" */;
 			productName = RxScreeen;
+		};
+		B7DB3F5F2F6A8A8400AE1E52 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F5E2F6A8A8400AE1E52 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		B7DB3F622F6A8AD600AE1E52 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F612F6A8AD600AE1E52 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,4 +1,5 @@
 import Quick
+import Foundation
 import Nimble
 import RealmSwift
 @testable import Clipy
