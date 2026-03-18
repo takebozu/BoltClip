@@ -13,6 +13,16 @@
 		B7DB3F2D2F6A7C0800AE1E52 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F2C2F6A7C0800AE1E52 /* Realm */; };
 		B7DB3F2F2F6A7C0800AE1E52 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F2E2F6A7C0800AE1E52 /* RealmSwift */; };
 		B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F312F6A7DE300AE1E52 /* PINCache */; };
+		B7DB3F352F6A7F5200AE1E52 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F342F6A7F5200AE1E52 /* KeyHolder */; };
+		B7DB3F382F6A7FF200AE1E52 /* Sauce in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F372F6A7FF200AE1E52 /* Sauce */; };
+		B7DB3F3B2F6A802900AE1E52 /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F3A2F6A802900AE1E52 /* Magnet */; };
+		B7DB3F3E2F6A805200AE1E52 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F3D2F6A805200AE1E52 /* KeyHolder */; };
+		B7DB3F412F6A80DD00AE1E52 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F402F6A80DD00AE1E52 /* KeyHolder */; };
+		B7DB3F442F6A816600AE1E52 /* Sauce in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F432F6A816600AE1E52 /* Sauce */; };
+		B7DB3F472F6A819100AE1E52 /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F462F6A819100AE1E52 /* Magnet */; };
+		B7DB3F4A2F6A81B500AE1E52 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F492F6A81B500AE1E52 /* KeyHolder */; };
+		B7DB3F4D2F6A821000AE1E52 /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F4C2F6A821000AE1E52 /* Magnet */; };
+		B7DB3F502F6A825700AE1E52 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F4F2F6A825700AE1E52 /* KeyHolder */; };
 		C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift */; };
 		FA08EDF81D1FED7D000D1D13 /* HotKeyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */; };
 		FA0D5CE81DDCC61600AC9052 /* ClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5CE71DDCC61600AC9052 /* ClipService.swift */; };
@@ -237,13 +247,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7DB3F3B2F6A802900AE1E52 /* Magnet in Frameworks */,
 				B7DB3F2A2F6A7A0400AE1E52 /* Sparkle in Frameworks */,
+				B7DB3F4A2F6A81B500AE1E52 /* KeyHolder in Frameworks */,
 				B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */,
 				FAC43E2B1B35DFDF00C06102 /* WebKit.framework in Frameworks */,
 				FAC43E291B35DFDA00C06102 /* Cocoa.framework in Frameworks */,
 				B7DB3F2F2F6A7C0800AE1E52 /* RealmSwift in Frameworks */,
+				B7DB3F442F6A816600AE1E52 /* Sauce in Frameworks */,
+				B7DB3F502F6A825700AE1E52 /* KeyHolder in Frameworks */,
+				B7DB3F4D2F6A821000AE1E52 /* Magnet in Frameworks */,
+				B7DB3F3E2F6A805200AE1E52 /* KeyHolder in Frameworks */,
 				FAC43E271B35DFD300C06102 /* Carbon.framework in Frameworks */,
+				B7DB3F412F6A80DD00AE1E52 /* KeyHolder in Frameworks */,
+				B7DB3F472F6A819100AE1E52 /* Magnet in Frameworks */,
+				B7DB3F382F6A7FF200AE1E52 /* Sauce in Frameworks */,
 				FAC43E251B35DFD000C06102 /* AppKit.framework in Frameworks */,
+				B7DB3F352F6A7F5200AE1E52 /* KeyHolder in Frameworks */,
 				FAC43E231B35DFC800C06102 /* Foundation.framework in Frameworks */,
 				B7DB3F2D2F6A7C0800AE1E52 /* Realm in Frameworks */,
 				B7CC520B88EAA6AD38E93462 /* Pods_Clipy.framework in Frameworks */,
@@ -643,6 +663,9 @@
 				B7DB3F282F6A7A0400AE1E52 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				B7DB3F2B2F6A7C0800AE1E52 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				B7DB3F302F6A7DE300AE1E52 /* XCRemoteSwiftPackageReference "PINCache" */,
+				B7DB3F422F6A816600AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */,
+				B7DB3F4B2F6A821000AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */,
+				B7DB3F4E2F6A825700AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */,
 			);
 			productRefGroup = FAC43DC71B35D8B100C06102 /* Products */;
 			projectDirPath = "";
@@ -695,30 +718,24 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Clipy/Pods-Clipy-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AEXML/AEXML.framework",
-				"${BUILT_PRODUCTS_DIR}/KeyHolder/KeyHolder.framework",
 				"${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework",
 				"${BUILT_PRODUCTS_DIR}/LoginServiceKit/LoginServiceKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Magnet/Magnet.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxScreeen/RxScreeen.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Sauce/Sauce.framework",
 				"${BUILT_PRODUCTS_DIR}/Screeen/Screeen.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHEXColors/SwiftHEXColors.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyHolder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LetsMove.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoginServiceKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxScreeen.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sauce.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Screeen.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHEXColors.framework",
 			);
@@ -1318,6 +1335,86 @@
 				version = 3.0.3;
 			};
 		};
+		B7DB3F332F6A7F5200AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.0;
+			};
+		};
+		B7DB3F362F6A7FF200AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Sauce";
+			requirement = {
+				kind = exactVersion;
+				version = 2.1.0;
+			};
+		};
+		B7DB3F392F6A802900AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Magnet";
+			requirement = {
+				kind = exactVersion;
+				version = 3.2.0;
+			};
+		};
+		B7DB3F3C2F6A805200AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder";
+			requirement = {
+				kind = exactVersion;
+				version = 4.1.0;
+			};
+		};
+		B7DB3F3F2F6A80DD00AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder";
+			requirement = {
+				kind = exactVersion;
+				version = 4.1.0;
+			};
+		};
+		B7DB3F422F6A816600AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Sauce";
+			requirement = {
+				kind = exactVersion;
+				version = 2.2.0;
+			};
+		};
+		B7DB3F452F6A819100AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Magnet";
+			requirement = {
+				kind = exactVersion;
+				version = 3.2.0;
+			};
+		};
+		B7DB3F482F6A81B500AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.0;
+			};
+		};
+		B7DB3F4B2F6A821000AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Magnet";
+			requirement = {
+				kind = exactVersion;
+				version = 3.3.0;
+			};
+		};
+		B7DB3F4E2F6A825700AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder";
+			requirement = {
+				kind = exactVersion;
+				version = 4.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1340,6 +1437,56 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7DB3F302F6A7DE300AE1E52 /* XCRemoteSwiftPackageReference "PINCache" */;
 			productName = PINCache;
+		};
+		B7DB3F342F6A7F5200AE1E52 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F332F6A7F5200AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
+		};
+		B7DB3F372F6A7FF200AE1E52 /* Sauce */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F362F6A7FF200AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */;
+			productName = Sauce;
+		};
+		B7DB3F3A2F6A802900AE1E52 /* Magnet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F392F6A802900AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */;
+			productName = Magnet;
+		};
+		B7DB3F3D2F6A805200AE1E52 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F3C2F6A805200AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
+		};
+		B7DB3F402F6A80DD00AE1E52 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F3F2F6A80DD00AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
+		};
+		B7DB3F432F6A816600AE1E52 /* Sauce */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F422F6A816600AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */;
+			productName = Sauce;
+		};
+		B7DB3F462F6A819100AE1E52 /* Magnet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F452F6A819100AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */;
+			productName = Magnet;
+		};
+		B7DB3F492F6A81B500AE1E52 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F482F6A81B500AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
+		};
+		B7DB3F4C2F6A821000AE1E52 /* Magnet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F4B2F6A821000AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */;
+			productName = Magnet;
+		};
+		B7DB3F4F2F6A825700AE1E52 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F4E2F6A825700AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

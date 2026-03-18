@@ -1,6 +1,24 @@
 {
-  "originHash" : "1dbcdb474519389a80543467e2404815105e10f0c25921f26772e56187ebe199",
+  "originHash" : "c4ecdc14168fae80eb3132797b9f7d4976140ed5285ab54c406247de46db20c1",
   "pins" : [
+    {
+      "identity" : "keyholder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Clipy/KeyHolder",
+      "state" : {
+        "revision" : "c9d33699c9cf6be84670f0cb832fcf94b755499a",
+        "version" : "4.1.0"
+      }
+    },
+    {
+      "identity" : "magnet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Clipy/Magnet",
+      "state" : {
+        "revision" : "e719b5cae545a43e2965a3fbbdd42485c3a3abcb",
+        "version" : "3.3.0"
+      }
+    },
     {
       "identity" : "pincache",
       "kind" : "remoteSourceControl",
@@ -35,6 +53,15 @@
       "state" : {
         "revision" : "ae8e646590396dfc13c1abbf8aa2e48c43766dce",
         "version" : "10.7.2"
+      }
+    },
+    {
+      "identity" : "sauce",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Clipy/Sauce",
+      "state" : {
+        "revision" : "2fcf7e43a242b183fdea3f2275ebec0d773b65f5",
+        "version" : "2.2.0"
       }
     },
     {

@@ -10,12 +10,8 @@ PODS:
     - CwlCatchException (~> 2.2.1)
     - CwlMachBadInstructionHandler (~> 2.2.2)
     - CwlPosixPreconditionTesting (~> 2.2.2)
-  - KeyHolder (4.0.0):
-    - Magnet (~> 3.2)
   - LetsMove (1.25)
   - LoginServiceKit (2.5.0)
-  - Magnet (3.2.0):
-    - Sauce (~> 2.1)
   - Nimble (13.8.0):
     - CwlPreconditionTesting (~> 2.2.0)
   - Quick (7.6.2)
@@ -29,7 +25,6 @@ PODS:
     - RxSwift (~> 5.0)
     - Screeen (~> 2.0.1)
   - RxSwift (5.1.3)
-  - Sauce (2.1.0)
   - Screeen (2.0.1)
   - SwiftGen (6.4.0)
   - SwiftHEXColors (1.4.1)
@@ -38,16 +33,13 @@ PODS:
 DEPENDENCIES:
   - AEXML
   - BartyCrouch (~> 3.0)
-  - KeyHolder
   - LetsMove
   - LoginServiceKit (from `https://github.com/Clipy/LoginServiceKit.git`)
-  - Magnet
   - Nimble (~> 13.0)
   - Quick (~> 7.0)
   - RxCocoa
   - RxScreeen
   - RxSwift
-  - Sauce
   - SwiftGen
   - SwiftHEXColors
   - SwiftLint
@@ -61,16 +53,13 @@ SPEC REPOS:
     - CwlMachBadInstructionHandler
     - CwlPosixPreconditionTesting
     - CwlPreconditionTesting
-    - KeyHolder
     - LetsMove
-    - Magnet
     - Nimble
     - Quick
     - RxCocoa
     - RxRelay
     - RxScreeen
     - RxSwift
-    - Sauce
     - Screeen
     - SwiftGen
     - SwiftHEXColors
@@ -93,22 +82,19 @@ SPEC CHECKSUMS:
   CwlMachBadInstructionHandler: dae4fdd124d45c9910ac240287cc7b898f4502a1
   CwlPosixPreconditionTesting: ecd095aa2129e740b44301c34571e8d85906fb88
   CwlPreconditionTesting: 67a0047dd4de4382b93442c0e3f25207f984f35a
-  KeyHolder: 457d8dde330a17452672756ae0e3b9c2e180a7e2
   LetsMove: 7b9fe44737707d984fbd3f47af46609a9a07b461
   LoginServiceKit: 87c3d42ddb80d39ee8ea6b7a93f8c654ff58781b
-  Magnet: 8316a30fe91fdc6f2816ec0f04e20c72e341ca2e
   Nimble: 84982ec98b5dfc0ffe9ae2ed4c0b2fc57807c2d5
   Quick: b8bec97cd4b9f21da0472d45580f763b801fc353
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxScreeen: e0806b8a4b747cde7100be4e09b6e133a6017cfd
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
-  Sauce: a4075a04b6041e7a0c992a952cc79f7a0ebdb8e3
   Screeen: e5c570d3df139b8d5d0e1ffd41094204787d9f1a
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftHEXColors: 1cb6e5d55c52749aa33db8f088ac55eb71ca4c7f
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
 
-PODFILE CHECKSUM: 0a0d7e81ec06b08c568e2a4e26bcf753aca66be6
+PODFILE CHECKSUM: 85fc3dd1e45acc36ab487137a78fdede389e6551
 
 COCOAPODS: 1.16.2
