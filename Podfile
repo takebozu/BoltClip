@@ -4,10 +4,7 @@ use_frameworks!
 target 'Clipy' do
 
   # Application
-  pod 'RxCocoa'
-  pod 'RxSwift'
   pod 'LoginServiceKit', :git => 'https://github.com/Clipy/LoginServiceKit.git'
-  pod 'RxScreeen'
   pod 'AEXML'
   pod 'LetsMove'
   pod 'SwiftHEXColors'

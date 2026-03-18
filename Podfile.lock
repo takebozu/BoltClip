@@ -15,17 +15,6 @@ PODS:
   - Nimble (13.8.0):
     - CwlPreconditionTesting (~> 2.2.0)
   - Quick (7.6.2)
-  - RxCocoa (5.1.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxScreeen (2.0.0):
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
-    - Screeen (~> 2.0.1)
-  - RxSwift (5.1.3)
-  - Screeen (2.0.1)
   - SwiftGen (6.4.0)
   - SwiftHEXColors (1.4.1)
   - SwiftLint (0.40.3)
@@ -37,9 +26,6 @@ DEPENDENCIES:
   - LoginServiceKit (from `https://github.com/Clipy/LoginServiceKit.git`)
   - Nimble (~> 13.0)
   - Quick (~> 7.0)
-  - RxCocoa
-  - RxScreeen
-  - RxSwift
   - SwiftGen
   - SwiftHEXColors
   - SwiftLint
@@ -56,11 +42,6 @@ SPEC REPOS:
     - LetsMove
     - Nimble
     - Quick
-    - RxCocoa
-    - RxRelay
-    - RxScreeen
-    - RxSwift
-    - Screeen
     - SwiftGen
     - SwiftHEXColors
     - SwiftLint
@@ -86,15 +67,10 @@ SPEC CHECKSUMS:
   LoginServiceKit: 87c3d42ddb80d39ee8ea6b7a93f8c654ff58781b
   Nimble: 84982ec98b5dfc0ffe9ae2ed4c0b2fc57807c2d5
   Quick: b8bec97cd4b9f21da0472d45580f763b801fc353
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxScreeen: e0806b8a4b747cde7100be4e09b6e133a6017cfd
-  RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
-  Screeen: e5c570d3df139b8d5d0e1ffd41094204787d9f1a
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftHEXColors: 1cb6e5d55c52749aa33db8f088ac55eb71ca4c7f
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
 
-PODFILE CHECKSUM: 85fc3dd1e45acc36ab487137a78fdede389e6551
+PODFILE CHECKSUM: f794df25de0c96ab31f22d46a651d34ec7642094
 
 COCOAPODS: 1.16.2
