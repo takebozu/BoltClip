@@ -44,7 +44,6 @@ PODS:
   - RxSwift (5.1.3)
   - Sauce (2.1.0)
   - Screeen (2.0.1)
-  - Sparkle (1.26.0)
   - SwiftGen (6.4.0)
   - SwiftHEXColors (1.4.1)
   - SwiftLint (0.40.3)
@@ -64,7 +63,6 @@ DEPENDENCIES:
   - RxScreeen
   - RxSwift
   - Sauce
-  - Sparkle
   - SwiftGen
   - SwiftHEXColors
   - SwiftLint
@@ -93,7 +91,6 @@ SPEC REPOS:
     - RxSwift
     - Sauce
     - Screeen
-    - Sparkle
     - SwiftGen
     - SwiftHEXColors
     - SwiftLint
@@ -131,11 +128,10 @@ SPEC CHECKSUMS:
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
   Sauce: a4075a04b6041e7a0c992a952cc79f7a0ebdb8e3
   Screeen: e5c570d3df139b8d5d0e1ffd41094204787d9f1a
-  Sparkle: d56d028f4b0c123577825f5d1004f6140d77f90e
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftHEXColors: 1cb6e5d55c52749aa33db8f088ac55eb71ca4c7f
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
 
-PODFILE CHECKSUM: 1ac2eb9c076f1c82ed00acf5679e0b987033777c
+PODFILE CHECKSUM: 9139ee023839c842a41244e20fce2f7aefb295e6
 
 COCOAPODS: 1.16.2
