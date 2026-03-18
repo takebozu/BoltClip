@@ -3,12 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		242EC2327861D35B7C3AE84E /* Pods_ClipyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A4B450122D7FCE6BD57E77 /* Pods_ClipyTests.framework */; };
 		B7CC520B88EAA6AD38E93462 /* Pods_Clipy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A92F6DEE6CFF50A567CFEF /* Pods_Clipy.framework */; };
+		B7DB3F2A2F6A7A0400AE1E52 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F292F6A7A0400AE1E52 /* Sparkle */; };
+		B7DB3F2D2F6A7C0800AE1E52 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F2C2F6A7C0800AE1E52 /* Realm */; };
+		B7DB3F2F2F6A7C0800AE1E52 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F2E2F6A7C0800AE1E52 /* RealmSwift */; };
+		B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F312F6A7DE300AE1E52 /* PINCache */; };
+		B7DB3F352F6A7F5200AE1E52 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F342F6A7F5200AE1E52 /* KeyHolder */; };
+		B7DB3F382F6A7FF200AE1E52 /* Sauce in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F372F6A7FF200AE1E52 /* Sauce */; };
+		B7DB3F3B2F6A802900AE1E52 /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F3A2F6A802900AE1E52 /* Magnet */; };
+		B7DB3F3E2F6A805200AE1E52 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F3D2F6A805200AE1E52 /* KeyHolder */; };
+		B7DB3F412F6A80DD00AE1E52 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F402F6A80DD00AE1E52 /* KeyHolder */; };
+		B7DB3F442F6A816600AE1E52 /* Sauce in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F432F6A816600AE1E52 /* Sauce */; };
+		B7DB3F472F6A819100AE1E52 /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F462F6A819100AE1E52 /* Magnet */; };
+		B7DB3F4A2F6A81B500AE1E52 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F492F6A81B500AE1E52 /* KeyHolder */; };
+		B7DB3F4D2F6A821000AE1E52 /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F4C2F6A821000AE1E52 /* Magnet */; };
+		B7DB3F502F6A825700AE1E52 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F4F2F6A825700AE1E52 /* KeyHolder */; };
+		B7DB3F532F6A845300AE1E52 /* RxScreeen in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F522F6A845300AE1E52 /* RxScreeen */; };
+		B7DB3F562F6A84FE00AE1E52 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F552F6A84FE00AE1E52 /* RxCocoa */; };
+		B7DB3F582F6A84FE00AE1E52 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F572F6A84FE00AE1E52 /* RxRelay */; };
+		B7DB3F5A2F6A84FE00AE1E52 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F592F6A84FE00AE1E52 /* RxSwift */; };
+		B7DB3F5D2F6A853100AE1E52 /* RxScreeen in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F5C2F6A853100AE1E52 /* RxScreeen */; };
+		B7DB3F602F6A8A8400AE1E52 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F5F2F6A8A8400AE1E52 /* Nimble */; };
+		B7DB3F632F6A8AD600AE1E52 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F622F6A8AD600AE1E52 /* Quick */; };
+		B7DB3F662F6A8CBA00AE1E52 /* SwiftHEXColors in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F652F6A8CBA00AE1E52 /* SwiftHEXColors */; };
+		B7DB3F692F6A8E8B00AE1E52 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F682F6A8E8B00AE1E52 /* AEXML */; };
 		C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift */; };
 		FA08EDF81D1FED7D000D1D13 /* HotKeyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */; };
 		FA0D5CE81DDCC61600AC9052 /* ClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5CE71DDCC61600AC9052 /* ClipService.swift */; };
@@ -233,11 +256,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7DB3F3B2F6A802900AE1E52 /* Magnet in Frameworks */,
+				B7DB3F2A2F6A7A0400AE1E52 /* Sparkle in Frameworks */,
+				B7DB3F582F6A84FE00AE1E52 /* RxRelay in Frameworks */,
+				B7DB3F562F6A84FE00AE1E52 /* RxCocoa in Frameworks */,
+				B7DB3F4A2F6A81B500AE1E52 /* KeyHolder in Frameworks */,
+				B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */,
+				B7DB3F5A2F6A84FE00AE1E52 /* RxSwift in Frameworks */,
+				B7DB3F532F6A845300AE1E52 /* RxScreeen in Frameworks */,
+				B7DB3F662F6A8CBA00AE1E52 /* SwiftHEXColors in Frameworks */,
 				FAC43E2B1B35DFDF00C06102 /* WebKit.framework in Frameworks */,
 				FAC43E291B35DFDA00C06102 /* Cocoa.framework in Frameworks */,
+				B7DB3F2F2F6A7C0800AE1E52 /* RealmSwift in Frameworks */,
+				B7DB3F442F6A816600AE1E52 /* Sauce in Frameworks */,
+				B7DB3F502F6A825700AE1E52 /* KeyHolder in Frameworks */,
+				B7DB3F4D2F6A821000AE1E52 /* Magnet in Frameworks */,
+				B7DB3F3E2F6A805200AE1E52 /* KeyHolder in Frameworks */,
 				FAC43E271B35DFD300C06102 /* Carbon.framework in Frameworks */,
+				B7DB3F5D2F6A853100AE1E52 /* RxScreeen in Frameworks */,
+				B7DB3F412F6A80DD00AE1E52 /* KeyHolder in Frameworks */,
+				B7DB3F472F6A819100AE1E52 /* Magnet in Frameworks */,
+				B7DB3F382F6A7FF200AE1E52 /* Sauce in Frameworks */,
+				B7DB3F692F6A8E8B00AE1E52 /* AEXML in Frameworks */,
 				FAC43E251B35DFD000C06102 /* AppKit.framework in Frameworks */,
+				B7DB3F352F6A7F5200AE1E52 /* KeyHolder in Frameworks */,
 				FAC43E231B35DFC800C06102 /* Foundation.framework in Frameworks */,
+				B7DB3F2D2F6A7C0800AE1E52 /* Realm in Frameworks */,
 				B7CC520B88EAA6AD38E93462 /* Pods_Clipy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,7 +290,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7DB3F632F6A8AD600AE1E52 /* Quick in Frameworks */,
 				242EC2327861D35B7C3AE84E /* Pods_ClipyTests.framework in Frameworks */,
+				B7DB3F602F6A8A8400AE1E52 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,7 +627,6 @@
 				FAC43DD41B35D8B100C06102 /* Sources */,
 				FAC43DD51B35D8B100C06102 /* Frameworks */,
 				FAC43DD61B35D8B100C06102 /* Resources */,
-				321A1AC02A519AFA3A4D43D2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -631,6 +676,20 @@
 				"zh-Hans",
 			);
 			mainGroup = FAC43DBD1B35D8B100C06102;
+			packageReferences = (
+				B7DB3F282F6A7A0400AE1E52 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				B7DB3F2B2F6A7C0800AE1E52 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				B7DB3F302F6A7DE300AE1E52 /* XCRemoteSwiftPackageReference "PINCache" */,
+				B7DB3F422F6A816600AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */,
+				B7DB3F4B2F6A821000AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */,
+				B7DB3F4E2F6A825700AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */,
+				B7DB3F542F6A84FE00AE1E52 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				B7DB3F5B2F6A853100AE1E52 /* XCRemoteSwiftPackageReference "RxScreeen" */,
+				B7DB3F5E2F6A8A8400AE1E52 /* XCRemoteSwiftPackageReference "Nimble" */,
+				B7DB3F612F6A8AD600AE1E52 /* XCRemoteSwiftPackageReference "Quick" */,
+				B7DB3F642F6A8CBA00AE1E52 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */,
+				B7DB3F672F6A8E8B00AE1E52 /* XCRemoteSwiftPackageReference "AEXML" */,
+			);
 			productRefGroup = FAC43DC71B35D8B100C06102 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -681,77 +740,17 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Clipy/Pods-Clipy-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AEXML/AEXML.framework",
-				"${BUILT_PRODUCTS_DIR}/KeyHolder/KeyHolder.framework",
 				"${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework",
 				"${BUILT_PRODUCTS_DIR}/LoginServiceKit/LoginServiceKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Magnet/Magnet.framework",
-				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
-				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxScreeen/RxScreeen.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Sauce/Sauce.framework",
-				"${BUILT_PRODUCTS_DIR}/Screeen/Screeen.framework",
-				"${PODS_ROOT}/Sparkle/Sparkle.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftHEXColors/SwiftHEXColors.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyHolder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LetsMove.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoginServiceKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxScreeen.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sauce.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Screeen.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHEXColors.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clipy/Pods-Clipy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		321A1AC02A519AFA3A4D43D2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ClipyTests/Pods-ClipyTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CwlCatchException/CwlCatchException.framework",
-				"${BUILT_PRODUCTS_DIR}/CwlCatchExceptionSupport/CwlCatchExceptionSupport.framework",
-				"${BUILT_PRODUCTS_DIR}/CwlMachBadInstructionHandler/CwlMachBadInstructionHandler.framework",
-				"${BUILT_PRODUCTS_DIR}/CwlPosixPreconditionTesting/CwlPosixPreconditionTesting.framework",
-				"${BUILT_PRODUCTS_DIR}/CwlPreconditionTesting/CwlPreconditionTesting.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlCatchException.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlCatchExceptionSupport.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlMachBadInstructionHandler.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlPosixPreconditionTesting.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlPreconditionTesting.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClipyTests/Pods-ClipyTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7BFBD366B210014B03083E71 /* [CP] Check Pods Manifest.lock */ = {
@@ -1136,7 +1135,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_SWIFT_FLAGS = "-D RELEASE";
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -1155,7 +1155,10 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Clipy/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clipy-app.Clipy.debug";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1183,7 +1186,10 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Clipy/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clipy-app.Clipy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1211,7 +1217,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ClipyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clipyapp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1233,7 +1243,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ClipyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clipyapp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1274,6 +1288,287 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7DB3F282F6A7A0400AE1E52 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = exactVersion;
+				version = 1.26.0;
+			};
+		};
+		B7DB3F2B2F6A7C0800AE1E52 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.7.2;
+			};
+		};
+		B7DB3F302F6A7DE300AE1E52 /* XCRemoteSwiftPackageReference "PINCache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pinterest/PINCache.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.3;
+			};
+		};
+		B7DB3F332F6A7F5200AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.0;
+			};
+		};
+		B7DB3F362F6A7FF200AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Sauce";
+			requirement = {
+				kind = exactVersion;
+				version = 2.1.0;
+			};
+		};
+		B7DB3F392F6A802900AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Magnet";
+			requirement = {
+				kind = exactVersion;
+				version = 3.2.0;
+			};
+		};
+		B7DB3F3C2F6A805200AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder";
+			requirement = {
+				kind = exactVersion;
+				version = 4.1.0;
+			};
+		};
+		B7DB3F3F2F6A80DD00AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder";
+			requirement = {
+				kind = exactVersion;
+				version = 4.1.0;
+			};
+		};
+		B7DB3F422F6A816600AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Sauce";
+			requirement = {
+				kind = exactVersion;
+				version = 2.2.0;
+			};
+		};
+		B7DB3F452F6A819100AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Magnet";
+			requirement = {
+				kind = exactVersion;
+				version = 3.2.0;
+			};
+		};
+		B7DB3F482F6A81B500AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.0;
+			};
+		};
+		B7DB3F4B2F6A821000AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Magnet";
+			requirement = {
+				kind = exactVersion;
+				version = 3.3.0;
+			};
+		};
+		B7DB3F4E2F6A825700AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder";
+			requirement = {
+				kind = exactVersion;
+				version = 4.1.0;
+			};
+		};
+		B7DB3F512F6A845300AE1E52 /* XCRemoteSwiftPackageReference "RxScreeen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/RxScreeen";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.0;
+			};
+		};
+		B7DB3F542F6A84FE00AE1E52 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.3;
+			};
+		};
+		B7DB3F5B2F6A853100AE1E52 /* XCRemoteSwiftPackageReference "RxScreeen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/RxScreeen";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.0;
+			};
+		};
+		B7DB3F5E2F6A8A8400AE1E52 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = exactVersion;
+				version = 13.8.0;
+			};
+		};
+		B7DB3F612F6A8AD600AE1E52 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = exactVersion;
+				version = 7.6.2;
+			};
+		};
+		B7DB3F642F6A8CBA00AE1E52 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thii/SwiftHEXColors.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.4.1;
+			};
+		};
+		B7DB3F672F6A8E8B00AE1E52 /* XCRemoteSwiftPackageReference "AEXML" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tadija/AEXML";
+			requirement = {
+				kind = exactVersion;
+				version = 4.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7DB3F292F6A7A0400AE1E52 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F282F6A7A0400AE1E52 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+		B7DB3F2C2F6A7C0800AE1E52 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F2B2F6A7C0800AE1E52 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		B7DB3F2E2F6A7C0800AE1E52 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F2B2F6A7C0800AE1E52 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		B7DB3F312F6A7DE300AE1E52 /* PINCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F302F6A7DE300AE1E52 /* XCRemoteSwiftPackageReference "PINCache" */;
+			productName = PINCache;
+		};
+		B7DB3F342F6A7F5200AE1E52 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F332F6A7F5200AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
+		};
+		B7DB3F372F6A7FF200AE1E52 /* Sauce */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F362F6A7FF200AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */;
+			productName = Sauce;
+		};
+		B7DB3F3A2F6A802900AE1E52 /* Magnet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F392F6A802900AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */;
+			productName = Magnet;
+		};
+		B7DB3F3D2F6A805200AE1E52 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F3C2F6A805200AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
+		};
+		B7DB3F402F6A80DD00AE1E52 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F3F2F6A80DD00AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
+		};
+		B7DB3F432F6A816600AE1E52 /* Sauce */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F422F6A816600AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */;
+			productName = Sauce;
+		};
+		B7DB3F462F6A819100AE1E52 /* Magnet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F452F6A819100AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */;
+			productName = Magnet;
+		};
+		B7DB3F492F6A81B500AE1E52 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F482F6A81B500AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
+		};
+		B7DB3F4C2F6A821000AE1E52 /* Magnet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F4B2F6A821000AE1E52 /* XCRemoteSwiftPackageReference "Magnet" */;
+			productName = Magnet;
+		};
+		B7DB3F4F2F6A825700AE1E52 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F4E2F6A825700AE1E52 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
+		};
+		B7DB3F522F6A845300AE1E52 /* RxScreeen */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F512F6A845300AE1E52 /* XCRemoteSwiftPackageReference "RxScreeen" */;
+			productName = RxScreeen;
+		};
+		B7DB3F552F6A84FE00AE1E52 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F542F6A84FE00AE1E52 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		B7DB3F572F6A84FE00AE1E52 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F542F6A84FE00AE1E52 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		B7DB3F592F6A84FE00AE1E52 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F542F6A84FE00AE1E52 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		B7DB3F5C2F6A853100AE1E52 /* RxScreeen */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F5B2F6A853100AE1E52 /* XCRemoteSwiftPackageReference "RxScreeen" */;
+			productName = RxScreeen;
+		};
+		B7DB3F5F2F6A8A8400AE1E52 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F5E2F6A8A8400AE1E52 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		B7DB3F622F6A8AD600AE1E52 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F612F6A8AD600AE1E52 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		B7DB3F652F6A8CBA00AE1E52 /* SwiftHEXColors */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F642F6A8CBA00AE1E52 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */;
+			productName = SwiftHEXColors;
+		};
+		B7DB3F682F6A8E8B00AE1E52 /* AEXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F672F6A8E8B00AE1E52 /* XCRemoteSwiftPackageReference "AEXML" */;
+			productName = AEXML;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAC43DBE1B35D8B100C06102 /* Project object */;
 }

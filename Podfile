@@ -4,19 +4,8 @@ use_frameworks!
 target 'Clipy' do
 
   # Application
-  pod 'PINCache'
-  pod 'Sauce'
-  pod 'Sparkle'
-  pod 'RealmSwift'
-  pod 'RxCocoa'
-  pod 'RxSwift'
   pod 'LoginServiceKit', :git => 'https://github.com/Clipy/LoginServiceKit.git'
-  pod 'KeyHolder'
-  pod 'Magnet'
-  pod 'RxScreeen'
-  pod 'AEXML'
   pod 'LetsMove'
-  pod 'SwiftHEXColors'
   # Utility
   pod 'BartyCrouch', '~> 3.0'
   pod 'SwiftLint'
@@ -24,10 +13,6 @@ target 'Clipy' do
 
   target 'ClipyTests' do
     inherit! :search_paths
-
-    pod 'Quick', '~> 7.0'
-    pod 'Nimble', '~> 13.0'
-
   end
 
 end

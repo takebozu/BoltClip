@@ -11,6 +11,7 @@
 //
 
 import Foundation
+import AppKit
 import RxSwift
 import RxCocoa
 
