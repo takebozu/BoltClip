@@ -4,7 +4,6 @@ PODS:
   - LetsMove (1.25)
   - LoginServiceKit (2.5.0)
   - SwiftGen (6.4.0)
-  - SwiftHEXColors (1.4.1)
   - SwiftLint (0.40.3)
 
 DEPENDENCIES:
@@ -13,7 +12,6 @@ DEPENDENCIES:
   - LetsMove
   - LoginServiceKit (from `https://github.com/Clipy/LoginServiceKit.git`)
   - SwiftGen
-  - SwiftHEXColors
   - SwiftLint
 
 SPEC REPOS:
@@ -22,7 +20,6 @@ SPEC REPOS:
     - BartyCrouch
     - LetsMove
     - SwiftGen
-    - SwiftHEXColors
     - SwiftLint
 
 EXTERNAL SOURCES:
@@ -40,9 +37,8 @@ SPEC CHECKSUMS:
   LetsMove: 7b9fe44737707d984fbd3f47af46609a9a07b461
   LoginServiceKit: 87c3d42ddb80d39ee8ea6b7a93f8c654ff58781b
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
-  SwiftHEXColors: 1cb6e5d55c52749aa33db8f088ac55eb71ca4c7f
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
 
-PODFILE CHECKSUM: 24e0c6f6c1b90e6d99807ebcef61c748bd5e7e9f
+PODFILE CHECKSUM: fdd7d18402ac92200fed60a4f184885d9b300f0e
 
 COCOAPODS: 1.16.2

@@ -30,6 +30,7 @@
 		B7DB3F5D2F6A853100AE1E52 /* RxScreeen in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F5C2F6A853100AE1E52 /* RxScreeen */; };
 		B7DB3F602F6A8A8400AE1E52 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F5F2F6A8A8400AE1E52 /* Nimble */; };
 		B7DB3F632F6A8AD600AE1E52 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F622F6A8AD600AE1E52 /* Quick */; };
+		B7DB3F662F6A8CBA00AE1E52 /* SwiftHEXColors in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F652F6A8CBA00AE1E52 /* SwiftHEXColors */; };
 		C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift */; };
 		FA08EDF81D1FED7D000D1D13 /* HotKeyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */; };
 		FA0D5CE81DDCC61600AC9052 /* ClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5CE71DDCC61600AC9052 /* ClipService.swift */; };
@@ -262,6 +263,7 @@
 				B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */,
 				B7DB3F5A2F6A84FE00AE1E52 /* RxSwift in Frameworks */,
 				B7DB3F532F6A845300AE1E52 /* RxScreeen in Frameworks */,
+				B7DB3F662F6A8CBA00AE1E52 /* SwiftHEXColors in Frameworks */,
 				FAC43E2B1B35DFDF00C06102 /* WebKit.framework in Frameworks */,
 				FAC43E291B35DFDA00C06102 /* Cocoa.framework in Frameworks */,
 				B7DB3F2F2F6A7C0800AE1E52 /* RealmSwift in Frameworks */,
@@ -683,6 +685,7 @@
 				B7DB3F5B2F6A853100AE1E52 /* XCRemoteSwiftPackageReference "RxScreeen" */,
 				B7DB3F5E2F6A8A8400AE1E52 /* XCRemoteSwiftPackageReference "Nimble" */,
 				B7DB3F612F6A8AD600AE1E52 /* XCRemoteSwiftPackageReference "Quick" */,
+				B7DB3F642F6A8CBA00AE1E52 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */,
 			);
 			productRefGroup = FAC43DC71B35D8B100C06102 /* Products */;
 			projectDirPath = "";
@@ -737,14 +740,12 @@
 				"${BUILT_PRODUCTS_DIR}/AEXML/AEXML.framework",
 				"${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework",
 				"${BUILT_PRODUCTS_DIR}/LoginServiceKit/LoginServiceKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftHEXColors/SwiftHEXColors.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LetsMove.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LoginServiceKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHEXColors.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1432,6 +1433,14 @@
 				version = 7.6.2;
 			};
 		};
+		B7DB3F642F6A8CBA00AE1E52 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thii/SwiftHEXColors.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1539,6 +1548,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7DB3F612F6A8AD600AE1E52 /* XCRemoteSwiftPackageReference "Quick" */;
 			productName = Quick;
+		};
+		B7DB3F652F6A8CBA00AE1E52 /* SwiftHEXColors */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7DB3F642F6A8CBA00AE1E52 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */;
+			productName = SwiftHEXColors;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
