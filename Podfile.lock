@@ -27,11 +27,6 @@ PODS:
     - PINOperation (~> 1.2.1)
   - PINOperation (1.2.1)
   - Quick (7.6.2)
-  - Realm (10.7.2):
-    - Realm/Headers (= 10.7.2)
-  - Realm/Headers (10.7.2)
-  - RealmSwift (10.7.2):
-    - Realm (= 10.7.2)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -58,7 +53,6 @@ DEPENDENCIES:
   - Nimble (~> 13.0)
   - PINCache
   - Quick (~> 7.0)
-  - RealmSwift
   - RxCocoa
   - RxScreeen
   - RxSwift
@@ -83,8 +77,6 @@ SPEC REPOS:
     - PINCache
     - PINOperation
     - Quick
-    - Realm
-    - RealmSwift
     - RxCocoa
     - RxRelay
     - RxScreeen
@@ -120,8 +112,6 @@ SPEC CHECKSUMS:
   PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
   PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
   Quick: b8bec97cd4b9f21da0472d45580f763b801fc353
-  Realm: e523da9ade306c5ae87e85dc09fdef148d3e1cc1
-  RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxScreeen: e0806b8a4b747cde7100be4e09b6e133a6017cfd
@@ -132,6 +122,6 @@ SPEC CHECKSUMS:
   SwiftHEXColors: 1cb6e5d55c52749aa33db8f088ac55eb71ca4c7f
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
 
-PODFILE CHECKSUM: 9139ee023839c842a41244e20fce2f7aefb295e6
+PODFILE CHECKSUM: 965c0239afeda13b2b63cedbfae1f6d5f6345868
 
 COCOAPODS: 1.16.2

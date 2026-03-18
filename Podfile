@@ -6,7 +6,6 @@ target 'Clipy' do
   # Application
   pod 'PINCache'
   pod 'Sauce'
-  pod 'RealmSwift'
   pod 'RxCocoa'
   pod 'RxSwift'
   pod 'LoginServiceKit', :git => 'https://github.com/Clipy/LoginServiceKit.git'
