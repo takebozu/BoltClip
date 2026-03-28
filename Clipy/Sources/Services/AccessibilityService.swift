@@ -30,9 +30,9 @@ extension AccessibilityService {
 
     func showAccessibilityAuthenticationAlert() {
         let alert = NSAlert()
-        alert.messageText = L10n.pleaseAllowAccessibility
-        alert.informativeText = L10n.toDoThisActionPleaseAllowAccessibilityInSecurityPrivacyPreferencesLocatedInSystemPreferences
-        alert.addButton(withTitle: L10n.openSystemPreferences)
+        alert.messageText = NSLocalizedString("Please allow Accessibility", comment: "")
+        alert.informativeText = NSLocalizedString("To do this action please allow Accessibility in Security Privacy preferences located in System Preferences", comment: "")
+        alert.addButton(withTitle: NSLocalizedString("Open System Preferences", comment: ""))
         NSApp.activate(ignoringOtherApps: true)
 
         if alert.runModal() == NSApplication.ModalResponse.alertFirstButtonReturn {

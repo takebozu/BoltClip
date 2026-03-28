@@ -34,7 +34,7 @@ final class CPYSnippetsEditorWindowController: NSWindowController {
             textView.isAutomaticQuoteSubstitutionEnabled = false
             textView.enabledTextCheckingTypes = 0
             textView.isRichText = false
-            textView.placeHolderText = L10n.pleaseFillInTheContentsOfTheSnippet
+            textView.placeHolderText = NSLocalizedString("Please fill in the contents of the snippet", comment: "")
         }
     }
     @IBOutlet private weak var outlineView: NSOutlineView! {
@@ -119,10 +119,10 @@ extension CPYSnippetsEditorWindowController {
         }
 
         let alert = NSAlert()
-        alert.messageText = L10n.deleteItem
-        alert.informativeText = L10n.areYouSureWantToDeleteThisItem
-        alert.addButton(withTitle: L10n.deleteItem)
-        alert.addButton(withTitle: L10n.cancel)
+        alert.messageText = NSLocalizedString("Delete Item", comment: "")
+        alert.informativeText = NSLocalizedString("Are you sure want to delete this item?", comment: "")
+        alert.addButton(withTitle: NSLocalizedString("Delete Item", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
         NSApp.activate(ignoringOtherApps: true)
         let result = alert.runModal()
         if result != NSApplication.ModalResponse.alertFirstButtonReturn { return }
