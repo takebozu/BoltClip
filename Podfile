@@ -4,7 +4,6 @@ use_frameworks!
 target 'Clipy' do
 
   # Application
-  pod 'LoginServiceKit', :git => 'https://github.com/Clipy/LoginServiceKit.git'
   pod 'LetsMove'
   # Utility
   pod 'SwiftLint'

@@ -1,12 +1,10 @@
 PODS:
   - LetsMove (1.25)
-  - LoginServiceKit (2.5.0)
   - SwiftGen (6.4.0)
   - SwiftLint (0.40.3)
 
 DEPENDENCIES:
   - LetsMove
-  - LoginServiceKit (from `https://github.com/Clipy/LoginServiceKit.git`)
   - SwiftGen
   - SwiftLint
 
@@ -16,21 +14,11 @@ SPEC REPOS:
     - SwiftGen
     - SwiftLint
 
-EXTERNAL SOURCES:
-  LoginServiceKit:
-    :git: https://github.com/Clipy/LoginServiceKit.git
-
-CHECKOUT OPTIONS:
-  LoginServiceKit:
-    :commit: 8fd8237c48c4c04bd25ef8bf073c6dd293d30a2c
-    :git: https://github.com/Clipy/LoginServiceKit.git
-
 SPEC CHECKSUMS:
   LetsMove: 7b9fe44737707d984fbd3f47af46609a9a07b461
-  LoginServiceKit: 87c3d42ddb80d39ee8ea6b7a93f8c654ff58781b
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
 
-PODFILE CHECKSUM: 0054b958e26fb48533dcaa58a33ad7bbb01c920f
+PODFILE CHECKSUM: b650a323989dd8c7f65ec2d2512ab7ece9afbc80
 
 COCOAPODS: 1.16.2
