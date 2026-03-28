@@ -70,10 +70,10 @@ class AppDelegate: NSObject, NSMenuItemValidation {
         let isShowAlert = AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.showAlertBeforeClearHistory)
         if isShowAlert {
             let alert = NSAlert()
-            alert.messageText = L10n.clearHistory
-            alert.informativeText = L10n.areYouSureYouWantToClearYourClipboardHistory
-            alert.addButton(withTitle: L10n.clearHistory)
-            alert.addButton(withTitle: L10n.cancel)
+            alert.messageText = NSLocalizedString("Clear History", comment: "")
+            alert.informativeText = NSLocalizedString("Are you sure you want to clear your clipboard history?", comment: "")
+            alert.addButton(withTitle: NSLocalizedString("Clear History", comment: ""))
+            alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
             alert.showsSuppressionButton = true
 
             NSApp.activate(ignoringOtherApps: true)
@@ -131,10 +131,10 @@ class AppDelegate: NSObject, NSMenuItemValidation {
     // MARK: - Login Item Methods
     private func promptToAddLoginItems() {
         let alert = NSAlert()
-        alert.messageText = L10n.launchClipyOnSystemStartup
-        alert.informativeText = L10n.youCanChangeThisSettingInThePreferencesIfYouWant
-        alert.addButton(withTitle: L10n.launchOnSystemStartup)
-        alert.addButton(withTitle: L10n.donTLaunch)
+        alert.messageText = NSLocalizedString("Launch Clipy on system startup?", comment: "")
+        alert.informativeText = NSLocalizedString("You can change this setting in the Preferences if you want", comment: "")
+        alert.addButton(withTitle: NSLocalizedString("Launch on system startup", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("Don't Launch", comment: ""))
         alert.showsSuppressionButton = true
         NSApp.activate(ignoringOtherApps: true)
 
