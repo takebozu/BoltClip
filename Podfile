@@ -4,7 +4,6 @@ use_frameworks!
 target 'Clipy' do
 
   # Utility
-  pod 'SwiftGen'
 
   target 'ClipyTests' do
     inherit! :search_paths
