@@ -4,7 +4,6 @@ use_frameworks!
 target 'Clipy' do
 
   # Utility
-  pod 'SwiftLint'
   pod 'SwiftGen'
 
   target 'ClipyTests' do

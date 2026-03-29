@@ -1,6 +1,3 @@
-included:
-  - Clipy/Sources
-  - ClipyTests
 excluded:
   - Pods
 opt_in_rules:
