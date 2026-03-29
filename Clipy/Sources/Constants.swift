@@ -1,13 +1,13 @@
 //
 //  Constants.swift
 //
-//  Clipy
+//  Clipstream
 //  GitHub: https://github.com/clipy
 //  HP: https://clipy-app.com
 //
 //  Created by Econa77 on 2016/04/17.
 //
-//  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2015-2018 Clipstream Project.
 //
 
 import Foundation
@@ -16,9 +16,9 @@ struct Constants {
 
     struct Application {
         #if DEBUG
-            static let name = "ClipyDEBUG"
+            static let name = "ClipstreamDEBUG"
         #else
-            static let name = "Clipy"
+            static let name = "Clipstream"
         #endif
         static let appcastURL = URL(string: "https://clipy-app.com/appcast.xml")!
     }

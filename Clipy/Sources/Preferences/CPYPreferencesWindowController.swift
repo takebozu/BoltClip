@@ -1,13 +1,13 @@
 //
 //  CPYPreferencesWindowController.swift
 //
-//  Clipy
+//  Clipstream
 //  GitHub: https://github.com/clipy
 //  HP: https://clipy-app.com
 //
 //  Created by Econa77 on 2016/02/25.
 //
-//  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2015-2018 Clipstream Project.
 //
 
 import Cocoa
@@ -122,25 +122,25 @@ private extension CPYPreferencesWindowController {
         switch index {
         case 0:
             generalImageView.image = NSImage(resource: .prefGeneralOn)
-            generalTextField.textColor = NSColor(resource: .clipy)
+            generalTextField.textColor = NSColor(resource: .clipstream)
         case 1:
             menuImageView.image = NSImage(resource: .prefMenuOn)
-            menuTextField.textColor = NSColor(resource: .clipy)
+            menuTextField.textColor = NSColor(resource: .clipstream)
         case 2:
             typeImageView.image = NSImage(resource: .prefTypeOn)
-            typeTextField.textColor = NSColor(resource: .clipy)
+            typeTextField.textColor = NSColor(resource: .clipstream)
         case 3:
             excludeImageView.image = NSImage(resource: .prefExcludedOn)
-            excludeTextField.textColor = NSColor(resource: .clipy)
+            excludeTextField.textColor = NSColor(resource: .clipstream)
         case 4:
             shortcutsImageView.image = NSImage(resource: .prefShortcutOn)
-            shortcutsTextField.textColor = NSColor(resource: .clipy)
+            shortcutsTextField.textColor = NSColor(resource: .clipstream)
         case 5:
             updatesImageView.image = NSImage(resource: .prefUpdateOn)
-            updatesTextField.textColor = NSColor(resource: .clipy)
+            updatesTextField.textColor = NSColor(resource: .clipstream)
         case 6:
             betaImageView.image = NSImage(resource: .prefBetaOn)
-            betaTextField.textColor = NSColor(resource: .clipy)
+            betaTextField.textColor = NSColor(resource: .clipstream)
         default: break
         }
     }
