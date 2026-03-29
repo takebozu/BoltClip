@@ -1,24 +1,20 @@
 PODS:
-  - LetsMove (1.25)
   - SwiftGen (6.4.0)
   - SwiftLint (0.40.3)
 
 DEPENDENCIES:
-  - LetsMove
   - SwiftGen
   - SwiftLint
 
 SPEC REPOS:
   trunk:
-    - LetsMove
     - SwiftGen
     - SwiftLint
 
 SPEC CHECKSUMS:
-  LetsMove: 7b9fe44737707d984fbd3f47af46609a9a07b461
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
 
-PODFILE CHECKSUM: b650a323989dd8c7f65ec2d2512ab7ece9afbc80
+PODFILE CHECKSUM: 5b2e2d0669d615cd45a38274fa2f792fb2aa509d
 
 COCOAPODS: 1.16.2
