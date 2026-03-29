@@ -3,8 +3,6 @@ use_frameworks!
 
 target 'Clipy' do
 
-  # Application
-  pod 'LetsMove'
   # Utility
   pod 'SwiftLint'
   pod 'SwiftGen'
