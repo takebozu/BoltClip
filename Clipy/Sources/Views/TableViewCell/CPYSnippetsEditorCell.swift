@@ -54,9 +54,13 @@ final class CPYSnippetsEditorCell: NSTextFieldCell {
             imageFrame.origin.y += 5
             imageFrame.size = NSSize(width: 16, height: 13)
 
-            let drawImage = (isHighlighted) ? NSImage(resource: .snippetsIconFolderWhite) : NSImage(resource: .snippetsIconFolderBlue)
-            drawImage.size = NSSize(width: 16, height: 13)
-            drawImage.draw(in: imageFrame, from: NSRect.zero, operation: .sourceOver, fraction: 1.0, respectFlipped: true, hints: nil)
+            let symbolColor: NSColor = isHighlighted ? .white : .systemBlue
+            let config = NSImage.SymbolConfiguration(pointSize: 13, weight: .regular)
+                .applying(NSImage.SymbolConfiguration(paletteColors: [symbolColor]))
+            if let drawImage = NSImage(systemSymbolName: "folder.fill", accessibilityDescription: "Folder")?
+                .withSymbolConfiguration(config) {
+                drawImage.draw(in: imageFrame, from: NSRect.zero, operation: .sourceOver, fraction: 1.0, respectFlipped: true, hints: nil)
+            }
 
             newFrame = cellFrame
             newFrame.origin.x += 8

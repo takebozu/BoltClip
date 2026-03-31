@@ -64,6 +64,11 @@ final class CPYSnippetsEditorWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         self.window?.collectionBehavior = NSWindow.CollectionBehavior.canJoinAllSpaces
+
+        setupToolbar()
+        removeOldToolbarBar()
+        applyModernAppearance()
+
         // HACK: Copy as an object that does not put under Realm management.
         // https://github.com/realm/realm-cocoa/issues/1734
         let realm = try! Realm()
@@ -82,6 +87,125 @@ final class CPYSnippetsEditorWindowController: NSWindowController {
         super.showWindow(sender)
         window?.makeKeyAndOrderFront(self)
     }
+}
+
+// MARK: - Toolbar Setup
+private extension CPYSnippetsEditorWindowController {
+    func setupToolbar() {
+        let toolbar = NSToolbar(identifier: "SnippetsEditorToolbar")
+        toolbar.delegate = self
+        toolbar.displayMode = .iconAndLabel
+        window?.toolbar = toolbar
+        window?.toolbarStyle = .unified
+    }
+
+    func removeOldToolbarBar() {
+        guard let contentView = window?.contentView else { return }
+        // Find the split view
+        let splitViewInContent = contentView.subviews.first { $0 is NSSplitView }
+        // Remove the old button bar (everything that isn't the split view)
+        for subview in contentView.subviews where !(subview is NSSplitView) {
+            subview.removeFromSuperview()
+        }
+        // Pin split view to the top of contentView
+        splitViewInContent?.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+    }
+
+    func applyModernAppearance() {
+        outlineView?.backgroundColor = .controlBackgroundColor
+        textView?.backgroundColor = .textBackgroundColor
+
+        // Update folder icon in settings panel to use SF Symbol
+        if let container = folderSettingView?.subviews.first {
+            if let imageView = container.subviews.first(where: { $0 is NSImageView }) as? NSImageView {
+                let config = NSImage.SymbolConfiguration(pointSize: 16, weight: .regular)
+                    .applying(NSImage.SymbolConfiguration(paletteColors: [.systemBlue]))
+                imageView.image = NSImage(systemSymbolName: "folder.fill", accessibilityDescription: "Folder")?
+                    .withSymbolConfiguration(config)
+            }
+        }
+
+        // Use system background for folder settings view
+        if let designableView = folderSettingView as? CPYDesignableView {
+            designableView.backgroundColor = .controlBackgroundColor
+        }
+    }
+}
+
+// MARK: - NSToolbar Delegate
+extension CPYSnippetsEditorWindowController: NSToolbarDelegate {
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        [.addSnippet, .addFolder, .deleteItem, .toggleEnable, .flexibleSpace, .importSnippets, .exportSnippets]
+    }
+
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        [.addSnippet, .addFolder, .deleteItem, .toggleEnable, .importSnippets, .exportSnippets, .flexibleSpace, .space]
+    }
+
+    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+        let item = NSToolbarItem(itemIdentifier: itemIdentifier)
+        let symbolConfig = NSImage.SymbolConfiguration(pointSize: 15, weight: .medium)
+
+        switch itemIdentifier {
+        case .addSnippet:
+            item.label = NSLocalizedString("Add Snippet", comment: "")
+            item.toolTip = NSLocalizedString("Add Snippet", comment: "")
+            item.image = NSImage(systemSymbolName: "doc.badge.plus", accessibilityDescription: "Add Snippet")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(addSnippetButtonTapped(_:))
+            item.target = self
+        case .addFolder:
+            item.label = NSLocalizedString("Add Folder", comment: "")
+            item.toolTip = NSLocalizedString("Add Folder", comment: "")
+            item.image = NSImage(systemSymbolName: "folder.badge.plus", accessibilityDescription: "Add Folder")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(addFolderButtonTapped(_:))
+            item.target = self
+        case .deleteItem:
+            item.label = NSLocalizedString("Delete", comment: "")
+            item.toolTip = NSLocalizedString("Delete", comment: "")
+            item.image = NSImage(systemSymbolName: "trash", accessibilityDescription: "Delete")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(deleteButtonTapped(_:))
+            item.target = self
+        case .toggleEnable:
+            item.label = NSLocalizedString("Enable/Disable", comment: "")
+            item.toolTip = NSLocalizedString("Enable/Disable", comment: "")
+            item.image = NSImage(systemSymbolName: "checkmark.circle", accessibilityDescription: "Enable/Disable")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(changeStatusButtonTapped(_:))
+            item.target = self
+        case .importSnippets:
+            item.label = NSLocalizedString("Import", comment: "")
+            item.toolTip = NSLocalizedString("Import", comment: "")
+            item.image = NSImage(systemSymbolName: "square.and.arrow.down", accessibilityDescription: "Import")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(importSnippetButtonTapped(_:))
+            item.target = self
+        case .exportSnippets:
+            item.label = NSLocalizedString("Export", comment: "")
+            item.toolTip = NSLocalizedString("Export", comment: "")
+            item.image = NSImage(systemSymbolName: "square.and.arrow.up", accessibilityDescription: "Export")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(exportSnippetButtonTapped(_:))
+            item.target = self
+        default:
+            return nil
+        }
+
+        item.isBordered = true
+        return item
+    }
+}
+
+// MARK: - Toolbar Item Identifiers
+private extension NSToolbarItem.Identifier {
+    static let addSnippet = NSToolbarItem.Identifier("AddSnippet")
+    static let addFolder = NSToolbarItem.Identifier("AddFolder")
+    static let deleteItem = NSToolbarItem.Identifier("DeleteItem")
+    static let toggleEnable = NSToolbarItem.Identifier("ToggleEnable")
+    static let importSnippets = NSToolbarItem.Identifier("ImportSnippets")
+    static let exportSnippets = NSToolbarItem.Identifier("ExportSnippets")
 }
 
 // MARK: - IBActions
