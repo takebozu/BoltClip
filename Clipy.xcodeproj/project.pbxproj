@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B70197952F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70197942F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift */; };
 		B75A99ED2F77C0A400BE3012 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B75A99EC2F77C0A400BE3012 /* Localizable.xcstrings */; };
 		B7DB3F2A2F6A7A0400AE1E52 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F292F6A7A0400AE1E52 /* Sparkle */; };
 		B7DB3F2D2F6A7C0800AE1E52 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F2C2F6A7C0800AE1E52 /* Realm */; };
@@ -124,6 +125,7 @@
 
 /* Begin PBXFileReference section */
 		314B299D1EC49AD5004DD070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CPYSnippetsEditorWindowController.xib; sourceTree = "<group>"; };
+		B70197942F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CPYSnippetsEditorWindowController+DataSource.swift"; sourceTree = "<group>"; };
 		B75A99EC2F77C0A400BE3012 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B75A99EE2F77C74500BE3012 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/CPYTypePreferenceViewController.xcstrings; sourceTree = "<group>"; };
 		B75A99EF2F77C74500BE3012 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/CPYGeneralPreferenceViewController.xcstrings; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 			children = (
 				FA1DB50D1DDCB4C0007F95C8 /* CPYSnippetsEditorWindowController.swift */,
 				FA1DB50F1DDCB4C0007F95C8 /* CPYSnippetsEditorWindowController.xib */,
+				B70197942F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift */,
 			);
 			path = Snippets;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				FA1DB4BA1DDCB452007F95C8 /* NSUserDefaults+ArchiveData.swift in Sources */,
 				FAA4BCCC2163DC9100FF5D18 /* AccessibilityService.swift in Sources */,
 				FA1DB4D31DDCB479007F95C8 /* CPYClip.swift in Sources */,
+				B70197952F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift in Sources */,
 				FAC0DCE91DE15FD900309C49 /* DataCleanService.swift in Sources */,
 				C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift in Sources */,
 				FA1DB4A31DDCB433007F95C8 /* Constants.swift in Sources */,

@@ -3,7 +3,7 @@
   "strings" : {
     "Ett-SG-3wO.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Import\"; ObjectID = \"Ett-SG-3wO\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -39,7 +39,7 @@
     },
     "hoO-RC-sTG.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Add Folder\"; ObjectID = \"hoO-RC-sTG\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -111,7 +111,7 @@
     },
     "Lxb-5c-zOc.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Delete\"; ObjectID = \"Lxb-5c-zOc\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -255,7 +255,7 @@
     },
     "Uqj-Zh-vde.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Export\"; ObjectID = \"Uqj-Zh-vde\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -291,7 +291,7 @@
     },
     "WZs-f9-lGW.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Enable/Disable\"; ObjectID = \"WZs-f9-lGW\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -327,7 +327,7 @@
     },
     "xPC-Uv-z03.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Add Snippet\"; ObjectID = \"xPC-Uv-z03\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -360,7 +360,7 @@
           }
         }
       }
-    },
+    }
   },
   "version" : "1.2"
 }
