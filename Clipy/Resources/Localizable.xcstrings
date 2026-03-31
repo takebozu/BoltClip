@@ -351,37 +351,37 @@
         }
       }
     },
-    "Launch Clipy on system startup?" : {
+    "Launch Clipstream on system startup?" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Clipy beim Starten öffnen?"
+            "value" : "Clipstream beim Starten öffnen?"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Launch Clipy on system startup?"
+            "value" : "Launch Clipstream on system startup?"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vuoi avviare Clipy al login?"
+            "value" : "Vuoi avviare Clipstream al login?"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "システム起動時にClipyを起動しますか?"
+            "value" : "システム起動時にClipstreamを起動しますか?"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "系统启动时打开 Clipy?"
+            "value" : "系统启动时打开 Clipstream?"
           }
         }
       }
@@ -404,7 +404,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Avvia Clipy al login"
+            "value" : "Avvia Clipstream al login"
           }
         },
         "ja" : {
@@ -596,37 +596,37 @@
         }
       }
     },
-    "Quit Clipy" : {
+    "Quit Clipstream" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Clipy beenden"
+            "value" : "Clipstream beenden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quit Clipy"
+            "value" : "Quit Clipstream"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Esci da Clipy"
+            "value" : "Esci da Clipstream"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Clipyを終了"
+            "value" : "Clipstreamを終了"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "退出 Clipy"
+            "value" : "退出 Clipstream"
           }
         }
       }
@@ -725,7 +725,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "この動作を行うためにはシステム環境設定の\"セキュリティとプライバシー\"環境設定で、Clipyへのアクセシビリティのアクセスを許可してください。"
+            "value" : "この動作を行うためにはシステム環境設定の\"セキュリティとプライバシー\"環境設定で、Clipstreamへのアクセシビリティのアクセスを許可してください。"
           }
         },
         "zh-Hans" : {

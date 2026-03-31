@@ -2,7 +2,7 @@ import Quick
 import Foundation
 import Nimble
 import RealmSwift
-@testable import Clipy
+@testable import Clipstream
 
 // swiftlint:disable function_body_length
 class FolderSpec: QuickSpec {

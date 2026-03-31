@@ -1,13 +1,13 @@
 //
 //  MenuManager.swift
 //
-//  Clipy
+//  Clipstream
 //  GitHub: https://github.com/clipy
 //  HP: https://clipy-app.com
 //
 //  Created by Econa77 on 2016/03/08.
 //
-//  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2015-2018 Clipstream Project.
 //
 
 import Cocoa
@@ -194,7 +194,7 @@ private extension MenuManager {
         clipMenu?.addItem(NSMenuItem(title: NSLocalizedString("Edit Snippets", comment: ""), action: #selector(AppDelegate.showSnippetEditorWindow)))
         clipMenu?.addItem(NSMenuItem(title: NSLocalizedString("Preferences", comment: ""), action: #selector(AppDelegate.showPreferenceWindow)))
         clipMenu?.addItem(NSMenuItem.separator())
-        clipMenu?.addItem(NSMenuItem(title: NSLocalizedString("Quit Clipy", comment: ""), action: #selector(AppDelegate.terminate)))
+        clipMenu?.addItem(NSMenuItem(title: NSLocalizedString("Quit Clipstream", comment: ""), action: #selector(AppDelegate.terminate)))
 
         statusItem?.menu = clipMenu
     }

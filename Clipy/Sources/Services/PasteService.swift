@@ -1,13 +1,13 @@
 //
 //  PasteService.swift
 //
-//  Clipy
+//  Clipstream
 //  GitHub: https://github.com/clipy
 //  HP: https://clipy-app.com
 //
 //  Created by Econa77 on 2016/11/23.
 //
-//  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2015-2018 Clipstream Project.
 //
 
 import Foundation
@@ -17,7 +17,7 @@ import Sauce
 final class PasteService {
 
     // MARK: - Properties
-    fileprivate let lock = NSRecursiveLock(name: "com.clipy-app.Clipy.Pastable")
+    fileprivate let lock = NSRecursiveLock(name: "com.clipy-app.Clipstream.Pastable")
     fileprivate var isPastePlainText: Bool {
         guard AppEnvironment.current.defaults.bool(forKey: Constants.Beta.pastePlainText) else { return false }
 

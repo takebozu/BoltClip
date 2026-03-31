@@ -1,13 +1,13 @@
 //
 //  AppDelegate.swift
 //
-//  Clipy
+//  Clipstream
 //  GitHub: https://github.com/clipy
 //  HP: https://clipy-app.com
 //
 //  Created by Econa77 on 2015/06/21.
 //
-//  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2015-2018 Clipstream Project.
 //
 
 import Cocoa
@@ -130,7 +130,7 @@ class AppDelegate: NSObject, NSMenuItemValidation {
     // MARK: - Login Item Methods
     private func promptToAddLoginItems() {
         let alert = NSAlert()
-        alert.messageText = NSLocalizedString("Launch Clipy on system startup?", comment: "")
+        alert.messageText = NSLocalizedString("Launch Clipstream on system startup?", comment: "")
         alert.informativeText = NSLocalizedString("You can change this setting in the Preferences if you want", comment: "")
         alert.addButton(withTitle: NSLocalizedString("Launch on system startup", comment: ""))
         alert.addButton(withTitle: NSLocalizedString("Don't Launch", comment: ""))

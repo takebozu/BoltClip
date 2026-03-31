@@ -1,13 +1,13 @@
 //
 //  ClipService.swift
 //
-//  Clipy
+//  Clipstream
 //  GitHub: https://github.com/clipy
 //  HP: https://clipy-app.com
 //
 //  Created by Econa77 on 2016/11/17.
 //
-//  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2015-2018 Clipstream Project.
 //
 
 import Foundation
@@ -23,7 +23,7 @@ final class ClipService {
     fileprivate var cachedChangeCount = BehaviorRelay<Int>(value: 0)
     fileprivate var storeTypes = [String: NSNumber]()
     fileprivate let scheduler = SerialDispatchQueueScheduler(qos: .userInteractive)
-    fileprivate let lock = NSRecursiveLock(name: "com.clipy-app.Clipy.ClipUpdatable")
+    fileprivate let lock = NSRecursiveLock(name: "com.clipy-app.Clipstream.ClipUpdatable")
     fileprivate var disposeBag = DisposeBag()
 
     // MARK: - Clips

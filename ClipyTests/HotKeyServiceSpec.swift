@@ -2,7 +2,7 @@ import Quick
 import Nimble
 import Magnet
 import Carbon
-@testable import Clipy
+@testable import Clipstream
 
 // swiftlint:disable function_body_length
 
