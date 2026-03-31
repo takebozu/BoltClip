@@ -1,7 +1,7 @@
 import Foundation
 import Quick
 import Nimble
-@testable import Clipy
+@testable import Clipstream
 
 class DraggedDataSpec: QuickSpec {
     override class func spec() {
