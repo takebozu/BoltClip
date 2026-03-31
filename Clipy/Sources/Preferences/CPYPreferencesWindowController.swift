@@ -15,74 +15,130 @@ import Cocoa
 final class CPYPreferencesWindowController: NSWindowController {
 
     // MARK: - Properties
-    static let sharedController = CPYPreferencesWindowController(windowNibName: "CPYPreferencesWindowController")
-    @IBOutlet private weak var toolBar: NSView!
-    // ImageViews
-    @IBOutlet private weak var generalImageView: NSImageView!
-    @IBOutlet private weak var menuImageView: NSImageView!
-    @IBOutlet private weak var typeImageView: NSImageView!
-    @IBOutlet private weak var excludeImageView: NSImageView!
-    @IBOutlet private weak var shortcutsImageView: NSImageView!
-    @IBOutlet private weak var updatesImageView: NSImageView!
-    @IBOutlet private weak var betaImageView: NSImageView!
-    // Labels
-    @IBOutlet private weak var generalTextField: NSTextField!
-    @IBOutlet private weak var menuTextField: NSTextField!
-    @IBOutlet private weak var typeTextField: NSTextField!
-    @IBOutlet private weak var excludeTextField: NSTextField!
-    @IBOutlet private weak var shortcutsTextField: NSTextField!
-    @IBOutlet private weak var updatesTextField: NSTextField!
-    @IBOutlet private weak var betaTextField: NSTextField!
-    // Buttons
-    @IBOutlet private weak var generalButton: NSButton!
-    @IBOutlet private weak var menuButton: NSButton!
-    @IBOutlet private weak var typeButton: NSButton!
-    @IBOutlet private weak var excludeButton: NSButton!
-    @IBOutlet private weak var shortcutsButton: NSButton!
-    @IBOutlet private weak var updatesButton: NSButton!
-    @IBOutlet private weak var betaButton: NSButton!
-    // ViewController
-    private let viewController = [NSViewController(nibName: "CPYGeneralPreferenceViewController", bundle: nil),
-                                  NSViewController(nibName: "CPYMenuPreferenceViewController", bundle: nil),
-                                  CPYTypePreferenceViewController(nibName: "CPYTypePreferenceViewController", bundle: nil),
-                                  CPYExcludeAppPreferenceViewController(nibName: "CPYExcludeAppPreferenceViewController", bundle: nil),
-                                  CPYShortcutsPreferenceViewController(nibName: "CPYShortcutsPreferenceViewController", bundle: nil),
-                                  CPYUpdatesPreferenceViewController(nibName: "CPYUpdatesPreferenceViewController", bundle: nil),
-                                  CPYBetaPreferenceViewController(nibName: "CPYBetaPreferenceViewController", bundle: nil)]
+    static let sharedController: CPYPreferencesWindowController = {
+        let window = NSWindow(
+            contentRect: NSRect(x: 196, y: 240, width: 480, height: 374),
+            styleMask: [.titled, .closable, .miniaturizable],
+            backing: .buffered,
+            defer: true
+        )
+        window.title = NSLocalizedString("Clipstream - Setting", comment: "")
+        window.isReleasedWhenClosed = false
+        window.collectionBehavior = .canJoinAllSpaces
 
-    // MARK: - Window Life Cycle
-    override func windowDidLoad() {
-        super.windowDidLoad()
-        self.window?.collectionBehavior = .canJoinAllSpaces
-        toolBarItemTapped(generalButton)
-        generalButton.sendAction(on: .leftMouseDown)
-        menuButton.sendAction(on: .leftMouseDown)
-        typeButton.sendAction(on: .leftMouseDown)
-        excludeButton.sendAction(on: .leftMouseDown)
-        shortcutsButton.sendAction(on: .leftMouseDown)
-        updatesButton.sendAction(on: .leftMouseDown)
-        betaButton.sendAction(on: .leftMouseDown)
+        let controller = CPYPreferencesWindowController(window: window)
+        window.delegate = controller
+        controller.setupToolbar()
+        controller.switchView(Tab.general.rawValue)
+        return controller
+    }()
+
+    private let viewControllers: [NSViewController] = [
+        NSViewController(nibName: "CPYGeneralPreferenceViewController", bundle: nil),
+        NSViewController(nibName: "CPYMenuPreferenceViewController", bundle: nil),
+        CPYTypePreferenceViewController(nibName: "CPYTypePreferenceViewController", bundle: nil),
+        CPYExcludeAppPreferenceViewController(nibName: "CPYExcludeAppPreferenceViewController", bundle: nil),
+        CPYShortcutsPreferenceViewController(nibName: "CPYShortcutsPreferenceViewController", bundle: nil),
+        CPYUpdatesPreferenceViewController(nibName: "CPYUpdatesPreferenceViewController", bundle: nil),
+        CPYBetaPreferenceViewController(nibName: "CPYBetaPreferenceViewController", bundle: nil)
+    ]
+
+    private enum Tab: Int, CaseIterable {
+        case general, menu, type, exclude, shortcuts, updates, beta
+
+        var identifier: NSToolbarItem.Identifier {
+            switch self {
+            case .general:   return .init("general")
+            case .menu:      return .init("menu")
+            case .type:      return .init("type")
+            case .exclude:   return .init("exclude")
+            case .shortcuts: return .init("shortcuts")
+            case .updates:   return .init("updates")
+            case .beta:      return .init("beta")
+            }
+        }
+
+        var label: String {
+            switch self {
+            case .general:   return NSLocalizedString("General", comment: "")
+            case .menu:      return NSLocalizedString("Menu", comment: "")
+            case .type:      return NSLocalizedString("Type", comment: "")
+            case .exclude:   return NSLocalizedString("Exclude", comment: "")
+            case .shortcuts: return NSLocalizedString("Shortcuts", comment: "")
+            case .updates:   return NSLocalizedString("Updates", comment: "")
+            case .beta:      return NSLocalizedString("Beta", comment: "")
+            }
+        }
+
+        var symbolName: String {
+            switch self {
+            case .general:   return "gearshape"
+            case .menu:      return "list.bullet"
+            case .type:      return "doc.on.clipboard"
+            case .exclude:   return "minus.circle"
+            case .shortcuts: return "command"
+            case .updates:   return "arrow.triangle.2.circlepath"
+            case .beta:      return "flask"
+            }
+        }
     }
 
+    // MARK: - Setup
+    private func setupToolbar() {
+        let toolbar = NSToolbar(identifier: "PreferencesToolbar")
+        toolbar.delegate = self
+        toolbar.displayMode = .iconAndLabel
+        toolbar.allowsUserCustomization = false
+        toolbar.selectedItemIdentifier = Tab.general.identifier
+        window?.toolbar = toolbar
+        window?.toolbarStyle = .preference
+    }
+
+    // MARK: - Window Life Cycle
     override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
         window?.makeKeyAndOrderFront(self)
     }
 }
 
-// MARK: - IBActions
+// MARK: - NSToolbarDelegate
+extension CPYPreferencesWindowController: NSToolbarDelegate {
+    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+        guard let tab = Tab.allCases.first(where: { $0.identifier == itemIdentifier }) else { return nil }
+        let item = NSToolbarItem(itemIdentifier: itemIdentifier)
+        item.label = tab.label
+        item.image = NSImage(systemSymbolName: tab.symbolName, accessibilityDescription: tab.label)
+        item.target = self
+        item.action = #selector(toolbarItemTapped(_:))
+        item.tag = tab.rawValue
+        return item
+    }
+
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        Tab.allCases.map(\.identifier)
+    }
+
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        Tab.allCases.map(\.identifier)
+    }
+
+    func toolbarSelectableItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        Tab.allCases.map(\.identifier)
+    }
+}
+
+// MARK: - Actions
 extension CPYPreferencesWindowController {
-    @IBAction private func toolBarItemTapped(_ sender: NSButton) {
-        selectedTab(sender.tag)
+    @objc private func toolbarItemTapped(_ sender: NSToolbarItem) {
         switchView(sender.tag)
     }
 }
 
-// MARK: - NSWindow Delegate
+// MARK: - NSWindowDelegate
 extension CPYPreferencesWindowController: NSWindowDelegate {
     func windowWillClose(_ notification: Notification) {
-        if let viewController = viewController[2] as? CPYTypePreferenceViewController {
-            AppEnvironment.current.defaults.set(viewController.storeTypes, forKey: Constants.UserDefaults.storeTypes)
+        if let typeVC = viewControllers[2] as? CPYTypePreferenceViewController {
+            AppEnvironment.current.defaults.set(typeVC.storeTypes, forKey: Constants.UserDefaults.storeTypes)
             AppEnvironment.current.defaults.synchronize()
         }
         if let window = window, !window.makeFirstResponder(window) {
@@ -94,67 +150,14 @@ extension CPYPreferencesWindowController: NSWindowDelegate {
 
 // MARK: - Layout
 private extension CPYPreferencesWindowController {
-    func resetImages() {
-        generalImageView.image = NSImage(resource: .prefGeneral)
-        menuImageView.image = NSImage(resource: .prefMenu)
-        typeImageView.image = NSImage(resource: .prefType)
-        excludeImageView.image = NSImage(resource: .prefExcluded)
-        shortcutsImageView.image = NSImage(resource: .prefShortcut)
-        updatesImageView.image = NSImage(resource: .prefUpdate)
-        betaImageView.image = NSImage(resource: .prefBeta)
-
-        generalTextField.textColor = NSColor(resource: .tabTitle)
-        menuTextField.textColor = NSColor(resource: .tabTitle)
-        typeTextField.textColor = NSColor(resource: .tabTitle)
-        excludeTextField.textColor = NSColor(resource: .tabTitle)
-        shortcutsTextField.textColor = NSColor(resource: .tabTitle)
-        updatesTextField.textColor = NSColor(resource: .tabTitle)
-        betaTextField.textColor = NSColor(resource: .tabTitle)
-    }
-
-    func selectedTab(_ index: Int) {
-        resetImages()
-
-        switch index {
-        case 0:
-            generalImageView.image = NSImage(resource: .prefGeneralOn)
-            generalTextField.textColor = NSColor(resource: .clipstream)
-        case 1:
-            menuImageView.image = NSImage(resource: .prefMenuOn)
-            menuTextField.textColor = NSColor(resource: .clipstream)
-        case 2:
-            typeImageView.image = NSImage(resource: .prefTypeOn)
-            typeTextField.textColor = NSColor(resource: .clipstream)
-        case 3:
-            excludeImageView.image = NSImage(resource: .prefExcludedOn)
-            excludeTextField.textColor = NSColor(resource: .clipstream)
-        case 4:
-            shortcutsImageView.image = NSImage(resource: .prefShortcutOn)
-            shortcutsTextField.textColor = NSColor(resource: .clipstream)
-        case 5:
-            updatesImageView.image = NSImage(resource: .prefUpdateOn)
-            updatesTextField.textColor = NSColor(resource: .clipstream)
-        case 6:
-            betaImageView.image = NSImage(resource: .prefBetaOn)
-            betaTextField.textColor = NSColor(resource: .clipstream)
-        default: break
-        }
-    }
-
     func switchView(_ index: Int) {
-        let newView = viewController[index].view
-        // Remove current views without toolbar
-        window?.contentView?.subviews.forEach { view in
-            if view != toolBar {
-                view.removeFromSuperview()
-            }
-        }
-        // Resize view
+        let newView = viewControllers[index].view
+        window?.contentView?.subviews.forEach { $0.removeFromSuperview() }
+
         let frame = window!.frame
         var newFrame = window!.frameRect(forContentRect: newView.frame)
         newFrame.origin = frame.origin
-        newFrame.origin.y += frame.height - newFrame.height - toolBar.frame.height
-        newFrame.size.height += toolBar.frame.height
+        newFrame.origin.y += frame.height - newFrame.height
         window?.setFrame(newFrame, display: true)
         window?.contentView?.addSubview(newView)
     }
