@@ -54,9 +54,13 @@ final class CPYSnippetsEditorCell: NSTextFieldCell {
             imageFrame.origin.y += 5
             imageFrame.size = NSSize(width: 16, height: 13)
 
-            let drawImage = (isHighlighted) ? NSImage(resource: .snippetsIconFolderWhite) : NSImage(resource: .snippetsIconFolderBlue)
-            drawImage.size = NSSize(width: 16, height: 13)
-            drawImage.draw(in: imageFrame, from: NSRect.zero, operation: .sourceOver, fraction: 1.0, respectFlipped: true, hints: nil)
+            let symbolColor: NSColor = isHighlighted ? .white : .systemBlue
+            let config = NSImage.SymbolConfiguration(pointSize: 13, weight: .regular)
+                .applying(NSImage.SymbolConfiguration(paletteColors: [symbolColor]))
+            if let drawImage = NSImage(systemSymbolName: "folder.fill", accessibilityDescription: "Folder")?
+                .withSymbolConfiguration(config) {
+                drawImage.draw(in: imageFrame, from: NSRect.zero, operation: .sourceOver, fraction: 1.0, respectFlipped: true, hints: nil)
+            }
 
             newFrame = cellFrame
             newFrame.origin.x += 8
@@ -68,7 +72,7 @@ final class CPYSnippetsEditorCell: NSTextFieldCell {
             newFrame.size.height -= 2
         }
 
-        textColor = (!isItemEnabled) ? .lightGray : (isHighlighted) ? .white : NSColor(resource: .title)
+        textColor = (!isItemEnabled) ? .secondaryLabelColor : (isHighlighted) ? .white : .labelColor
 
         super.draw(withFrame: newFrame, in: controlView)
     }
@@ -76,7 +80,7 @@ final class CPYSnippetsEditorCell: NSTextFieldCell {
     // MARK: - Frame
     override func select(withFrame aRect: NSRect, in controlView: NSView, editor textObj: NSText, delegate anObject: Any?, start selStart: Int, length selLength: Int) {
         let textFrame = titleRect(forBounds: aRect)
-        textColor = NSColor(resource: .title)
+        textColor = .labelColor
         super.select(withFrame: textFrame, in: controlView, editor: textObj, delegate: anObject, start: selStart, length: selLength)
     }
 

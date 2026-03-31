@@ -45,7 +45,7 @@ final class CPYSnippetsEditorWindowController: NSWindowController {
         }
     }
 
-    private var folders = [CPYFolder]()
+    var folders = [CPYFolder]()
     private var selectedSnippet: CPYSnippet? {
         guard let snippet = outlineView.item(atRow: outlineView.selectedRow) as? CPYSnippet else { return nil }
         return snippet
@@ -64,10 +64,10 @@ final class CPYSnippetsEditorWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         self.window?.collectionBehavior = NSWindow.CollectionBehavior.canJoinAllSpaces
-        self.window?.backgroundColor = NSColor(white: 0.99, alpha: 1)
-        if #available(OSX 10.10, *) {
-            self.window?.titlebarAppearsTransparent = true
-        }
+
+        setupToolbar()
+        applyModernAppearance()
+
         // HACK: Copy as an object that does not put under Realm management.
         // https://github.com/realm/realm-cocoa/issues/1734
         let realm = try! Realm()
@@ -86,6 +86,113 @@ final class CPYSnippetsEditorWindowController: NSWindowController {
         super.showWindow(sender)
         window?.makeKeyAndOrderFront(self)
     }
+}
+
+// MARK: - Toolbar Setup
+private extension CPYSnippetsEditorWindowController {
+    func setupToolbar() {
+        let toolbar = NSToolbar(identifier: "SnippetsEditorToolbar")
+        toolbar.delegate = self
+        toolbar.displayMode = .iconAndLabel
+        window?.toolbar = toolbar
+        window?.toolbarStyle = .unified
+    }
+
+    func applyModernAppearance() {
+        outlineView?.backgroundColor = .controlBackgroundColor
+        textView?.backgroundColor = .textBackgroundColor
+
+        // Update folder icon in settings panel to use SF Symbol
+        if let container = folderSettingView?.subviews.first {
+            if let imageView = container.subviews.first(where: { $0 is NSImageView }) as? NSImageView {
+                let config = NSImage.SymbolConfiguration(pointSize: 16, weight: .regular)
+                    .applying(NSImage.SymbolConfiguration(paletteColors: [.systemBlue]))
+                imageView.image = NSImage(systemSymbolName: "folder.fill", accessibilityDescription: "Folder")?
+                    .withSymbolConfiguration(config)
+            }
+        }
+
+        // Use system background for folder settings view
+        if let designableView = folderSettingView as? CPYDesignableView {
+            designableView.backgroundColor = .controlBackgroundColor
+        }
+    }
+}
+
+// MARK: - NSToolbar Delegate
+extension CPYSnippetsEditorWindowController: NSToolbarDelegate {
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        [.addSnippet, .addFolder, .deleteItem, .toggleEnable, .flexibleSpace, .importSnippets, .exportSnippets]
+    }
+
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        [.addSnippet, .addFolder, .deleteItem, .toggleEnable, .importSnippets, .exportSnippets, .flexibleSpace, .space]
+    }
+
+    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+        let item = NSToolbarItem(itemIdentifier: itemIdentifier)
+        let symbolConfig = NSImage.SymbolConfiguration(pointSize: 15, weight: .medium)
+
+        switch itemIdentifier {
+        case .addSnippet:
+            item.label = NSLocalizedString("Add Snippet", comment: "")
+            item.toolTip = NSLocalizedString("Add Snippet", comment: "")
+            item.image = NSImage(systemSymbolName: "doc.badge.plus", accessibilityDescription: "Add Snippet")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(addSnippetButtonTapped(_:))
+            item.target = self
+        case .addFolder:
+            item.label = NSLocalizedString("Add Folder", comment: "")
+            item.toolTip = NSLocalizedString("Add Folder", comment: "")
+            item.image = NSImage(systemSymbolName: "folder.badge.plus", accessibilityDescription: "Add Folder")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(addFolderButtonTapped(_:))
+            item.target = self
+        case .deleteItem:
+            item.label = NSLocalizedString("Delete", comment: "")
+            item.toolTip = NSLocalizedString("Delete", comment: "")
+            item.image = NSImage(systemSymbolName: "trash", accessibilityDescription: "Delete")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(deleteButtonTapped(_:))
+            item.target = self
+        case .toggleEnable:
+            item.label = NSLocalizedString("Enable/Disable", comment: "")
+            item.toolTip = NSLocalizedString("Enable/Disable", comment: "")
+            item.image = NSImage(systemSymbolName: "checkmark.circle", accessibilityDescription: "Enable/Disable")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(changeStatusButtonTapped(_:))
+            item.target = self
+        case .importSnippets:
+            item.label = NSLocalizedString("Import", comment: "")
+            item.toolTip = NSLocalizedString("Import", comment: "")
+            item.image = NSImage(systemSymbolName: "square.and.arrow.down", accessibilityDescription: "Import")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(importSnippetButtonTapped(_:))
+            item.target = self
+        case .exportSnippets:
+            item.label = NSLocalizedString("Export", comment: "")
+            item.toolTip = NSLocalizedString("Export", comment: "")
+            item.image = NSImage(systemSymbolName: "square.and.arrow.up", accessibilityDescription: "Export")?
+                .withSymbolConfiguration(symbolConfig)
+            item.action = #selector(exportSnippetButtonTapped(_:))
+            item.target = self
+        default:
+            return nil
+        }
+
+        item.isBordered = true
+        return item
+    }
+}
+
+// MARK: - Toolbar Item Identifiers
+private extension NSToolbarItem.Identifier {
+    static let addSnippet = NSToolbarItem.Identifier("AddSnippet")
+    static let addFolder = NSToolbarItem.Identifier("AddFolder")
+    static let deleteItem = NSToolbarItem.Identifier("DeleteItem")
+    static let toggleEnable = NSToolbarItem.Identifier("ToggleEnable")
+    static let importSnippets = NSToolbarItem.Identifier("ImportSnippets")
+    static let exportSnippets = NSToolbarItem.Identifier("ExportSnippets")
 }
 
 // MARK: - IBActions
@@ -255,7 +362,7 @@ extension CPYSnippetsEditorWindowController {
 }
 
 // MARK: - Item Selected
-private extension CPYSnippetsEditorWindowController {
+extension CPYSnippetsEditorWindowController {
     func changeItemFocus() {
         // Reset TextView Undo/Redo history
         textView.undoManager?.removeAllActions()
@@ -290,133 +397,6 @@ extension CPYSnippetsEditorWindowController: NSSplitViewDelegate {
 
     func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
         return proposedMaximumPosition / 2
-    }
-}
-
-// MARK: - NSOutlineView DataSource
-extension CPYSnippetsEditorWindowController: NSOutlineViewDataSource {
-    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        if item == nil {
-            return Int(folders.count)
-        } else if let folder = item as? CPYFolder {
-            return Int(folder.snippets.count)
-        }
-        return 0
-    }
-
-    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        if let folder = item as? CPYFolder {
-            return !folder.snippets.isEmpty
-        }
-        return false
-    }
-
-    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        if item == nil {
-            return folders[index]
-        } else if let folder = item as? CPYFolder {
-            return folder.snippets[index]
-        }
-        return ""
-    }
-
-    func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
-        if let folder = item as? CPYFolder {
-            return folder.title
-        } else if let snippet = item as? CPYSnippet {
-            return snippet.title
-        }
-        return ""
-    }
-
-    // MARK: - Drag and Drop
-    func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
-        let pasteboardItem = NSPasteboardItem()
-        if let folder = item as? CPYFolder, let index = folders.firstIndex(of: folder) {
-            let draggedData = CPYDraggedData(type: .folder, folderIdentifier: folder.identifier, snippetIdentifier: nil, index: index)
-            guard let data = try? NSKeyedArchiver.archivedData(withRootObject: draggedData, requiringSecureCoding: false) else { return nil }
-            pasteboardItem.setData(data, forType: NSPasteboard.PasteboardType(rawValue: Constants.Common.draggedDataType))
-        } else if let snippet = item as? CPYSnippet, let folder = outlineView.parent(forItem: snippet) as? CPYFolder {
-            guard let index = folder.snippets.index(of: snippet) else { return nil }
-            let draggedData = CPYDraggedData(type: .snippet, folderIdentifier: folder.identifier, snippetIdentifier: snippet.identifier, index: Int(index))
-            guard let data = try? NSKeyedArchiver.archivedData(withRootObject: draggedData, requiringSecureCoding: false) else { return nil }
-            pasteboardItem.setData(data, forType: NSPasteboard.PasteboardType(rawValue: Constants.Common.draggedDataType))
-        } else {
-            return nil
-        }
-        return pasteboardItem
-    }
-
-    func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
-        let pasteboard = info.draggingPasteboard
-        guard let data = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: Constants.Common.draggedDataType)) else { return NSDragOperation() }
-        guard let unarchiver = try? NSKeyedUnarchiver(forReadingFrom: data) else { return NSDragOperation() }
-        unarchiver.requiresSecureCoding = false
-        defer { unarchiver.finishDecoding() }
-        guard let draggedData = unarchiver.decodeObject(forKey: NSKeyedArchiveRootObjectKey) as? CPYDraggedData else { return NSDragOperation() }
-
-        switch draggedData.type {
-        case .folder where item == nil:
-            return .move
-        case .snippet where item is CPYFolder:
-            return .move
-        default:
-            return NSDragOperation()
-        }
-    }
-
-    func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
-        let pasteboard = info.draggingPasteboard
-        guard let data = pasteboard.data(forType: NSPasteboard.PasteboardType(rawValue: Constants.Common.draggedDataType)) else { return false }
-        guard let unarchiver = try? NSKeyedUnarchiver(forReadingFrom: data) else { return false }
-        unarchiver.requiresSecureCoding = false
-        defer { unarchiver.finishDecoding() }
-        guard let draggedData = unarchiver.decodeObject(forKey: NSKeyedArchiveRootObjectKey) as? CPYDraggedData else { return false }
-
-        switch draggedData.type {
-        case .folder where index != draggedData.index:
-            guard index >= 0 else { return false }
-            guard let folder = folders.first(where: { $0.identifier == draggedData.folderIdentifier }) else { return false }
-            folders.insert(folder, at: index)
-            let removedIndex = (index < draggedData.index) ? draggedData.index + 1 : draggedData.index
-            folders.remove(at: removedIndex)
-            outlineView.reloadData()
-            outlineView.selectRowIndexes(IndexSet(integer: outlineView.row(forItem: folder)), byExtendingSelection: false)
-            CPYFolder.rearrangesIndex(folders)
-            changeItemFocus()
-            return true
-        case .snippet:
-            guard let fromFolder = folders.first(where: { $0.identifier == draggedData.folderIdentifier }) else { return false }
-            guard let toFolder = item as? CPYFolder else { return false }
-            guard let snippet = fromFolder.snippets.first(where: { $0.identifier == draggedData.snippetIdentifier }) else { return false }
-
-            if fromFolder.identifier == toFolder.identifier {
-                guard index >= 0 else { return false }
-                if index == draggedData.index { return false }
-                // Move to same folder
-                fromFolder.snippets.insert(snippet, at: index)
-                let removedIndex = (index < draggedData.index) ? draggedData.index + 1 : draggedData.index
-                fromFolder.snippets.remove(at: removedIndex)
-                outlineView.reloadData()
-                outlineView.selectRowIndexes(NSIndexSet(index: outlineView.row(forItem: snippet)) as IndexSet, byExtendingSelection: false)
-                fromFolder.rearrangesSnippetIndex()
-                changeItemFocus()
-                return true
-            } else {
-                // Move to other folder
-                let index = max(0, index)
-                toFolder.snippets.insert(snippet, at: index)
-                fromFolder.snippets.remove(at: draggedData.index)
-                outlineView.reloadData()
-                outlineView.expandItem(toFolder)
-                outlineView.selectRowIndexes(NSIndexSet(index: outlineView.row(forItem: snippet)) as IndexSet, byExtendingSelection: false)
-                toFolder.insertSnippet(snippet, index: index)
-                fromFolder.removeSnippet(snippet)
-                changeItemFocus()
-                return true
-            }
-        default: return false
-        }
     }
 }
 
