@@ -1,6 +1,4 @@
-<div>
-  <img src="./Resources/clipstream_logo.svg" height="32" style="vertical-align: middle;"> <span style="font-size: 2em; font-weight: bold; vertical-align: middle;">Clipstream</span>
-</div>
+# <img src="./Resources/clipstream_logo.svg" height="32" align="top">&nbsp;Clipstream
 
 <br>
 
