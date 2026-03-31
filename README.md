@@ -1,6 +1,4 @@
-<div align="center">
-  <img src="./Resources/clipstream_logo.svg" height="64">
-</div>
+# <img src="./Resources/clipstream_logo.svg" height="32" align="top">&nbsp;Clipstream
 
 <br>
 
@@ -11,7 +9,7 @@ Clipstream is a Clipboard extension app for macOS.
 
 ---
 
-__Requirement__: macOS 13.5 Ventura or higher
+__Requirement__: macOS 14.6 Sonoma or higher
 
 ### Development Environment
 * macOS 26.4 Tahoe
