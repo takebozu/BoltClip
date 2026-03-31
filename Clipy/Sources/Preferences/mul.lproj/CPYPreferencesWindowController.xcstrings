@@ -38,36 +38,36 @@
       }
     },
     "F0z-JX-Cv5.title" : {
-      "comment" : "Class = \"NSWindow\"; title = \"Clipy - Setting\"; ObjectID = \"F0z-JX-Cv5\";",
+      "comment" : "Class = \"NSWindow\"; title = \"Clipstream - Setting\"; ObjectID = \"F0z-JX-Cv5\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Clipy - Einstellungen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Clipy - Setting"
+            "value" : "Clipstream - Setting"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Clipy - Preferenze"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Clipy - 設定"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Clipy - 设置"
           }
         }
