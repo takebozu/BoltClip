@@ -289,42 +289,6 @@
         }
       }
     },
-    "wwo-lh-lMK.title" : {
-      "comment" : "Class = \"NSTextFieldCell\"; title = \"Share snippets\"; ObjectID = \"wwo-lh-lMK\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Snippets teilen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Share snippets"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Condividi Snippet"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "スニペット共有"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "分享片断"
-          }
-        }
-      }
-    },
     "WZs-f9-lGW.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Enable/Disable\"; ObjectID = \"WZs-f9-lGW\";",
       "extractionState" : "extracted_with_value",
@@ -397,42 +361,6 @@
         }
       }
     },
-    "yzF-k8-xUT.title" : {
-      "comment" : "Class = \"NSTextFieldCell\"; title = \"Coming Soon\"; ObjectID = \"yzF-k8-xUT\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Demnächst verfügbar"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Coming Soon"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Disponibile a breve"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coming Soon"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "即将推出"
-          }
-        }
-      }
-    }
   },
   "version" : "1.2"
 }
