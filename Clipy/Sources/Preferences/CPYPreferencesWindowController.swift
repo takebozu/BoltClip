@@ -39,12 +39,11 @@ final class CPYPreferencesWindowController: NSWindowController {
         CPYTypePreferenceViewController(nibName: "CPYTypePreferenceViewController", bundle: nil),
         CPYExcludeAppPreferenceViewController(nibName: "CPYExcludeAppPreferenceViewController", bundle: nil),
         CPYShortcutsPreferenceViewController(nibName: "CPYShortcutsPreferenceViewController", bundle: nil),
-        CPYUpdatesPreferenceViewController(nibName: "CPYUpdatesPreferenceViewController", bundle: nil),
         CPYBetaPreferenceViewController(nibName: "CPYBetaPreferenceViewController", bundle: nil)
     ]
 
     private enum Tab: Int, CaseIterable {
-        case general, menu, type, exclude, shortcuts, updates, beta
+        case general, menu, type, exclude, shortcuts, beta
 
         var identifier: NSToolbarItem.Identifier {
             switch self {
@@ -53,7 +52,6 @@ final class CPYPreferencesWindowController: NSWindowController {
             case .type:      return .init("type")
             case .exclude:   return .init("exclude")
             case .shortcuts: return .init("shortcuts")
-            case .updates:   return .init("updates")
             case .beta:      return .init("beta")
             }
         }
@@ -65,7 +63,6 @@ final class CPYPreferencesWindowController: NSWindowController {
             case .type:      return NSLocalizedString("Type", comment: "")
             case .exclude:   return NSLocalizedString("Exclude", comment: "")
             case .shortcuts: return NSLocalizedString("Shortcuts", comment: "")
-            case .updates:   return NSLocalizedString("Updates", comment: "")
             case .beta:      return NSLocalizedString("Beta", comment: "")
             }
         }
@@ -77,7 +74,6 @@ final class CPYPreferencesWindowController: NSWindowController {
             case .type:      return "doc.on.clipboard"
             case .exclude:   return "minus.circle"
             case .shortcuts: return "command"
-            case .updates:   return "arrow.triangle.2.circlepath"
             case .beta:      return "flask"
             }
         }
