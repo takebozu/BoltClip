@@ -2,7 +2,7 @@ import Foundation
 import Quick
 import Nimble
 import RealmSwift
-@testable import Clipstream
+@testable import BoltClip
 
 class SnippetSpec: QuickSpec {
     override class func spec() {

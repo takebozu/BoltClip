@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="CPYSnippetsEditorWindowController" customModule="Clipstream" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="CPYSnippetsEditorWindowController" customModule="BoltClip" customModuleProvider="target">
             <connections>
                 <outlet property="folderSettingView" destination="Ygf-rF-MiG" id="yje-y2-5Su"/>
                 <outlet property="folderShortcutRecordView" destination="zjO-0c-pwM" id="x7o-Yz-Zpe"/>
@@ -19,7 +19,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Clipstream - Snippets Editor" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="BoltClip - Snippets Editor" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="196" y="240" width="800" height="600"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1520" height="920"/>
@@ -28,7 +28,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BiM-Ll-CfO" customClass="CPYSplitView" customModule="Clipstream" customModuleProvider="target">
+                    <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BiM-Ll-CfO" customClass="CPYSplitView" customModule="BoltClip" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                         <subviews>
                             <customView focusRingType="none" id="gSL-Od-RtU">
@@ -53,7 +53,7 @@
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
-                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Text" id="J4q-sY-gcS" customClass="CPYSnippetsEditorCell" customModule="Clipstream" customModuleProvider="target">
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Text" id="J4q-sY-gcS" customClass="CPYSnippetsEditorCell" customModule="BoltClip" customModuleProvider="target">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -96,7 +96,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="549" height="600"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textView hidden="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Sg6-q3-8Kx" customClass="CPYPlaceHolderTextView" customModule="Clipstream" customModuleProvider="target">
+                                                <textView hidden="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Sg6-q3-8Kx" customClass="CPYPlaceHolderTextView" customModule="BoltClip" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="549" height="600"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -126,7 +126,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
-                                    <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ygf-rF-MiG" customClass="CPYDesignableView" customModule="Clipstream" customModuleProvider="target">
+                                    <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ygf-rF-MiG" customClass="CPYDesignableView" customModule="BoltClip" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="549" height="600"/>
                                         <subviews>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="H8F-IV-Fl5">
@@ -176,7 +176,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </customView>
-                                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="hSp-7i-idd" customClass="CPYDesignableView" customModule="Clipstream" customModuleProvider="target">
+                                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="hSp-7i-idd" customClass="CPYDesignableView" customModule="BoltClip" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="170" width="250" height="1"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="sep-ht-015"/>

@@ -1,13 +1,12 @@
 //
 //  CPYPreferencesWindowController.swift
 //
-//  Clipstream
-//  GitHub: https://github.com/clipy
-//  HP: https://clipy-app.com
+//  BoltClip
+//  GitHub: https://github.com/takebozu/BoltClip
 //
 //  Created by Econa77 on 2016/02/25.
 //
-//  Copyright © 2015-2018 Clipstream Project.
+//  Copyright © 2015-2018 Clipy Project.
 //
 
 import Cocoa
@@ -22,7 +21,7 @@ final class CPYPreferencesWindowController: NSWindowController {
             backing: .buffered,
             defer: true
         )
-        window.title = NSLocalizedString("Clipstream - Setting", comment: "")
+        window.title = NSLocalizedString("BoltClip - Setting", comment: "")
         window.isReleasedWhenClosed = false
         window.collectionBehavior = .canJoinAllSpaces
 
