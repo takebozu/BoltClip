@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B70197952F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70197942F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift */; };
 		B75A99ED2F77C0A400BE3012 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B75A99EC2F77C0A400BE3012 /* Localizable.xcstrings */; };
-		B7DB3F2A2F6A7A0400AE1E52 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F292F6A7A0400AE1E52 /* Sparkle */; };
 		B7DB3F2D2F6A7C0800AE1E52 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F2C2F6A7C0800AE1E52 /* Realm */; };
 		B7DB3F2F2F6A7C0800AE1E52 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F2E2F6A7C0800AE1E52 /* RealmSwift */; };
 		B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F312F6A7DE300AE1E52 /* PINCache */; };
@@ -37,7 +36,6 @@
 		FA0D5CE81DDCC61600AC9052 /* ClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5CE71DDCC61600AC9052 /* ClipService.swift */; };
 		FA1189331E4CD58C00244F12 /* ExcludeAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1189321E4CD58C00244F12 /* ExcludeAppService.swift */; };
 		FA1DB4901DDCA5D9007F95C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB48F1DDCA5D9007F95C8 /* Images.xcassets */; };
-		FA1DB4941DDCB22C007F95C8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB4921DDCB22C007F95C8 /* dsa_pub.pem */; };
 		FA1DB49F1DDCB417007F95C8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1DB49E1DDCB417007F95C8 /* MainMenu.xib */; };
 		FA1DB4A21DDCB433007F95C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB4A01DDCB433007F95C8 /* AppDelegate.swift */; };
 		FA1DB4A31DDCB433007F95C8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB4A11DDCB433007F95C8 /* Constants.swift */; };
@@ -137,7 +135,6 @@
 		FA0D5CE71DDCC61600AC9052 /* ClipService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipService.swift; sourceTree = "<group>"; };
 		FA1189321E4CD58C00244F12 /* ExcludeAppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcludeAppService.swift; sourceTree = "<group>"; };
 		FA1DB48F1DDCA5D9007F95C8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FA1DB4921DDCB22C007F95C8 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		FA1DB4931DDCB22C007F95C8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA1DB49E1DDCB417007F95C8 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		FA1DB4A01DDCB433007F95C8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,7 +202,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7DB3F3B2F6A802900AE1E52 /* Magnet in Frameworks */,
-				B7DB3F2A2F6A7A0400AE1E52 /* Sparkle in Frameworks */,
 				B7DB3F582F6A84FE00AE1E52 /* RxRelay in Frameworks */,
 				B7DB3F562F6A84FE00AE1E52 /* RxCocoa in Frameworks */,
 				B7DB3F4A2F6A81B500AE1E52 /* KeyHolder in Frameworks */,
@@ -282,7 +278,6 @@
 		FA1DB4911DDCB205007F95C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FA1DB4921DDCB22C007F95C8 /* dsa_pub.pem */,
 				FA1DB4931DDCB22C007F95C8 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -591,7 +586,6 @@
 			);
 			mainGroup = FAC43DBD1B35D8B100C06102;
 			packageReferences = (
-				B7DB3F282F6A7A0400AE1E52 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				B7DB3F2B2F6A7C0800AE1E52 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				B7DB3F302F6A7DE300AE1E52 /* XCRemoteSwiftPackageReference "PINCache" */,
 				B7DB3F422F6A816600AE1E52 /* XCRemoteSwiftPackageReference "Sauce" */,
@@ -630,7 +624,6 @@
 				FA1DB5191DDCB4C0007F95C8 /* CPYBetaPreferenceViewController.xib in Resources */,
 				B75A99ED2F77C0A400BE3012 /* Localizable.xcstrings in Resources */,
 				FA6DD5151C7DEDB600317E73 /* (null) in Resources */,
-				FA1DB4941DDCB22C007F95C8 /* dsa_pub.pem in Resources */,
 				FA1DB49F1DDCB417007F95C8 /* MainMenu.xib in Resources */,
 				FA1DB5221DDCB4C0007F95C8 /* CPYSnippetsEditorWindowController.xib in Resources */,
 			);
@@ -1062,14 +1055,6 @@
 				minimumVersion = 0.63.2;
 			};
 		};
-		B7DB3F282F6A7A0400AE1E52 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparkle-project/Sparkle";
-			requirement = {
-				kind = exactVersion;
-				version = 1.26.0;
-			};
-		};
 		B7DB3F2B2F6A7C0800AE1E52 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -1229,11 +1214,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B75A99F72F78B01F00BE3012 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
 			productName = "plugin:SwiftLintBuildToolPlugin";
-		};
-		B7DB3F292F6A7A0400AE1E52 /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B7DB3F282F6A7A0400AE1E52 /* XCRemoteSwiftPackageReference "Sparkle" */;
-			productName = Sparkle;
 		};
 		B7DB3F2C2F6A7C0800AE1E52 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
