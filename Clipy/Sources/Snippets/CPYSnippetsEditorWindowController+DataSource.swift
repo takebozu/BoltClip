@@ -1,11 +1,10 @@
 //
 //  CPYSnippetsEditorWindowController+DataSource.swift
 //
-//  Clipstream
-//  GitHub: https://github.com/clipy
-//  HP: https://clipy-app.com
+//  BoltClip
+//  GitHub: https://github.com/takebozu/BoltClip
 //
-//  Copyright © 2015-2018 Clipstream Project.
+//  Copyright © 2015-2018 Clipy Project.
 //
 
 import Cocoa

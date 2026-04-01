@@ -45,7 +45,7 @@
 		FA1DB4B31DDCB452007F95C8 /* Array+Remove.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB4A81DDCB452007F95C8 /* Array+Remove.swift */; };
 		FA1DB4B41DDCB452007F95C8 /* NSBundle+Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB4A91DDCB452007F95C8 /* NSBundle+Version.swift */; };
 		FA1DB4B71DDCB452007F95C8 /* NSImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB4AC1DDCB452007F95C8 /* NSImage+Resize.swift */; };
-		FA1DB4B81DDCB452007F95C8 /* NSLock+Clipstream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB4AD1DDCB452007F95C8 /* NSLock+Clipstream.swift */; };
+		FA1DB4B81DDCB452007F95C8 /* NSLock+BoltClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB4AD1DDCB452007F95C8 /* NSLock+BoltClip.swift */; };
 		FA1DB4B91DDCB452007F95C8 /* NSMenuItem+Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB4AE1DDCB452007F95C8 /* NSMenuItem+Initialize.swift */; };
 		FA1DB4BA1DDCB452007F95C8 /* NSUserDefaults+ArchiveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB4AF1DDCB452007F95C8 /* NSUserDefaults+ArchiveData.swift */; };
 		FA1DB4BB1DDCB452007F95C8 /* Realm+Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1DB4B01DDCB452007F95C8 /* Realm+Migration.swift */; };
@@ -146,7 +146,7 @@
 		FA1DB4A81DDCB452007F95C8 /* Array+Remove.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Remove.swift"; sourceTree = "<group>"; };
 		FA1DB4A91DDCB452007F95C8 /* NSBundle+Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+Version.swift"; sourceTree = "<group>"; };
 		FA1DB4AC1DDCB452007F95C8 /* NSImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Resize.swift"; sourceTree = "<group>"; };
-		FA1DB4AD1DDCB452007F95C8 /* NSLock+Clipstream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLock+Clipstream.swift"; sourceTree = "<group>"; };
+		FA1DB4AD1DDCB452007F95C8 /* NSLock+BoltClip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLock+BoltClip.swift"; sourceTree = "<group>"; };
 		FA1DB4AE1DDCB452007F95C8 /* NSMenuItem+Initialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+Initialize.swift"; sourceTree = "<group>"; };
 		FA1DB4AF1DDCB452007F95C8 /* NSUserDefaults+ArchiveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+ArchiveData.swift"; sourceTree = "<group>"; };
 		FA1DB4B01DDCB452007F95C8 /* Realm+Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Realm+Migration.swift"; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		FAC0DCE81DE15FD900309C49 /* DataCleanService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCleanService.swift; sourceTree = "<group>"; };
 		FAC0DCEE1DE3255E00309C49 /* NSImage+NSColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+NSColor.swift"; sourceTree = "<group>"; };
 		FAC0DCF01DE576F300309C49 /* PasteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteService.swift; sourceTree = "<group>"; };
-		FAC43DC61B35D8B100C06102 /* Clipstream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipstream.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAC43DC61B35D8B100C06102 /* BoltClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoltClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC43DD81B35D8B100C06102 /* ClipyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC43DDD1B35D8B100C06102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAC43E221B35DFC800C06102 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -331,7 +331,7 @@
 				FA1DB4A81DDCB452007F95C8 /* Array+Remove.swift */,
 				FA1DB4A91DDCB452007F95C8 /* NSBundle+Version.swift */,
 				FA1DB4AC1DDCB452007F95C8 /* NSImage+Resize.swift */,
-				FA1DB4AD1DDCB452007F95C8 /* NSLock+Clipstream.swift */,
+				FA1DB4AD1DDCB452007F95C8 /* NSLock+BoltClip.swift */,
 				FA1DB4AE1DDCB452007F95C8 /* NSMenuItem+Initialize.swift */,
 				FA1DB4AF1DDCB452007F95C8 /* NSUserDefaults+ArchiveData.swift */,
 				FA1DB4B01DDCB452007F95C8 /* Realm+Migration.swift */,
@@ -474,7 +474,7 @@
 		FAC43DC71B35D8B100C06102 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAC43DC61B35D8B100C06102 /* Clipstream.app */,
+				FAC43DC61B35D8B100C06102 /* BoltClip.app */,
 				FAC43DD81B35D8B100C06102 /* ClipyTests.xctest */,
 			);
 			name = Products;
@@ -530,7 +530,7 @@
 			);
 			name = Clipy;
 			productName = Clipy;
-			productReference = FAC43DC61B35D8B100C06102 /* Clipstream.app */;
+			productReference = FAC43DC61B35D8B100C06102 /* BoltClip.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FAC43DD71B35D8B100C06102 /* ClipyTests */ = {
@@ -656,7 +656,7 @@
 				FA3778931F3B691A003B5BAB /* AppEnvironment.swift in Sources */,
 				FAC0DCF11DE576F300309C49 /* PasteService.swift in Sources */,
 				FA1DB4E51DDCB49C007F95C8 /* CPYUtilities.swift in Sources */,
-				FA1DB4B81DDCB452007F95C8 /* NSLock+Clipstream.swift in Sources */,
+				FA1DB4B81DDCB452007F95C8 /* NSLock+BoltClip.swift in Sources */,
 				FA1DB4BA1DDCB452007F95C8 /* NSUserDefaults+ArchiveData.swift in Sources */,
 				FAA4BCCC2163DC9100FF5D18 /* AccessibilityService.swift in Sources */,
 				FA1DB4D31DDCB479007F95C8 /* CPYClip.swift in Sources */,
@@ -927,8 +927,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				PRODUCT_BUNDLE_IDENTIFIER = me.takezawa.Clipstream.debug;
-				PRODUCT_NAME = Clipstream;
+				PRODUCT_BUNDLE_IDENTIFIER = me.takezawa.BoltClip.debug;
+				PRODUCT_NAME = BoltClip;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -957,8 +957,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				PRODUCT_BUNDLE_IDENTIFIER = me.takezawa.Clipstream;
-				PRODUCT_NAME = Clipstream;
+				PRODUCT_BUNDLE_IDENTIFIER = me.takezawa.BoltClip;
+				PRODUCT_NAME = BoltClip;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -992,7 +992,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clipstream.app/Contents/MacOS/Clipstream";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoltClip.app/Contents/MacOS/BoltClip";
 			};
 			name = Debug;
 		};
@@ -1017,7 +1017,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clipstream.app/Contents/MacOS/Clipstream";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoltClip.app/Contents/MacOS/BoltClip";
 			};
 			name = Release;
 		};

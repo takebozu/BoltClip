@@ -1,13 +1,12 @@
 //
 //  NSPasteboard+Deprecated.swift
 //
-//  Clipstream
-//  GitHub: https://github.com/clipy
-//  HP: https://clipy-app.com
+//  BoltClip
+//  GitHub: https://github.com/takebozu/BoltClip
 //
 //  Created by Econa77 on 2017/12/30.
 //
-//  Copyright © 2015-2018 Clipstream Project.
+//  Copyright © 2015-2018 Clipy Project.
 //
 
 import Cocoa

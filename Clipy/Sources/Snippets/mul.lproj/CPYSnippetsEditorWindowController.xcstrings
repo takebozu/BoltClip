@@ -182,37 +182,37 @@
       }
     },
     "QvC-M9-y7g.title" : {
-      "comment" : "Class = \"NSWindow\"; title = \"Clipstream - Snippets Editor\"; ObjectID = \"QvC-M9-y7g\";",
+      "comment" : "Class = \"NSWindow\"; title = \"BoltClip - Snippets Editor\"; ObjectID = \"QvC-M9-y7g\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Clipy - Snippets Editor"
+            "value" : "BoltClip - Snippets Editor"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Clipstream - Snippets Editor"
+            "value" : "BoltClip - Snippets Editor"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Clipy - Editor degli Snippet"
+            "value" : "BoltClip - Editor degli Snippet"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Clipy - スニペット編集"
+            "value" : "BoltClip - スニペット編集"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Clipy - 片断编辑器"
+            "value" : "BoltClip - 片断编辑器"
           }
         }
       }
