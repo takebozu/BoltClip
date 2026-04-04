@@ -218,6 +218,212 @@ class FolderSpec: QuickSpec {
 
         }
 
+        describe("Move snippet within same folder") {
+
+            it("moves snippet forward (lower index to higher)") {
+                let folder = CPYFolder(index: 0, enable: true, title: "F", identifier: "f1")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                let snp2 = CPYSnippet(index: 1, enable: true, title: "S2", content: "", identifier: "s2")
+                let snp3 = CPYSnippet(index: 2, enable: true, title: "S3", content: "", identifier: "s3")
+                folder.snippets = [snp1, snp2, snp3]
+
+                // Move S1 (index 0) to position 2 (between S2 and S3)
+                let draggedIndex = 0
+                let dropIndex = 2
+                folder.snippets.remove(at: draggedIndex)
+                let adjusted = min((dropIndex > draggedIndex) ? dropIndex - 1 : dropIndex,
+                                    folder.snippets.count)
+                folder.snippets.insert(snp1, at: adjusted)
+
+                expect(folder.snippets.map { $0.title }) == ["S2", "S1", "S3"]
+            }
+
+            it("moves snippet backward (higher index to lower)") {
+                let folder = CPYFolder(index: 0, enable: true, title: "F", identifier: "f1")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                let snp2 = CPYSnippet(index: 1, enable: true, title: "S2", content: "", identifier: "s2")
+                let snp3 = CPYSnippet(index: 2, enable: true, title: "S3", content: "", identifier: "s3")
+                folder.snippets = [snp1, snp2, snp3]
+
+                // Move S3 (index 2) to position 0 (beginning)
+                let draggedIndex = 2
+                let dropIndex = 0
+                folder.snippets.remove(at: draggedIndex)
+                let adjusted = min((dropIndex > draggedIndex) ? dropIndex - 1 : dropIndex,
+                                    folder.snippets.count)
+                folder.snippets.insert(snp3, at: adjusted)
+
+                expect(folder.snippets.map { $0.title }) == ["S3", "S1", "S2"]
+            }
+
+            it("moves snippet to the end") {
+                let folder = CPYFolder(index: 0, enable: true, title: "F", identifier: "f1")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                let snp2 = CPYSnippet(index: 1, enable: true, title: "S2", content: "", identifier: "s2")
+                let snp3 = CPYSnippet(index: 2, enable: true, title: "S3", content: "", identifier: "s3")
+                folder.snippets = [snp1, snp2, snp3]
+
+                // Move S1 (index 0) to position 3 (end)
+                let draggedIndex = 0
+                let dropIndex = 3
+                folder.snippets.remove(at: draggedIndex)
+                let adjusted = min((dropIndex > draggedIndex) ? dropIndex - 1 : dropIndex,
+                                    folder.snippets.count)
+                folder.snippets.insert(snp1, at: adjusted)
+
+                expect(folder.snippets.map { $0.title }) == ["S2", "S3", "S1"]
+            }
+
+            it("moves middle snippet to adjacent position") {
+                let folder = CPYFolder(index: 0, enable: true, title: "F", identifier: "f1")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                let snp2 = CPYSnippet(index: 1, enable: true, title: "S2", content: "", identifier: "s2")
+                let snp3 = CPYSnippet(index: 2, enable: true, title: "S3", content: "", identifier: "s3")
+                folder.snippets = [snp1, snp2, snp3]
+
+                // Move S2 (index 1) to position 0
+                let draggedIndex = 1
+                let dropIndex = 0
+                folder.snippets.remove(at: draggedIndex)
+                let adjusted = min((dropIndex > draggedIndex) ? dropIndex - 1 : dropIndex,
+                                    folder.snippets.count)
+                folder.snippets.insert(snp2, at: adjusted)
+
+                expect(folder.snippets.map { $0.title }) == ["S2", "S1", "S3"]
+            }
+
+            it("preserves inverse relationship after same-folder move") {
+                let folder = CPYFolder(index: 0, enable: true, title: "F", identifier: "f1")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                let snp2 = CPYSnippet(index: 1, enable: true, title: "S2", content: "", identifier: "s2")
+                folder.snippets = [snp1, snp2]
+
+                folder.snippets.remove(at: 1)
+                folder.snippets.insert(snp2, at: 0)
+
+                expect(snp1.folder?.identifier) == folder.identifier
+                expect(snp2.folder?.identifier) == folder.identifier
+                expect(folder.snippets.count) == 2
+            }
+        }
+
+        describe("Move snippet to different folder") {
+
+            it("moves snippet between folders") {
+                let folderA = CPYFolder(index: 0, enable: true, title: "A", identifier: "fa")
+                let folderB = CPYFolder(index: 1, enable: true, title: "B", identifier: "fb")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                let snp2 = CPYSnippet(index: 1, enable: true, title: "S2", content: "", identifier: "s2")
+                let snp3 = CPYSnippet(index: 0, enable: true, title: "S3", content: "", identifier: "s3")
+                folderA.snippets = [snp1, snp2]
+                folderB.snippets = [snp3]
+
+                // Move S2 from A to B at position 0
+                let snippet = snp2
+                let insertIndex = 0
+                folderA.snippets.removeAll(where: { $0.identifier == snippet.identifier })
+                folderB.snippets.insert(snippet, at: min(insertIndex, folderB.snippets.count))
+
+                expect(folderA.snippets.map { $0.title }) == ["S1"]
+                expect(folderB.snippets.map { $0.title }) == ["S2", "S3"]
+                expect(snippet.folder?.identifier) == folderB.identifier
+            }
+
+            it("moves snippet to empty folder") {
+                let folderA = CPYFolder(index: 0, enable: true, title: "A", identifier: "fa")
+                let folderB = CPYFolder(index: 1, enable: true, title: "B", identifier: "fb")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                folderA.snippets = [snp1]
+                folderB.snippets = []
+
+                let insertIndex = max(0, -1) // drop "on" folder → childIndex -1
+                folderA.snippets.removeAll(where: { $0.identifier == snp1.identifier })
+                folderB.snippets.insert(snp1, at: min(insertIndex, folderB.snippets.count))
+
+                expect(folderA.snippets).to(beEmpty())
+                expect(folderB.snippets.map { $0.title }) == ["S1"]
+                expect(snp1.folder?.identifier) == folderB.identifier
+            }
+
+            it("moves snippet and moves it back") {
+                let folderA = CPYFolder(index: 0, enable: true, title: "A", identifier: "fa")
+                let folderB = CPYFolder(index: 1, enable: true, title: "B", identifier: "fb")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                let snp2 = CPYSnippet(index: 1, enable: true, title: "S2", content: "", identifier: "s2")
+                folderA.snippets = [snp1, snp2]
+                folderB.snippets = []
+
+                // Move S2 from A to B
+                folderA.snippets.removeAll(where: { $0.identifier == snp2.identifier })
+                folderB.snippets.insert(snp2, at: min(0, folderB.snippets.count))
+
+                expect(folderA.snippets.count) == 1
+                expect(folderB.snippets.count) == 1
+
+                // Move S2 back from B to A at position 1
+                folderB.snippets.removeAll(where: { $0.identifier == snp2.identifier })
+                folderA.snippets.insert(snp2, at: min(1, folderA.snippets.count))
+
+                expect(folderA.snippets.map { $0.title }) == ["S1", "S2"]
+                expect(folderB.snippets).to(beEmpty())
+                expect(snp2.folder?.identifier) == folderA.identifier
+            }
+
+            it("moves last snippet from a folder") {
+                let folderA = CPYFolder(index: 0, enable: true, title: "A", identifier: "fa")
+                let folderB = CPYFolder(index: 1, enable: true, title: "B", identifier: "fb")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                folderA.snippets = [snp1]
+                folderB.snippets = []
+
+                folderA.snippets.removeAll(where: { $0.identifier == snp1.identifier })
+                folderB.snippets.insert(snp1, at: min(0, folderB.snippets.count))
+
+                expect(folderA.snippets).to(beEmpty())
+                expect(folderB.snippets.count) == 1
+                expect(snp1.folder?.identifier) == folderB.identifier
+            }
+
+            it("moves snippet at last index without crash") {
+                let folderA = CPYFolder(index: 0, enable: true, title: "A", identifier: "fa")
+                let folderB = CPYFolder(index: 1, enable: true, title: "B", identifier: "fb")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                let snp2 = CPYSnippet(index: 1, enable: true, title: "S2", content: "", identifier: "s2")
+                let snp3 = CPYSnippet(index: 2, enable: true, title: "S3", content: "", identifier: "s3")
+                folderA.snippets = [snp1, snp2, snp3]
+                folderB.snippets = []
+
+                // Move S3 (last, index 2) — this was the original crash case
+                folderA.snippets.removeAll(where: { $0.identifier == snp3.identifier })
+                folderB.snippets.insert(snp3, at: min(0, folderB.snippets.count))
+
+                expect(folderA.snippets.map { $0.title }) == ["S1", "S2"]
+                expect(folderB.snippets.map { $0.title }) == ["S3"]
+            }
+
+            it("moves multiple snippets between folders sequentially") {
+                let folderA = CPYFolder(index: 0, enable: true, title: "A", identifier: "fa")
+                let folderB = CPYFolder(index: 1, enable: true, title: "B", identifier: "fb")
+                let snp1 = CPYSnippet(index: 0, enable: true, title: "S1", content: "", identifier: "s1")
+                let snp2 = CPYSnippet(index: 1, enable: true, title: "S2", content: "", identifier: "s2")
+                let snp3 = CPYSnippet(index: 2, enable: true, title: "S3", content: "", identifier: "s3")
+                folderA.snippets = [snp1, snp2, snp3]
+                folderB.snippets = []
+
+                // Move S1 to B
+                folderA.snippets.removeAll(where: { $0.identifier == snp1.identifier })
+                folderB.snippets.insert(snp1, at: min(0, folderB.snippets.count))
+
+                // Move S3 to B at end
+                let insertIdx = folderB.snippets.count
+                folderA.snippets.removeAll(where: { $0.identifier == snp3.identifier })
+                folderB.snippets.insert(snp3, at: min(insertIdx, folderB.snippets.count))
+
+                expect(folderA.snippets.map { $0.title }) == ["S2"]
+                expect(folderB.snippets.map { $0.title }) == ["S1", "S3"]
+            }
+        }
+
         describe("Rearrange Index") {
 
             it("Rearrange folder index") {

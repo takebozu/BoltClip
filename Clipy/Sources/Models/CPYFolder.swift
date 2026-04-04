@@ -102,7 +102,7 @@ extension CPYFolder {
         snippetDescriptor.fetchLimit = 1
         guard let savedSnippet = try? context.fetch(snippetDescriptor).first else { return }
 
-        folder.snippets.insert(savedSnippet, at: index)
+        folder.snippets.insert(savedSnippet, at: min(index, folder.snippets.count))
         try? context.save()
         folder.rearrangesSnippetIndex()
     }
