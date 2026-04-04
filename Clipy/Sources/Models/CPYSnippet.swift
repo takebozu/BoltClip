@@ -10,48 +10,73 @@
 //
 
 import Cocoa
-import RealmSwift
+import SwiftData
 
-final class CPYSnippet: Object {
+@Model
+final class CPYSnippet {
 
     // MARK: - Properties
-    @objc dynamic var index = 0
-    @objc dynamic var enable = true
-    @objc dynamic var title = ""
-    @objc dynamic var content = ""
-    @objc dynamic var identifier = UUID().uuidString
-    let folders = LinkingObjects(fromType: CPYFolder.self, property: "snippets")
+    var index: Int = 0
+    var enable: Bool = true
+    var title: String = ""
+    var content: String = ""
+    @Attribute(.unique) var identifier: String = UUID().uuidString
+    var folder: CPYFolder?
 
-    var folder: CPYFolder? {
-        return folders.first
-    }
+    init() {}
 
-    // MARK: Primary Key
-    override static func primaryKey() -> String? {
-        return "identifier"
-    }
-
-    // MARK: - Ignore Properties
-    override static func ignoredProperties() -> [String] {
-        return ["folder"]
+    init(index: Int = 0, enable: Bool = true, title: String = "",
+         content: String = "", identifier: String = UUID().uuidString) {
+        self.index = index
+        self.enable = enable
+        self.title = title
+        self.content = content
+        self.identifier = identifier
     }
 
 }
 
+// MARK: - Equatable
+extension CPYSnippet: Equatable {
+    static func == (lhs: CPYSnippet, rhs: CPYSnippet) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+}
+
 // MARK: - Add Snippet
 extension CPYSnippet {
+    @MainActor
     func merge() {
-        let realm = try! Realm()
-        let copySnippet = CPYSnippet(value: self)
-        realm.transaction { realm.add(copySnippet, update: .all) }
+        let context = AppEnvironment.current.modelContainer.mainContext
+        let snippetId = self.identifier
+        var descriptor = FetchDescriptor<CPYSnippet>(predicate: #Predicate { $0.identifier == snippetId })
+        descriptor.fetchLimit = 1
+
+        if let existing = try? context.fetch(descriptor).first {
+            existing.index = self.index
+            existing.enable = self.enable
+            existing.title = self.title
+            existing.content = self.content
+        } else {
+            let newSnippet = CPYSnippet(index: index, enable: enable, title: title,
+                                        content: content, identifier: identifier)
+            context.insert(newSnippet)
+        }
+        try? context.save()
     }
 }
 
 // MARK: - Remove Snippet
 extension CPYSnippet {
+    @MainActor
     func remove() {
-        let realm = try! Realm()
-        guard let snippet = realm.object(ofType: CPYSnippet.self, forPrimaryKey: identifier) else { return }
-        snippet.realm?.transaction { snippet.realm?.delete(snippet) }
+        let context = AppEnvironment.current.modelContainer.mainContext
+        let snippetId = self.identifier
+        var descriptor = FetchDescriptor<CPYSnippet>(predicate: #Predicate { $0.identifier == snippetId })
+        descriptor.fetchLimit = 1
+
+        guard let snippet = try? context.fetch(descriptor).first else { return }
+        context.delete(snippet)
+        try? context.save()
     }
 }

@@ -10,7 +10,6 @@
 //
 
 import Cocoa
-import RealmSwift
 
 final class CPYUtilities {
 

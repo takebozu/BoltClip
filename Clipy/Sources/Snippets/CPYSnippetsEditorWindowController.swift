@@ -10,7 +10,7 @@
 //
 
 import Cocoa
-import RealmSwift
+import SwiftData
 import KeyHolder
 import UniformTypeIdentifiers
 import Magnet
@@ -67,12 +67,10 @@ final class CPYSnippetsEditorWindowController: NSWindowController {
         setupToolbar()
         applyModernAppearance()
 
-        // HACK: Copy as an object that does not put under Realm management.
-        // https://github.com/realm/realm-cocoa/issues/1734
-        let realm = try! Realm()
-        folders = realm.objects(CPYFolder.self)
-                    .sorted(byKeyPath: #keyPath(CPYFolder.index), ascending: true)
-                    .map { $0.deepCopy() }
+        // Copy as objects that are not managed by SwiftData context
+        let context = AppEnvironment.current.modelContainer.mainContext
+        let descriptor = FetchDescriptor<CPYFolder>(sortBy: [SortDescriptor(\.index, order: .forward)])
+        folders = ((try? context.fetch(descriptor)) ?? []).map { $0.deepCopy() }
         outlineView.reloadData()
         // Select first folder
         if let folder = folders.first {
@@ -238,7 +236,7 @@ extension CPYSnippetsEditorWindowController {
             folders.removeObject(folder)
             folder.remove()
             AppEnvironment.current.hotKeyService.unregisterSnippetHotKey(with: folder.identifier)
-        } else if let snippet = item as? CPYSnippet, let folder = outlineView.parent(forItem: item) as? CPYFolder, let index = folder.snippets.index(of: snippet) {
+        } else if let snippet = item as? CPYSnippet, let folder = outlineView.parent(forItem: item) as? CPYFolder, let index = folder.snippets.firstIndex(of: snippet) {
             folder.snippets.remove(at: index)
             snippet.remove()
         }
@@ -276,8 +274,9 @@ extension CPYSnippetsEditorWindowController {
         guard let data = try? Data(contentsOf: url) else { return }
 
         do {
-            let realm = try! Realm()
-            let lastFolder = realm.objects(CPYFolder.self).sorted(byKeyPath: #keyPath(CPYFolder.index), ascending: true).last
+            let context = AppEnvironment.current.modelContainer.mainContext
+            let folderDescriptor = FetchDescriptor<CPYFolder>(sortBy: [SortDescriptor(\.index, order: .forward)])
+            let lastFolder = (try? context.fetch(folderDescriptor))?.last
             var folderIndex = (lastFolder?.index ?? -1) + 1
             // Create Document
             var options = AEXMLOptions()
@@ -292,7 +291,7 @@ extension CPYSnippetsEditorWindowController {
                     // Index
                     folder.index = folderIndex
                     // Sync DB
-                    realm.transaction { realm.add(folder) }
+                    context.insert(folder)
                     // Snippet
                     var snippetIndex = 0
                     folderElement[Constants.Xml.snippetsElement][Constants.Xml.snippetElement]
@@ -302,7 +301,7 @@ extension CPYSnippetsEditorWindowController {
                             snippet.title = snippetElement[Constants.Xml.titleElement].value ?? "untitled snippet"
                             snippet.content = snippetElement[Constants.Xml.contentElement].value ?? ""
                             snippet.index = snippetIndex
-                            realm.transaction { folder.snippets.append(snippet) }
+                            folder.snippets.append(snippet)
                             // Increment snippet index
                             snippetIndex += 1
                         }
@@ -312,6 +311,7 @@ extension CPYSnippetsEditorWindowController {
                     let copyFolder = folder.deepCopy()
                     folders.append(copyFolder)
                 }
+            try? context.save()
             outlineView.reloadData()
         } catch {
             NSSound.beep()
@@ -322,16 +322,17 @@ extension CPYSnippetsEditorWindowController {
         let xmlDocument = AEXMLDocument()
         let rootElement = xmlDocument.addChild(name: Constants.Xml.rootElement)
 
-        let realm = try! Realm()
-        let folders = realm.objects(CPYFolder.self).sorted(byKeyPath: #keyPath(CPYFolder.index), ascending: true)
-        folders.forEach { folder in
+        let context = AppEnvironment.current.modelContainer.mainContext
+        let exportDescriptor = FetchDescriptor<CPYFolder>(sortBy: [SortDescriptor(\.index, order: .forward)])
+        let exportFolders = (try? context.fetch(exportDescriptor)) ?? []
+        exportFolders.forEach { folder in
             let folderElement = rootElement.addChild(name: Constants.Xml.folderElement)
 
             folderElement.addChild(name: Constants.Xml.titleElement, value: folder.title)
 
             let snippetsElement = folderElement.addChild(name: Constants.Xml.snippetsElement)
             folder.snippets
-                .sorted(byKeyPath: #keyPath(CPYSnippet.index), ascending: true)
+                .sorted { $0.index < $1.index }
                 .forEach { snippet in
                     let snippetElement = snippetsElement.addChild(name: Constants.Xml.snippetElement)
                     snippetElement.addChild(name: Constants.Xml.titleElement, value: snippet.title)

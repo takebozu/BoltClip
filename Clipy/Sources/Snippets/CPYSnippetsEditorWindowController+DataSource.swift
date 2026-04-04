@@ -53,7 +53,7 @@ extension CPYSnippetsEditorWindowController: NSOutlineViewDataSource {
             guard let data = try? NSKeyedArchiver.archivedData(withRootObject: draggedData, requiringSecureCoding: false) else { return nil }
             pasteboardItem.setData(data, forType: NSPasteboard.PasteboardType(rawValue: Constants.Common.draggedDataType))
         } else if let snippet = item as? CPYSnippet, let folder = outlineView.parent(forItem: snippet) as? CPYFolder {
-            guard let index = folder.snippets.index(of: snippet) else { return nil }
+            guard let index = folder.snippets.firstIndex(of: snippet) else { return nil }
             let draggedData = CPYDraggedData(type: .snippet, folderIdentifier: folder.identifier, snippetIdentifier: snippet.identifier, index: Int(index))
             guard let data = try? NSKeyedArchiver.archivedData(withRootObject: draggedData, requiringSecureCoding: false) else { return nil }
             pasteboardItem.setData(data, forType: NSPasteboard.PasteboardType(rawValue: Constants.Common.draggedDataType))
@@ -109,25 +109,28 @@ extension CPYSnippetsEditorWindowController: NSOutlineViewDataSource {
             if fromFolder.identifier == toFolder.identifier {
                 guard index >= 0 else { return false }
                 if index == draggedData.index { return false }
-                // Move to same folder
-                fromFolder.snippets.insert(snippet, at: index)
-                let removedIndex = (index < draggedData.index) ? draggedData.index + 1 : draggedData.index
-                fromFolder.snippets.remove(at: removedIndex)
+                // Move within same folder — remove first, then insert at adjusted position
+                // (@Model inverse relationships auto-remove from the old position on insert,
+                //  so the old insert-then-remove pattern caused index-out-of-range crashes)
+                fromFolder.snippets.remove(at: draggedData.index)
+                let adjustedIndex = min((index > draggedData.index) ? index - 1 : index,
+                                        fromFolder.snippets.count)
+                fromFolder.snippets.insert(snippet, at: adjustedIndex)
                 outlineView.reloadData()
                 outlineView.selectRowIndexes(NSIndexSet(index: outlineView.row(forItem: snippet)) as IndexSet, byExtendingSelection: false)
                 fromFolder.rearrangesSnippetIndex()
                 changeItemFocus()
                 return true
             } else {
-                // Move to other folder
-                let index = max(0, index)
-                toFolder.snippets.insert(snippet, at: index)
-                fromFolder.snippets.remove(at: draggedData.index)
+                // Move to other folder — remove from source first, then insert into target
+                let insertIndex = max(0, index)
+                fromFolder.snippets.removeAll(where: { $0.identifier == snippet.identifier })
+                toFolder.snippets.insert(snippet, at: min(insertIndex, toFolder.snippets.count))
                 outlineView.reloadData()
                 outlineView.expandItem(toFolder)
                 outlineView.selectRowIndexes(NSIndexSet(index: outlineView.row(forItem: snippet)) as IndexSet, byExtendingSelection: false)
-                toFolder.insertSnippet(snippet, index: index)
                 fromFolder.removeSnippet(snippet)
+                toFolder.insertSnippet(snippet, index: insertIndex)
                 changeItemFocus()
                 return true
             }
