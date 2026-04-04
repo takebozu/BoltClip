@@ -1,22 +1,27 @@
 import Foundation
 import Quick
 import Nimble
-import RealmSwift
+import SwiftData
 @testable import BoltClip
 
 class SnippetSpec: QuickSpec {
     override class func spec() {
 
         beforeEach {
-            Realm.Configuration.defaultConfiguration.inMemoryIdentifier = NSUUID().uuidString
+            let config = ModelConfiguration(isStoredInMemoryOnly: true)
+            let container = try! ModelContainer(for: CPYClip.self, CPYFolder.self, CPYSnippet.self,
+                                                 configurations: config)
+            AppEnvironment.replaceCurrent(environment: Environment(modelContainer: container))
         }
 
         describe("Sync database") {
 
             it("Merge snippet") {
+                let context = AppEnvironment.current.modelContainer.mainContext
+
                 let snippet = CPYSnippet()
-                let realm = try! Realm()
-                realm.transaction { realm.add(snippet) }
+                context.insert(snippet)
+                try! context.save()
 
                 let snippet2 = CPYSnippet()
                 snippet2.identifier = snippet.identifier
@@ -24,7 +29,7 @@ class SnippetSpec: QuickSpec {
                 snippet2.title = "title"
                 snippet2.content = "content"
                 snippet2.merge()
-                expect(snippet2.realm).to(beNil())
+                expect(snippet2.modelContext).to(beNil())
 
                 expect(snippet.index) == snippet2.index
                 expect(snippet.title) == snippet2.title
@@ -32,24 +37,30 @@ class SnippetSpec: QuickSpec {
             }
 
             it("Remove snippet") {
-                let realm = try! Realm()
-                expect(realm.objects(CPYSnippet.self).count) == 0
+                let context = AppEnvironment.current.modelContainer.mainContext
+                let descriptor = FetchDescriptor<CPYSnippet>()
+                expect(try! context.fetchCount(descriptor)) == 0
 
                 let snippet = CPYSnippet()
-                realm.transaction { realm.add(snippet) }
+                context.insert(snippet)
+                try! context.save()
 
-                expect(realm.objects(CPYSnippet.self).count) == 1
+                expect(try! context.fetchCount(descriptor)) == 1
 
                 let snippet2 = CPYSnippet()
                 snippet2.identifier = snippet.identifier
                 snippet2.remove()
 
-                expect(realm.objects(CPYSnippet.self).count) == 0
+                expect(try! context.fetchCount(descriptor)) == 0
             }
 
             afterEach {
-                let realm = try! Realm()
-                realm.transaction { realm.deleteAll() }
+                let context = AppEnvironment.current.modelContainer.mainContext
+                let snippets = (try? context.fetch(FetchDescriptor<CPYSnippet>())) ?? []
+                snippets.forEach { context.delete($0) }
+                try! context.delete(model: CPYFolder.self)
+                try! context.delete(model: CPYClip.self)
+                try! context.save()
             }
 
         }

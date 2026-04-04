@@ -55,7 +55,7 @@ final class PasteService {
 // MARK: - Copy
 extension PasteService {
     func paste(with clip: CPYClip) {
-        guard !clip.isInvalidated else { return }
+        guard clip.modelContext != nil else { return }
         guard let fileData = try? Data(contentsOf: URL(fileURLWithPath: clip.dataPath)),
               let unarchiver = try? NSKeyedUnarchiver(forReadingFrom: fileData) else { return }
         unarchiver.requiresSecureCoding = false

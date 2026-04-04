@@ -11,7 +11,7 @@
 
 import Foundation
 import RxSwift
-import RealmSwift
+import SwiftData
 import PINCache
 
 final class DataCleanService {
@@ -33,39 +33,37 @@ final class DataCleanService {
 
     // MARK: - Delete Data
     func cleanDatas() {
-        let realm = try! Realm()
-        let flowHistories = overflowingClips(with: realm)
+        let context = ModelContext(AppEnvironment.current.modelContainer)
+        let flowHistories = overflowingClips(with: context)
         flowHistories
-            .filter { !$0.isInvalidated && !$0.thumbnailPath.isEmpty }
+            .filter { !$0.thumbnailPath.isEmpty }
             .map { $0.thumbnailPath }
             .forEach { PINCache.shared.removeObject(forKey: $0) }
-        realm.transaction { realm.delete(flowHistories) }
-        cleanFiles(with: realm)
+        flowHistories.forEach { context.delete($0) }
+        try? context.save()
+        cleanFiles(with: context)
     }
 
-    private func overflowingClips(with realm: Realm) -> Results<CPYClip> {
-        let clips = realm.objects(CPYClip.self).sorted(byKeyPath: #keyPath(CPYClip.updateTime), ascending: false)
+    private func overflowingClips(with context: ModelContext) -> [CPYClip] {
+        let descriptor = FetchDescriptor<CPYClip>(sortBy: [SortDescriptor(\.updateTime, order: .reverse)])
         let maxHistorySize = AppEnvironment.current.defaults.integer(forKey: Constants.UserDefaults.maxHistorySize)
 
-        if clips.count <= maxHistorySize { return realm.objects(CPYClip.self).filter("FALSEPREDICATE") }
-        // Delete first clip
+        guard let clips = try? context.fetch(descriptor) else { return [] }
+        guard clips.count > maxHistorySize else { return [] }
+
         let lastClip = clips[maxHistorySize - 1]
-        if lastClip.isInvalidated { return realm.objects(CPYClip.self).filter("FALSEPREDICATE") }
-
-        // Deletion target
-        let updateTime = lastClip.updateTime
-        let targetClips = realm.objects(CPYClip.self).filter("updateTime < %d", updateTime)
-
-        return targetClips
+        let cutoffTime = lastClip.updateTime
+        let targetDescriptor = FetchDescriptor<CPYClip>(predicate: #Predicate { $0.updateTime < cutoffTime })
+        return (try? context.fetch(targetDescriptor)) ?? []
     }
 
-    private func cleanFiles(with realm: Realm) {
+    private func cleanFiles(with context: ModelContext) {
         let fileManager = FileManager.default
         guard let paths = try? fileManager.contentsOfDirectory(atPath: CPYUtilities.applicationSupportFolder()) else { return }
 
-        let allClipPaths = Array(realm.objects(CPYClip.self)
-            .filter { !$0.isInvalidated }
-            .compactMap { $0.dataPath.components(separatedBy: "/").last })
+        let descriptor = FetchDescriptor<CPYClip>()
+        guard let allClips = try? context.fetch(descriptor) else { return }
+        let allClipPaths = allClips.compactMap { $0.dataPath.components(separatedBy: "/").last }
 
         // Delete diff datas
         DispatchQueue.main.async {

@@ -10,6 +10,7 @@
 //
 
 import Foundation
+import SwiftData
 
 struct Environment {
 
@@ -23,6 +24,7 @@ struct Environment {
     let menuManager: MenuManager
 
     let defaults: UserDefaults
+    let modelContainer: ModelContainer
 
     // MARK: - Initialize
     init(clipService: ClipService = ClipService(),
@@ -32,7 +34,8 @@ struct Environment {
          excludeAppService: ExcludeAppService = ExcludeAppService(applications: []),
          accessibilityService: AccessibilityService = AccessibilityService(),
          menuManager: MenuManager = MenuManager(),
-         defaults: UserDefaults = .standard) {
+         defaults: UserDefaults = .standard,
+         modelContainer: ModelContainer = try! ModelContainer(for: CPYClip.self, CPYFolder.self, CPYSnippet.self)) {
 
         self.clipService = clipService
         self.hotKeyService = hotKeyService
@@ -42,6 +45,7 @@ struct Environment {
         self.accessibilityService = accessibilityService
         self.menuManager = menuManager
         self.defaults = defaults
+        self.modelContainer = modelContainer
     }
 
 }

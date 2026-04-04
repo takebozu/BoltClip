@@ -10,22 +10,32 @@
 //
 
 import Cocoa
-import RealmSwift
+import SwiftData
 
-final class CPYClip: Object {
+@Model
+final class CPYClip {
 
     // MARK: - Properties
-    @objc dynamic var dataPath = ""
-    @objc dynamic var title = ""
-    @objc dynamic var dataHash = ""
-    @objc dynamic var primaryType = ""
-    @objc dynamic var updateTime = 0
-    @objc dynamic var thumbnailPath = ""
-    @objc dynamic var isColorCode = false
+    var dataPath: String = ""
+    var title: String = ""
+    @Attribute(.unique) var dataHash: String = ""
+    var primaryType: String = ""
+    var updateTime: Int = 0
+    var thumbnailPath: String = ""
+    var isColorCode: Bool = false
 
-    // MARK: Primary Key
-    override static func primaryKey() -> String? {
-        return "dataHash"
+    init() {}
+
+    init(dataPath: String = "", title: String = "", dataHash: String = "",
+         primaryType: String = "", updateTime: Int = 0,
+         thumbnailPath: String = "", isColorCode: Bool = false) {
+        self.dataPath = dataPath
+        self.title = title
+        self.dataHash = dataHash
+        self.primaryType = primaryType
+        self.updateTime = updateTime
+        self.thumbnailPath = thumbnailPath
+        self.isColorCode = isColorCode
     }
 
 }

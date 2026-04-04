@@ -12,7 +12,7 @@
 import Foundation
 import Cocoa
 import Magnet
-import RealmSwift
+import SwiftData
 
 final class HotKeyService: NSObject {
 
@@ -213,8 +213,11 @@ extension HotKeyService {
 
     @objc func popupSnippetFolder(_ object: AnyObject) {
         guard let hotKey = object as? HotKey else { return }
-        let realm = try! Realm()
-        guard let folder = realm.object(ofType: CPYFolder.self, forPrimaryKey: hotKey.identifier) else {
+        let context = ModelContext(AppEnvironment.current.modelContainer)
+        let hotKeyId = hotKey.identifier
+        var descriptor = FetchDescriptor<CPYFolder>(predicate: #Predicate { $0.identifier == hotKeyId })
+        descriptor.fetchLimit = 1
+        guard let folder = try? context.fetch(descriptor).first else {
             // When already deleted folder, remove keycombos
             unregisterSnippetHotKey(with: hotKey.identifier)
             return

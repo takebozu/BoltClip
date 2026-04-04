@@ -11,7 +11,7 @@
 
 import Foundation
 import Cocoa
-import RealmSwift
+import SwiftData
 import PINCache
 import RxSwift
 import RxCocoa
@@ -29,7 +29,7 @@ final class ClipService {
     func startMonitoring() {
         disposeBag = DisposeBag()
         // Pasteboard observe timer
-        Observable<Int>.interval(.microseconds(750), scheduler: scheduler)
+        Observable<Int>.interval(.milliseconds(750), scheduler: scheduler)
             .map { _ in NSPasteboard.general.changeCount }
             .withLatestFrom(cachedChangeCount.asObservable()) { ($0, $1) }
             .filter { $0 != $1 }
@@ -50,29 +50,37 @@ final class ClipService {
     }
 
     func clearAll() {
-        let realm = try! Realm()
-        let clips = realm.objects(CPYClip.self)
+        let context = ModelContext(AppEnvironment.current.modelContainer)
+        let descriptor = FetchDescriptor<CPYClip>()
+        guard let clips = try? context.fetch(descriptor) else { return }
 
         // Delete saved images
         clips
             .filter { !$0.thumbnailPath.isEmpty }
             .map { $0.thumbnailPath }
             .forEach { PINCache.shared.removeObject(forKey: $0) }
-        // Delete Realm
-        realm.transaction { realm.delete(clips) }
-        // Delete writed datas
+        // Delete from SwiftData
+        clips.forEach { context.delete($0) }
+        try? context.save()
+        // Delete written datas
         AppEnvironment.current.dataCleanService.cleanDatas()
     }
 
     func delete(with clip: CPYClip) {
-        let realm = try! Realm()
+        let context = ModelContext(AppEnvironment.current.modelContainer)
         // Delete saved images
         let path = clip.thumbnailPath
         if !path.isEmpty {
             PINCache.shared.removeObject(forKey: path)
         }
-        // Delete Realm
-        realm.transaction { realm.delete(clip) }
+        // Delete from SwiftData
+        let hash = clip.dataHash
+        var descriptor = FetchDescriptor<CPYClip>(predicate: #Predicate { $0.dataHash == hash })
+        descriptor.fetchLimit = 1
+        if let existing = try? context.fetch(descriptor).first {
+            context.delete(existing)
+            try? context.save()
+        }
     }
 
     func incrementChangeCount() {
@@ -112,12 +120,15 @@ extension ClipService {
     }
 
     fileprivate func save(with data: CPYClipData) {
-        let realm = try! Realm()
+        let container = AppEnvironment.current.modelContainer
+        let context = ModelContext(container)
+
         // Copy already copied history
+        let hashStr = "\(data.hash)"
         let isCopySameHistory = AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.copySameHistory)
-        if realm.object(ofType: CPYClip.self, forPrimaryKey: "\(data.hash)") != nil, !isCopySameHistory { return }
-        // Don't save invalidated clip
-        if let clip = realm.object(ofType: CPYClip.self, forPrimaryKey: "\(data.hash)"), clip.isInvalidated { return }
+        var checkDescriptor = FetchDescriptor<CPYClip>(predicate: #Predicate { $0.dataHash == hashStr })
+        checkDescriptor.fetchLimit = 1
+        if (try? context.fetch(checkDescriptor).first) != nil, !isCopySameHistory { return }
 
         // Don't save empty string history
         if data.isOnlyStringType && data.stringValue.isEmpty { return }
@@ -129,10 +140,14 @@ extension ClipService {
         // Saved time and path
         let unixTime = Int(Date().timeIntervalSince1970)
         let savedPath = CPYUtilities.applicationSupportFolder() + "/\(NSUUID().uuidString).data"
-        // Create Realm object
+        // Create clip object
         let clip = CPYClip()
         clip.dataPath = savedPath
-        clip.title = data.stringValue[0...10000]
+        if data.stringValue.isEmpty && !data.fileNames.isEmpty {
+            clip.title = data.fileNames.map { URL(fileURLWithPath: $0).lastPathComponent }.joined(separator: ", ")
+        } else {
+            clip.title = data.stringValue[0...10000]
+        }
         clip.dataHash = "\(savedHash)"
         clip.updateTime = unixTime
         clip.primaryType = data.primaryType?.rawValue ?? ""
@@ -148,15 +163,14 @@ extension ClipService {
                 clip.thumbnailPath = "\(unixTime)"
                 clip.isColorCode = true
             }
-            // Save Realm and .data file
-            let dispatchRealm = try! Realm()
+            // Save SwiftData and .data file
+            let mainContext = AppEnvironment.current.modelContainer.mainContext
             if CPYUtilities.prepareSaveToPath(CPYUtilities.applicationSupportFolder()) {
                 if let archivedData = try? NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding: false) {
                     let savedURL = URL(fileURLWithPath: savedPath)
                     if (try? archivedData.write(to: savedURL)) != nil {
-                        dispatchRealm.transaction {
-                            dispatchRealm.add(clip, update: .all)
-                        }
+                        mainContext.insert(clip)
+                        try? mainContext.save()
                     }
                 }
             }

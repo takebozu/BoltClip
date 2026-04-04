@@ -10,6 +10,7 @@
 //
 
 import Foundation
+import SwiftData
 
 struct AppEnvironment {
 
@@ -42,7 +43,8 @@ struct AppEnvironment {
                      excludeAppService: ExcludeAppService = current.excludeAppService,
                      accessibilityService: AccessibilityService = current.accessibilityService,
                      menuManager: MenuManager = current.menuManager,
-                     defaults: UserDefaults = current.defaults) {
+                     defaults: UserDefaults = current.defaults,
+                     modelContainer: ModelContainer = current.modelContainer) {
         push(environment: Environment(clipService: clipService,
                                       hotKeyService: hotKeyService,
                                       dataCleanService: dataCleanService,
@@ -50,7 +52,8 @@ struct AppEnvironment {
                                       excludeAppService: excludeAppService,
                                       accessibilityService: accessibilityService,
                                       menuManager: menuManager,
-                                      defaults: defaults))
+                                      defaults: defaults,
+                                      modelContainer: modelContainer))
     }
 
     static func replaceCurrent(clipService: ClipService = current.clipService,
@@ -60,7 +63,8 @@ struct AppEnvironment {
                                excludeAppService: ExcludeAppService = current.excludeAppService,
                                accessibilityService: AccessibilityService = current.accessibilityService,
                                menuManager: MenuManager = current.menuManager,
-                               defaults: UserDefaults = current.defaults) {
+                               defaults: UserDefaults = current.defaults,
+                               modelContainer: ModelContainer = current.modelContainer) {
         replaceCurrent(environment: Environment(clipService: clipService,
                                                 hotKeyService: hotKeyService,
                                                 dataCleanService: dataCleanService,
@@ -68,7 +72,8 @@ struct AppEnvironment {
                                                 excludeAppService: excludeAppService,
                                                 accessibilityService: accessibilityService,
                                                 menuManager: menuManager,
-                                                defaults: defaults))
+                                                defaults: defaults,
+                                                modelContainer: modelContainer))
     }
 
     static func fromStorage(defaults: UserDefaults = .standard) -> Environment {
@@ -84,7 +89,8 @@ struct AppEnvironment {
                            excludeAppService: excludeAppService,
                            accessibilityService: current.accessibilityService,
                            menuManager: current.menuManager,
-                           defaults: current.defaults)
+                           defaults: current.defaults,
+                           modelContainer: current.modelContainer)
     }
 
  }

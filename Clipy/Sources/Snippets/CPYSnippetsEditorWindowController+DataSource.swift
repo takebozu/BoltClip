@@ -53,7 +53,7 @@ extension CPYSnippetsEditorWindowController: NSOutlineViewDataSource {
             guard let data = try? NSKeyedArchiver.archivedData(withRootObject: draggedData, requiringSecureCoding: false) else { return nil }
             pasteboardItem.setData(data, forType: NSPasteboard.PasteboardType(rawValue: Constants.Common.draggedDataType))
         } else if let snippet = item as? CPYSnippet, let folder = outlineView.parent(forItem: snippet) as? CPYFolder {
-            guard let index = folder.snippets.index(of: snippet) else { return nil }
+            guard let index = folder.snippets.firstIndex(of: snippet) else { return nil }
             let draggedData = CPYDraggedData(type: .snippet, folderIdentifier: folder.identifier, snippetIdentifier: snippet.identifier, index: Int(index))
             guard let data = try? NSKeyedArchiver.archivedData(withRootObject: draggedData, requiringSecureCoding: false) else { return nil }
             pasteboardItem.setData(data, forType: NSPasteboard.PasteboardType(rawValue: Constants.Common.draggedDataType))

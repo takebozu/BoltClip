@@ -10,42 +10,56 @@
 //
 
 import Cocoa
-import RealmSwift
+import SwiftData
 
-final class CPYFolder: Object {
+@Model
+final class CPYFolder {
 
     // MARK: - Properties
-    @objc dynamic var index = 0
-    @objc dynamic var enable = true
-    @objc dynamic var title = ""
-    @objc dynamic var identifier = UUID().uuidString
-    let snippets = List<CPYSnippet>()
+    var index: Int = 0
+    var enable: Bool = true
+    var title: String = ""
+    @Attribute(.unique) var identifier: String = UUID().uuidString
+    @Relationship(deleteRule: .cascade, inverse: \CPYSnippet.folder)
+    var snippets: [CPYSnippet] = []
 
-    // MARK: Primary Key
-    override static func primaryKey() -> String? {
-        return "identifier"
+    init() {}
+
+    init(index: Int = 0, enable: Bool = true, title: String = "", identifier: String = UUID().uuidString) {
+        self.index = index
+        self.enable = enable
+        self.title = title
+        self.identifier = identifier
     }
 
+}
+
+// MARK: - Equatable
+extension CPYFolder: Equatable {
+    static func == (lhs: CPYFolder, rhs: CPYFolder) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
 }
 
 // MARK: - Copy
 extension CPYFolder {
     func deepCopy() -> CPYFolder {
-        let folder = CPYFolder(value: self)
-        var snippets = [CPYSnippet]()
-        if realm == nil {
-            snippets.forEach {
-                let snippet = CPYSnippet(value: $0)
-                snippets.append(snippet)
-            }
-        } else {
-            self.snippets.sorted(byKeyPath: #keyPath(CPYSnippet.index), ascending: true).forEach {
-                let snippet = CPYSnippet(value: $0)
-                snippets.append(snippet)
-            }
+        let folder = CPYFolder()
+        folder.index = self.index
+        folder.enable = self.enable
+        folder.title = self.title
+        folder.identifier = self.identifier
+
+        let sortedSnippets = self.snippets.sorted { $0.index < $1.index }
+        folder.snippets = sortedSnippets.map { original in
+            let copy = CPYSnippet()
+            copy.index = original.index
+            copy.enable = original.enable
+            copy.title = original.title
+            copy.content = original.content
+            copy.identifier = original.identifier
+            return copy
         }
-        folder.snippets.removeAll()
-        folder.snippets.append(objectsIn: snippets)
         return folder
     }
 }
@@ -55,92 +69,139 @@ extension CPYFolder {
     func createSnippet() -> CPYSnippet {
         let snippet = CPYSnippet()
         snippet.title = "untitled snippet"
-        snippet.index = Int(snippets.count)
+        snippet.index = snippets.count
         return snippet
     }
 
+    @MainActor
     func mergeSnippet(_ snippet: CPYSnippet) {
-        let realm = try! Realm()
-        guard let folder = realm.object(ofType: CPYFolder.self, forPrimaryKey: identifier) else { return }
-        let copySnippet = CPYSnippet(value: snippet)
-        folder.realm?.transaction { folder.snippets.append(copySnippet) }
+        let context = AppEnvironment.current.modelContainer.mainContext
+        let folderId = self.identifier
+        var descriptor = FetchDescriptor<CPYFolder>(predicate: #Predicate { $0.identifier == folderId })
+        descriptor.fetchLimit = 1
+        guard let folder = try? context.fetch(descriptor).first else { return }
+        let copySnippet = CPYSnippet(index: snippet.index,
+                                     enable: snippet.enable,
+                                     title: snippet.title,
+                                     content: snippet.content,
+                                     identifier: snippet.identifier)
+        folder.snippets.append(copySnippet)
+        try? context.save()
     }
 
+    @MainActor
     func insertSnippet(_ snippet: CPYSnippet, index: Int) {
-        let realm = try! Realm()
-        guard let folder = realm.object(ofType: CPYFolder.self, forPrimaryKey: identifier) else { return }
-        guard let savedSnippet = realm.object(ofType: CPYSnippet.self, forPrimaryKey: snippet.identifier) else { return }
-        folder.realm?.transaction { folder.snippets.insert(savedSnippet, at: index) }
+        let context = AppEnvironment.current.modelContainer.mainContext
+        let folderId = self.identifier
+        var folderDescriptor = FetchDescriptor<CPYFolder>(predicate: #Predicate { $0.identifier == folderId })
+        folderDescriptor.fetchLimit = 1
+        guard let folder = try? context.fetch(folderDescriptor).first else { return }
+
+        let snippetId = snippet.identifier
+        var snippetDescriptor = FetchDescriptor<CPYSnippet>(predicate: #Predicate { $0.identifier == snippetId })
+        snippetDescriptor.fetchLimit = 1
+        guard let savedSnippet = try? context.fetch(snippetDescriptor).first else { return }
+
+        folder.snippets.insert(savedSnippet, at: index)
+        try? context.save()
         folder.rearrangesSnippetIndex()
     }
 
+    @MainActor
     func removeSnippet(_ snippet: CPYSnippet) {
-        let realm = try! Realm()
-        guard let folder = realm.object(ofType: CPYFolder.self, forPrimaryKey: identifier) else { return }
-        guard let savedSnippet = realm.object(ofType: CPYSnippet.self, forPrimaryKey: snippet.identifier), let index = folder.snippets.index(of: savedSnippet) else { return }
-        folder.realm?.transaction { folder.snippets.remove(at: index) }
+        let context = AppEnvironment.current.modelContainer.mainContext
+        let folderId = self.identifier
+        var folderDescriptor = FetchDescriptor<CPYFolder>(predicate: #Predicate { $0.identifier == folderId })
+        folderDescriptor.fetchLimit = 1
+        guard let folder = try? context.fetch(folderDescriptor).first else { return }
+
+        let snippetId = snippet.identifier
+        guard let index = folder.snippets.firstIndex(where: { $0.identifier == snippetId }) else { return }
+        folder.snippets.remove(at: index)
+        try? context.save()
         folder.rearrangesSnippetIndex()
     }
 }
 
 // MARK: - Add Folder
 extension CPYFolder {
+    @MainActor
     static func create() -> CPYFolder {
-        let realm = try! Realm()
+        let context = AppEnvironment.current.modelContainer.mainContext
+        let descriptor = FetchDescriptor<CPYFolder>(sortBy: [SortDescriptor(\.index, order: .forward)])
+        let allFolders = (try? context.fetch(descriptor)) ?? []
+        let lastIndex = allFolders.last?.index ?? -1
+
         let folder = CPYFolder()
         folder.title = "untitled folder"
-        let lastFolder = realm.objects(CPYFolder.self).sorted(byKeyPath: #keyPath(CPYFolder.index), ascending: true).last
-        folder.index = lastFolder?.index ?? -1
-        folder.index += 1
+        folder.index = lastIndex + 1
         return folder
     }
 
+    @MainActor
     func merge() {
-        let realm = try! Realm()
-        if let folder = realm.object(ofType: CPYFolder.self, forPrimaryKey: identifier) {
-            folder.realm?.transaction {
-                folder.index = index
-                folder.enable = enable
-                folder.title = title
-            }
+        let context = AppEnvironment.current.modelContainer.mainContext
+        let folderId = self.identifier
+        var descriptor = FetchDescriptor<CPYFolder>(predicate: #Predicate { $0.identifier == folderId })
+        descriptor.fetchLimit = 1
+
+        if let existing = try? context.fetch(descriptor).first {
+            existing.index = self.index
+            existing.enable = self.enable
+            existing.title = self.title
         } else {
-            let copyFolder = CPYFolder(value: self)
-            realm.transaction { realm.add(copyFolder, update: .all) }
+            let newFolder = CPYFolder(index: index, enable: enable, title: title, identifier: identifier)
+            context.insert(newFolder)
         }
+        try? context.save()
     }
 }
 
 // MARK: - Remove Folder
 extension CPYFolder {
+    @MainActor
     func remove() {
-        let realm = try! Realm()
-        guard let folder = realm.object(ofType: CPYFolder.self, forPrimaryKey: identifier) else { return }
-        folder.realm?.transaction { folder.realm?.delete(folder.snippets) }
-        folder.realm?.transaction { folder.realm?.delete(folder) }
+        let context = AppEnvironment.current.modelContainer.mainContext
+        let folderId = self.identifier
+        var descriptor = FetchDescriptor<CPYFolder>(predicate: #Predicate { $0.identifier == folderId })
+        descriptor.fetchLimit = 1
+
+        guard let folder = try? context.fetch(descriptor).first else { return }
+        // cascade delete rule will handle snippets
+        context.delete(folder)
+        try? context.save()
     }
 }
 
 // MARK: - Migrate Index
 extension CPYFolder {
+    @MainActor
     static func rearrangesIndex(_ folders: [CPYFolder]) {
-        for (index, folder) in folders.enumerated() {
-            if folder.realm == nil { folder.index = index }
-            let realm = try! Realm()
-            guard let savedFolder = realm.object(ofType: CPYFolder.self, forPrimaryKey: folder.identifier) else { return }
-            savedFolder.realm?.transaction {
-                savedFolder.index = index
+        let context = AppEnvironment.current.modelContainer.mainContext
+        for (idx, folder) in folders.enumerated() {
+            folder.index = idx
+            let folderId = folder.identifier
+            var descriptor = FetchDescriptor<CPYFolder>(predicate: #Predicate { $0.identifier == folderId })
+            descriptor.fetchLimit = 1
+            if let saved = try? context.fetch(descriptor).first {
+                saved.index = idx
             }
         }
+        try? context.save()
     }
 
+    @MainActor
     func rearrangesSnippetIndex() {
-        for (index, snippet) in snippets.enumerated() {
-            if snippet.realm == nil { snippet.index = index }
-            let realm = try! Realm()
-            guard let savedSnippet = realm.object(ofType: CPYSnippet.self, forPrimaryKey: snippet.identifier) else { return }
-            savedSnippet.realm?.transaction {
-                savedSnippet.index = index
+        let context = AppEnvironment.current.modelContainer.mainContext
+        for (idx, snippet) in snippets.enumerated() {
+            snippet.index = idx
+            let snippetId = snippet.identifier
+            var descriptor = FetchDescriptor<CPYSnippet>(predicate: #Predicate { $0.identifier == snippetId })
+            descriptor.fetchLimit = 1
+            if let saved = try? context.fetch(descriptor).first {
+                saved.index = idx
             }
         }
+        try? context.save()
     }
 }

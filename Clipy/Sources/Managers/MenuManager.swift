@@ -11,7 +11,7 @@
 
 import Cocoa
 import PINCache
-import RealmSwift
+import SwiftData
 import RxCocoa
 import RxSwift
 
@@ -32,10 +32,8 @@ final class MenuManager: NSObject {
     fileprivate let notificationCenter = NotificationCenter.default
     fileprivate let kMaxKeyEquivalents = 10
     fileprivate let shortenSymbol = "..."
-    // Realm
-    fileprivate let realm = try! Realm()
-    fileprivate var clipToken: NotificationToken?
-    fileprivate var snippetToken: NotificationToken?
+    // SwiftData
+    fileprivate var didSaveObserver: Any?
 
     // MARK: - Enum Values
     enum StatusType: Int {
@@ -52,6 +50,7 @@ final class MenuManager: NSObject {
     }
 
     func setup() {
+        createClipMenu()
         bind()
     }
 
@@ -81,7 +80,7 @@ extension MenuManager {
         // Snippets
         var index = firstIndexOfMenuItems()
         folder.snippets
-            .sorted(byKeyPath: #keyPath(CPYSnippet.index), ascending: true)
+            .sorted { $0.index < $1.index }
             .filter { $0.enable }
             .forEach { snippet in
                 let subMenuItem = makeSnippetMenuItem(snippet, listNumber: index)
@@ -95,19 +94,14 @@ extension MenuManager {
 // MARK: - Binding
 private extension MenuManager {
     func bind() {
-        // Realm Notification
-        clipToken = realm.objects(CPYClip.self)
-                        .observe { [weak self] _ in
-                            DispatchQueue.main.async { [weak self] in
-                                self?.createClipMenu()
-                            }
-                        }
-        snippetToken = realm.objects(CPYFolder.self)
-                        .observe { [weak self] _ in
-                            DispatchQueue.main.async { [weak self] in
-                                self?.createClipMenu()
-                            }
-                        }
+        // SwiftData Notification
+        didSaveObserver = NotificationCenter.default.addObserver(
+            forName: ModelContext.didSave,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.createClipMenu()
+        }
         // Menu icon
         AppEnvironment.current.defaults.rx.observe(Int.self, Constants.UserDefaults.showStatusItem, retainSelf: false)
             .compactMap { $0 }
@@ -273,7 +267,10 @@ private extension MenuManager {
         var subMenuIndex = 1 + placeInLine
 
         let ascending = !AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.reorderClipsAfterPasting)
-        let clipResults = realm.objects(CPYClip.self).sorted(byKeyPath: #keyPath(CPYClip.updateTime), ascending: ascending)
+        let context = ModelContext(AppEnvironment.current.modelContainer)
+        let sortOrder: SortOrder = ascending ? .forward : .reverse
+        let clipDescriptor = FetchDescriptor<CPYClip>(sortBy: [SortDescriptor(\.updateTime, order: sortOrder)])
+        let clipResults = (try? context.fetch(clipDescriptor)) ?? []
         let currentSize = Int(clipResults.count)
         var i = 0
         for clip in clipResults {
@@ -371,7 +368,9 @@ private extension MenuManager {
 // MARK: - Snippets
 private extension MenuManager {
     func addSnippetItems(_ menu: NSMenu, separateMenu: Bool) {
-        let folderResults = realm.objects(CPYFolder.self).sorted(byKeyPath: #keyPath(CPYFolder.index), ascending: true)
+        let context = ModelContext(AppEnvironment.current.modelContainer)
+        let folderDescriptor = FetchDescriptor<CPYFolder>(sortBy: [SortDescriptor(\.index, order: .forward)])
+        let folderResults = (try? context.fetch(folderDescriptor)) ?? []
         guard !folderResults.isEmpty else { return }
         if separateMenu {
             menu.addItem(NSMenuItem.separator())
@@ -395,7 +394,7 @@ private extension MenuManager {
 
                 var i = firstIndex
                 folder.snippets
-                    .sorted(byKeyPath: #keyPath(CPYSnippet.index), ascending: true)
+                    .sorted { $0.index < $1.index }
                     .filter { $0.enable }
                     .forEach { snippet in
                         let subMenuItem = makeSnippetMenuItem(snippet, listNumber: i)

@@ -16,7 +16,7 @@ import ServiceManagement
 import Magnet
 import Screeen
 import RxScreeen
-import RealmSwift
+import SwiftData
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSMenuItemValidation {
@@ -25,18 +25,13 @@ class AppDelegate: NSObject, NSMenuItemValidation {
     let screenshotObserver = ScreenShotObserver()
     let disposeBag = DisposeBag()
 
-    // MARK: - Init
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Migrate Realm
-        Realm.migration()
-    }
-
     // MARK: - NSMenuItem Validation
     func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         if menuItem.action == #selector(AppDelegate.clearAllHistory) {
-            let realm = try! Realm()
-            return !realm.objects(CPYClip.self).isEmpty
+            let context = AppEnvironment.current.modelContainer.mainContext
+            let descriptor = FetchDescriptor<CPYClip>()
+            let count = (try? context.fetchCount(descriptor)) ?? 0
+            return count > 0
         }
         return true
     }
@@ -94,8 +89,10 @@ class AppDelegate: NSObject, NSMenuItemValidation {
             NSSound.beep()
             return
         }
-        let realm = try! Realm()
-        guard let clip = realm.object(ofType: CPYClip.self, forPrimaryKey: primaryKey) else {
+        let context = ModelContext(AppEnvironment.current.modelContainer)
+        var descriptor = FetchDescriptor<CPYClip>(predicate: #Predicate { $0.dataHash == primaryKey })
+        descriptor.fetchLimit = 1
+        guard let clip = try? context.fetch(descriptor).first else {
             CPYUtilities.sendCustomLog(with: "Cannot fetch clip data")
             NSSound.beep()
             return
@@ -111,8 +108,10 @@ class AppDelegate: NSObject, NSMenuItemValidation {
             NSSound.beep()
             return
         }
-        let realm = try! Realm()
-        guard let snippet = realm.object(ofType: CPYSnippet.self, forPrimaryKey: primaryKey) else {
+        let context = ModelContext(AppEnvironment.current.modelContainer)
+        var descriptor = FetchDescriptor<CPYSnippet>(predicate: #Predicate { $0.identifier == primaryKey })
+        descriptor.fetchLimit = 1
+        guard let snippet = try? context.fetch(descriptor).first else {
             CPYUtilities.sendCustomLog(with: "Cannot fetch snippet data")
             NSSound.beep()
             return
