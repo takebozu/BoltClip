@@ -146,19 +146,19 @@
       }
     },
     "lZ0-qQ-qWk.title" : {
-      "comment" : "Class = \"NSButtonCell\"; title = \"TIFF Image\"; ObjectID = \"lZ0-qQ-qWk\";",
+      "comment" : "Class = \"NSButtonCell\"; title = \"Image\"; ObjectID = \"lZ0-qQ-qWk\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "TIFF Bild"
+            "value" : "Bild"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "TIFF Image"
+            "value" : "Image"
           }
         },
         "it" : {
@@ -176,7 +176,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "TIFF 图像"
+            "value" : "图像"
           }
         }
       }

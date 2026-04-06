@@ -56,7 +56,7 @@ final class CPYClipData: NSObject {
         return types.first
     }
     var isOnlyStringType: Bool {
-        return types == [.deprecatedString]
+        return types == [.string]
     }
     var thumbnailImage: NSImage? {
         let defaults = UserDefaults.standard
@@ -83,13 +83,13 @@ final class CPYClipData: NSObject {
     }
 
     static var availableTypes: [NSPasteboard.PasteboardType] {
-        return [.deprecatedString,
-                .deprecatedRTF,
-                .deprecatedRTFD,
-                .deprecatedPDF,
-                .deprecatedFilenames,
-                .deprecatedURL,
-                .deprecatedTIFF]
+        return [.string,
+                .rtf,
+                .rtfd,
+                .pdf,
+                .fileURL,
+                .URL,
+                .tiff]
     }
     static var availableTypesString: [String] {
         return ["String",
@@ -100,7 +100,7 @@ final class CPYClipData: NSObject {
                 "URL",
                 "TIFF"]
     }
-    static var availableTypesDictinary: [NSPasteboard.PasteboardType: String] {
+    static var availableTypesDictionary: [NSPasteboard.PasteboardType: String] {
         var availableTypes = [NSPasteboard.PasteboardType: String]()
         zip(CPYClipData.availableTypes, CPYClipData.availableTypesString).forEach { availableTypes[$0] = $1 }
         return availableTypes
@@ -112,22 +112,22 @@ final class CPYClipData: NSObject {
         self.types = types
         types.forEach { type in
             switch type {
-            case .deprecatedString:
-                guard let string = pasteboard.string(forType: .deprecatedString) else { return }
+            case .string:
+                guard let string = pasteboard.string(forType: .string) else { return }
                 stringValue = string
-            case .deprecatedRTFD:
-                RTFData = pasteboard.data(forType: .deprecatedRTFD)
-            case .deprecatedRTF where RTFData == nil:
-                RTFData = pasteboard.data(forType: .deprecatedRTF)
-            case .deprecatedPDF:
-                PDF = pasteboard.data(forType: .deprecatedPDF)
-            case .deprecatedFilenames:
-                guard let filenames = pasteboard.propertyList(forType: .deprecatedFilenames) as? [String] else { return }
-                self.fileNames = filenames
-            case .deprecatedURL:
-                guard let urls = pasteboard.propertyList(forType: .deprecatedURL) as? [String] else { return }
-                URLs = urls
-            case .deprecatedTIFF:
+            case .rtfd:
+                RTFData = pasteboard.data(forType: .rtfd)
+            case .rtf where RTFData == nil:
+                RTFData = pasteboard.data(forType: .rtf)
+            case .pdf:
+                PDF = pasteboard.data(forType: .pdf)
+            case .fileURL:
+                guard let urls = pasteboard.readObjects(forClasses: [NSURL.self], options: nil) as? [URL] else { return }
+                self.fileNames = urls.map { $0.path }
+            case .URL:
+                guard let urls = pasteboard.readObjects(forClasses: [NSURL.self], options: nil) as? [URL] else { return }
+                URLs = urls.map { $0.absoluteString }
+            case .tiff:
                 image = pasteboard.readObjects(forClasses: [NSImage.self], options: nil)?.first as? NSImage
             default: break
             }
@@ -135,7 +135,7 @@ final class CPYClipData: NSObject {
     }
 
     init(image: NSImage) {
-        self.types = [.deprecatedTIFF]
+        self.types = [.tiff]
         self.image = image
     }
 
