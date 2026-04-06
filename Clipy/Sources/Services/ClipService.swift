@@ -110,7 +110,7 @@ extension ClipService {
         let data = CPYClipData(pasteboard: pasteboard, types: types)
         save(with: data)
     }
-
+ 
     func create(with image: NSImage) {
         lock.lock(); defer { lock.unlock() }
 
@@ -178,8 +178,32 @@ extension ClipService {
     }
 
     private func types(with pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
-        let types = pasteboard.types?.filter { canSave(with: $0) } ?? []
-        return NSOrderedSet(array: types).array as? [NSPasteboard.PasteboardType] ?? []
+        let filteredTypes = pasteboard.types?.filter { canSave(with: $0) } ?? []
+        let uniqueTypes = NSOrderedSet(array: filteredTypes).array as? [NSPasteboard.PasteboardType] ?? []
+
+        // URL payloads often include a plain-string flavor as well.
+        // Prefer semantic types so clips are categorized by the richer format.
+        let typePriority: [NSPasteboard.PasteboardType: Int] = [
+            .fileURL: 0,
+            .URL: 1,
+            .rtfd: 2,
+            .rtf: 3,
+            .pdf: 4,
+            .tiff: 5,
+            .string: 6
+        ]
+
+        return uniqueTypes
+            .enumerated()
+            .sorted {
+                let leftPriority = typePriority[$0.element] ?? Int.max
+                let rightPriority = typePriority[$1.element] ?? Int.max
+                if leftPriority == rightPriority {
+                    return $0.offset < $1.offset
+                }
+                return leftPriority < rightPriority
+            }
+            .map { $0.element }
     }
 
     private func canSave(with type: NSPasteboard.PasteboardType) -> Bool {
