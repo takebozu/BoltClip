@@ -62,10 +62,10 @@ class AppDelegate: NSObject, NSMenuItemValidation {
         let isShowAlert = AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.showAlertBeforeClearHistory)
         if isShowAlert {
             let alert = NSAlert()
-            alert.messageText = NSLocalizedString("Clear History", comment: "")
-            alert.informativeText = NSLocalizedString("Are you sure you want to clear your clipboard history?", comment: "")
-            alert.addButton(withTitle: NSLocalizedString("Clear History", comment: ""))
-            alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
+            alert.messageText = String(localized: "Clear History")
+            alert.informativeText = String(localized: "Are you sure you want to clear your clipboard history?")
+            alert.addButton(withTitle: String(localized: "Clear History"))
+            alert.addButton(withTitle: String(localized: "Cancel"))
             alert.showsSuppressionButton = true
 
             NSApp.activate(ignoringOtherApps: true)
@@ -127,10 +127,10 @@ class AppDelegate: NSObject, NSMenuItemValidation {
     // MARK: - Login Item Methods
     private func promptToAddLoginItems() {
         let alert = NSAlert()
-        alert.messageText = NSLocalizedString("Launch BoltClip on system startup?", comment: "")
-        alert.informativeText = NSLocalizedString("You can change this setting in the Preferences if you want", comment: "")
-        alert.addButton(withTitle: NSLocalizedString("Launch on system startup", comment: ""))
-        alert.addButton(withTitle: NSLocalizedString("Don't Launch", comment: ""))
+        alert.messageText = String(localized: "Launch BoltClip on system startup?")
+        alert.informativeText = String(localized: "You can change this setting later in “Preferences...”.")
+        alert.addButton(withTitle: String(localized: "Launch on system startup"))
+        alert.addButton(withTitle: String(localized: "Don't Launch"))
         alert.showsSuppressionButton = true
         NSApp.activate(ignoringOtherApps: true)
 

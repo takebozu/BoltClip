@@ -21,7 +21,7 @@ final class CPYPreferencesWindowController: NSWindowController {
             backing: .buffered,
             defer: true
         )
-        window.title = NSLocalizedString("BoltClip - Setting", comment: "")
+        window.title = String(localized: "BoltClip - Setting")
         window.isReleasedWhenClosed = false
         window.collectionBehavior = .canJoinAllSpaces
 
@@ -57,12 +57,12 @@ final class CPYPreferencesWindowController: NSWindowController {
 
         var label: String {
             switch self {
-            case .general:   return NSLocalizedString("General", comment: "")
-            case .menu:      return NSLocalizedString("Menu", comment: "")
-            case .type:      return NSLocalizedString("Type", comment: "")
-            case .exclude:   return NSLocalizedString("Exclude", comment: "")
-            case .shortcuts: return NSLocalizedString("Shortcuts", comment: "")
-            case .beta:      return NSLocalizedString("Beta", comment: "")
+            case .general:   return String(localized: "General")
+            case .menu:      return String(localized: "Menu")
+            case .type:      return String(localized: "Type")
+            case .exclude:   return String(localized: "Exclude")
+            case .shortcuts: return String(localized: "Shortcuts")
+            case .beta:      return String(localized: "Beta")
             }
         }
 

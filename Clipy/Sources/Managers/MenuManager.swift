@@ -181,13 +181,13 @@ private extension MenuManager {
         clipMenu?.addItem(NSMenuItem.separator())
 
         if AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.addClearHistoryMenuItem) {
-            clipMenu?.addItem(NSMenuItem(title: NSLocalizedString("Clear History", comment: ""), action: #selector(AppDelegate.clearAllHistory)))
+            clipMenu?.addItem(NSMenuItem(title: String(localized: "Clear History"), action: #selector(AppDelegate.clearAllHistory)))
         }
 
-        clipMenu?.addItem(NSMenuItem(title: NSLocalizedString("Edit Snippets", comment: ""), action: #selector(AppDelegate.showSnippetEditorWindow)))
-        clipMenu?.addItem(NSMenuItem(title: NSLocalizedString("Preferences", comment: ""), action: #selector(AppDelegate.showPreferenceWindow)))
+        clipMenu?.addItem(NSMenuItem(title: String(localized: "Edit Snippets"), action: #selector(AppDelegate.showSnippetEditorWindow)))
+        clipMenu?.addItem(NSMenuItem(title: String(localized: "Preferences"), action: #selector(AppDelegate.showPreferenceWindow)))
         clipMenu?.addItem(NSMenuItem.separator())
-        clipMenu?.addItem(NSMenuItem(title: NSLocalizedString("Quit BoltClip", comment: ""), action: #selector(AppDelegate.terminate)))
+        clipMenu?.addItem(NSMenuItem(title: String(localized: "Quit BoltClip"), action: #selector(AppDelegate.terminate)))
 
         statusItem?.menu = clipMenu
     }
@@ -256,7 +256,7 @@ private extension MenuManager {
         let maxHistory = AppEnvironment.current.defaults.integer(forKey: Constants.UserDefaults.maxHistorySize)
 
         // History title
-        let labelItem = NSMenuItem(title: NSLocalizedString("History", comment: ""), action: nil)
+        let labelItem = NSMenuItem(title: String(localized: "History"), action: nil)
         labelItem.isEnabled = false
         menu.addItem(labelItem)
 
@@ -377,7 +377,7 @@ private extension MenuManager {
         }
 
         // Snippet title
-        let labelItem = NSMenuItem(title: NSLocalizedString("Snippet", comment: ""), action: nil)
+        let labelItem = NSMenuItem(title: String(localized: "Snippet"), action: nil)
         labelItem.isEnabled = false
         menu.addItem(labelItem)
 

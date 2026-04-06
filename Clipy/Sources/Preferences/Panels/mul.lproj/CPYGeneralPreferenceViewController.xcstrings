@@ -20,7 +20,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Incolla automaticamente dopo la selezione"
+            "value" : "Premi \"⌘ + V\" dopo la selezione"
           }
         },
         "ja" : {
@@ -272,7 +272,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Invia rapporti sugli arresti anomali"
+            "value" : "Invia rapporti sugli arresti anomali (effettivo al prossimo avvio)"
           }
         },
         "ja" : {
@@ -344,7 +344,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impostazioni essenziali"
+            "value" : "Comportamento"
           }
         },
         "ja" : {
@@ -404,7 +404,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Beim Starten öffnen"
+            "value" : "Beim Anmelden starten"
           }
         },
         "en" : {

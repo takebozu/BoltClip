@@ -550,9 +550,7 @@
 				TargetAttributes = {
 					FAC43DC51B35D8B100C06102 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = BBCHAJ584H;
 						LastSwiftMigration = 1140;
-						ProvisioningStyle = Manual;
 					};
 					FAC43DD71B35D8B100C06102 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -902,11 +900,14 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Clipy/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = BoltClip;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.takezawa.BoltClip.debug;
 				PRODUCT_NAME = BoltClip;
 				PROVISIONING_PROFILE = "";
@@ -922,21 +923,36 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 28DN5D9UXX;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Clipy/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = BoltClip;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.takezawa.BoltClip;
 				PRODUCT_NAME = BoltClip;
 				PROVISIONING_PROFILE = "";
