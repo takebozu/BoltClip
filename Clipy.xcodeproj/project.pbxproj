@@ -29,7 +29,6 @@
 		B7DB3F632F6A8AD600AE1E52 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F622F6A8AD600AE1E52 /* Quick */; };
 		B7DB3F662F6A8CBA00AE1E52 /* SwiftHEXColors in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F652F6A8CBA00AE1E52 /* SwiftHEXColors */; };
 		B7DB3F692F6A8E8B00AE1E52 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F682F6A8E8B00AE1E52 /* AEXML */; };
-		C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift */; };
 		FA08EDF81D1FED7D000D1D13 /* HotKeyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */; };
 		FA0D5CE81DDCC61600AC9052 /* ClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5CE71DDCC61600AC9052 /* ClipService.swift */; };
 		FA1189331E4CD58C00244F12 /* ExcludeAppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1189321E4CD58C00244F12 /* ExcludeAppService.swift */; };
@@ -126,7 +125,6 @@
 		B75A99F32F77C74500BE3012 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/CPYShortcutsPreferenceViewController.xcstrings; sourceTree = "<group>"; };
 		B75A99F52F77C74500BE3012 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/CPYSnippetsEditorWindowController.xcstrings; sourceTree = "<group>"; };
 		B75A99F62F77C74500BE3012 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/CPYMenuPreferenceViewController.xcstrings; sourceTree = "<group>"; };
-		C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+Deprecated.swift"; sourceTree = "<group>"; };
 		FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyServiceSpec.swift; sourceTree = "<group>"; };
 		FA0D5CE71DDCC61600AC9052 /* ClipService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipService.swift; sourceTree = "<group>"; };
 		FA1189321E4CD58C00244F12 /* ExcludeAppService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcludeAppService.swift; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 				FA1DB4AF1DDCB452007F95C8 /* NSUserDefaults+ArchiveData.swift */,
 				FA1DB4B21DDCB452007F95C8 /* String+Substring.swift */,
 				FA431F011E6718CE00ACFF56 /* Collection+Safe.swift */,
-				C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -642,7 +639,6 @@
 				FA1DB4D31DDCB479007F95C8 /* CPYClip.swift in Sources */,
 				B70197952F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift in Sources */,
 				FAC0DCE91DE15FD900309C49 /* DataCleanService.swift in Sources */,
-				C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Deprecated.swift in Sources */,
 				FA1DB4A31DDCB433007F95C8 /* Constants.swift in Sources */,
 				FA1DB4D61DDCB479007F95C8 /* CPYFolder.swift in Sources */,
 				FA1DB4B41DDCB452007F95C8 /* NSBundle+Version.swift in Sources */,
