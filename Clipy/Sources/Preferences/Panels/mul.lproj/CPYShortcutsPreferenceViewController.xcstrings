@@ -20,7 +20,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "principale:"
+            "value" : "Principale:"
           }
         },
         "ja" : {
@@ -140,7 +140,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "片断："
+            "value" : "片段："
           }
         }
       }

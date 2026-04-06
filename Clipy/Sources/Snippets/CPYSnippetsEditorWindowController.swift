@@ -34,7 +34,7 @@ final class CPYSnippetsEditorWindowController: NSWindowController {
             textView.isAutomaticQuoteSubstitutionEnabled = false
             textView.enabledTextCheckingTypes = 0
             textView.isRichText = false
-            textView.placeHolderText = NSLocalizedString("Please fill in the contents of the snippet", comment: "")
+            textView.placeHolderText = String(localized: "Please fill in the contents of the snippet")
         }
     }
     @IBOutlet private weak var outlineView: NSOutlineView! {
@@ -132,43 +132,43 @@ extension CPYSnippetsEditorWindowController: NSToolbarDelegate {
 
         switch itemIdentifier {
         case .addSnippet:
-            item.label = NSLocalizedString("Add Snippet", comment: "")
-            item.toolTip = NSLocalizedString("Add Snippet", comment: "")
+            item.label = String(localized: "Add Snippet")
+            item.toolTip = String(localized: "Add Snippet")
             item.image = NSImage(systemSymbolName: "doc.badge.plus", accessibilityDescription: "Add Snippet")?
                 .withSymbolConfiguration(symbolConfig)
             item.action = #selector(addSnippetButtonTapped(_:))
             item.target = self
         case .addFolder:
-            item.label = NSLocalizedString("Add Folder", comment: "")
-            item.toolTip = NSLocalizedString("Add Folder", comment: "")
+            item.label = String(localized: "Add Folder")
+            item.toolTip = String(localized: "Add Folder")
             item.image = NSImage(systemSymbolName: "folder.badge.plus", accessibilityDescription: "Add Folder")?
                 .withSymbolConfiguration(symbolConfig)
             item.action = #selector(addFolderButtonTapped(_:))
             item.target = self
         case .deleteItem:
-            item.label = NSLocalizedString("Delete", comment: "")
-            item.toolTip = NSLocalizedString("Delete", comment: "")
+            item.label = String(localized: "Delete")
+            item.toolTip = String(localized: "Delete")
             item.image = NSImage(systemSymbolName: "trash", accessibilityDescription: "Delete")?
                 .withSymbolConfiguration(symbolConfig)
             item.action = #selector(deleteButtonTapped(_:))
             item.target = self
         case .toggleEnable:
-            item.label = NSLocalizedString("Enable/Disable", comment: "")
-            item.toolTip = NSLocalizedString("Enable/Disable", comment: "")
+            item.label = String(localized: "Enable/Disable")
+            item.toolTip = String(localized: "Enable/Disable")
             item.image = NSImage(systemSymbolName: "checkmark.circle", accessibilityDescription: "Enable/Disable")?
                 .withSymbolConfiguration(symbolConfig)
             item.action = #selector(changeStatusButtonTapped(_:))
             item.target = self
         case .importSnippets:
-            item.label = NSLocalizedString("Import", comment: "")
-            item.toolTip = NSLocalizedString("Import", comment: "")
+            item.label = String(localized: "Import")
+            item.toolTip = String(localized: "Import")
             item.image = NSImage(systemSymbolName: "square.and.arrow.down", accessibilityDescription: "Import")?
                 .withSymbolConfiguration(symbolConfig)
             item.action = #selector(importSnippetButtonTapped(_:))
             item.target = self
         case .exportSnippets:
-            item.label = NSLocalizedString("Export", comment: "")
-            item.toolTip = NSLocalizedString("Export", comment: "")
+            item.label = String(localized: "Export")
+            item.toolTip = String(localized: "Export")
             item.image = NSImage(systemSymbolName: "square.and.arrow.up", accessibilityDescription: "Export")?
                 .withSymbolConfiguration(symbolConfig)
             item.action = #selector(exportSnippetButtonTapped(_:))
@@ -224,10 +224,10 @@ extension CPYSnippetsEditorWindowController {
         }
 
         let alert = NSAlert()
-        alert.messageText = NSLocalizedString("Delete Item", comment: "")
-        alert.informativeText = NSLocalizedString("Are you sure want to delete this item?", comment: "")
-        alert.addButton(withTitle: NSLocalizedString("Delete Item", comment: ""))
-        alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
+        alert.messageText = String(localized: "Delete Item")
+        alert.informativeText = String(localized: "Are you sure you want to delete this item?")
+        alert.addButton(withTitle: String(localized: "Delete Item"))
+        alert.addButton(withTitle: String(localized: "Cancel"))
         NSApp.activate(ignoringOtherApps: true)
         let result = alert.runModal()
         if result != NSApplication.ModalResponse.alertFirstButtonReturn { return }

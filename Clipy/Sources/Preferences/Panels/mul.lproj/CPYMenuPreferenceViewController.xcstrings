@@ -223,7 +223,7 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Anzahl der Einträge in einem Ordner:"
           }
         },
@@ -235,19 +235,19 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cartelle:"
+            "state" : "needs_review",
+            "value" : "Numero di elementi in ogni cartella:"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "フォルダに内包する項目の数:"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "每个文件夹中项的个数："
           }
         }
@@ -710,7 +710,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "履歴クリアの前に警告パネルを表示"
+            "value" : "履歴クリアの前に警告を表示"
           }
         },
         "zh-Hans" : {
@@ -727,7 +727,7 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Anzahl der Einträge die innerhalb angezeigt werden:"
           }
         },
@@ -739,19 +739,19 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Menu principale della Cronologia:"
+            "state" : "needs_review",
+            "value" : "Numero di elementi visualizzati in linea:"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "インライン表示する項目の数:"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "不放进文件夹的菜单项个数："
           }
         }

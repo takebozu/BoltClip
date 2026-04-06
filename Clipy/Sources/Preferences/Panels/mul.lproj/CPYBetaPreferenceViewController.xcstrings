@@ -68,7 +68,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Action"
+            "value" : "操作"
           }
         }
       }
@@ -236,7 +236,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Paste and delete history"
+            "value" : "Incolla ed elimina dalla cronologia"
           }
         },
         "ja" : {
@@ -560,7 +560,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Delete history"
+            "value" : "Elimina cronologia"
           }
         },
         "ja" : {
