@@ -253,42 +253,6 @@
         }
       }
     },
-    "LsC-YB-qAw.title" : {
-      "comment" : "Class = \"NSButtonCell\"; title = \"Send crash report and error log (reflected at the next launch)\"; ObjectID = \"LsC-YB-qAw\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Absturzberichte und Fehlerprotokolle senden (Nach dem nächsten Anwendungsstart)"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Send crash report and error log (reflected at the next launch)"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invia rapporti sugli arresti anomali (effettivo al prossimo avvio)"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "クラッシュレポートやエラーログを送信する(次回起動時に反映)"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "发送崩溃报告和错误日志（下次启动时生效）"
-          }
-        }
-      }
-    },
     "Nab-CO-ytH.title" : {
       "comment" : "Class = \"NSTextFieldCell\"; title = \"Max clipboard history size:\"; ObjectID = \"Nab-CO-ytH\";",
       "extractionState" : "extracted_with_value",

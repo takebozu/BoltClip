@@ -83,9 +83,7 @@ class AppDelegate: NSObject, NSMenuItemValidation {
     }
 
     @objc func selectClipMenuItem(_ sender: NSMenuItem) {
-        CPYUtilities.sendCustomLog(with: "selectClipMenuItem")
         guard let primaryKey = sender.representedObject as? String else {
-            CPYUtilities.sendCustomLog(with: "Cannot fetch clip primary key")
             NSSound.beep()
             return
         }
@@ -93,7 +91,6 @@ class AppDelegate: NSObject, NSMenuItemValidation {
         var descriptor = FetchDescriptor<CPYClip>(predicate: #Predicate { $0.dataHash == primaryKey })
         descriptor.fetchLimit = 1
         guard let clip = try? context.fetch(descriptor).first else {
-            CPYUtilities.sendCustomLog(with: "Cannot fetch clip data")
             NSSound.beep()
             return
         }
@@ -102,9 +99,7 @@ class AppDelegate: NSObject, NSMenuItemValidation {
     }
 
     @objc func selectSnippetMenuItem(_ sender: AnyObject) {
-        CPYUtilities.sendCustomLog(with: "selectSnippetMenuItem")
         guard let primaryKey = sender.representedObject as? String else {
-            CPYUtilities.sendCustomLog(with: "Cannot fetch snippet primary key")
             NSSound.beep()
             return
         }
@@ -112,7 +107,6 @@ class AppDelegate: NSObject, NSMenuItemValidation {
         var descriptor = FetchDescriptor<CPYSnippet>(predicate: #Predicate { $0.identifier == primaryKey })
         descriptor.fetchLimit = 1
         guard let snippet = try? context.fetch(descriptor).first else {
-            CPYUtilities.sendCustomLog(with: "Cannot fetch snippet data")
             NSSound.beep()
             return
         }
@@ -173,8 +167,6 @@ extension AppDelegate: NSApplicationDelegate {
         AppEnvironment.replaceCurrent(environment: AppEnvironment.fromStorage())
         // UserDefaults
         CPYUtilities.registerUserDefaultKeys()
-        // SDKs
-        CPYUtilities.initSDKs()
         // Check Accessibility Permission
         AppEnvironment.current.accessibilityService.isAccessibilityEnabled(isPrompt: true)
 
