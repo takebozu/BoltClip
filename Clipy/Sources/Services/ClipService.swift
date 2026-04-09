@@ -110,7 +110,7 @@ extension ClipService {
         let data = CPYClipData(pasteboard: pasteboard, types: types)
         save(with: data)
     }
- 
+
     func create(with image: NSImage) {
         lock.lock(); defer { lock.unlock() }
 

@@ -13,14 +13,6 @@ import Cocoa
 
 final class CPYUtilities {
 
-    static func initSDKs() {
-        // Fabric
-        AppEnvironment.current.defaults.register(defaults: ["NSApplicationCrashOnExceptions": true])
-        guard AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.collectCrashReport) else { return }
-        // TODO: - Migrate Firebase Crashlytics
-        CPYUtilities.sendCustomLog(with: "applicationDidFinishLaunching")
-    }
-
     static func registerUserDefaultKeys() {
         var defaultValues = [String: Any]()
 
@@ -33,7 +25,6 @@ final class CPYUtilities {
         defaultValues.updateValue(AppDelegate.storeTypesDictionary(), forKey: Constants.UserDefaults.storeTypes)
         defaultValues.updateValue(NSNumber(value: true), forKey: Constants.UserDefaults.inputPasteCommand)
         defaultValues.updateValue(NSNumber(value: true), forKey: Constants.UserDefaults.reorderClipsAfterPasting)
-        defaultValues.updateValue(NSNumber(value: true), forKey: Constants.UserDefaults.collectCrashReport)
 
         /* Menu */
         defaultValues.updateValue(NSNumber(value: 16), forKey: Constants.UserDefaults.menuIconSize)
@@ -95,10 +86,5 @@ final class CPYUtilities {
                 try? fileManager.removeItem(atPath: path)
             }
         }
-    }
-
-    static func sendCustomLog(with name: String) {
-        guard AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.collectCrashReport) else { return }
-        // TODO: - Migrate Firebase Crashlytics
     }
 }
