@@ -168,7 +168,9 @@ extension AppDelegate: NSApplicationDelegate {
         // UserDefaults
         CPYUtilities.registerUserDefaultKeys()
         // Check Accessibility Permission
-        AppEnvironment.current.accessibilityService.isAccessibilityEnabled(isPrompt: true)
+        if !AppEnvironment.current.accessibilityService.isAccessibilityEnabled(isPrompt: false) {
+            AppEnvironment.current.accessibilityService.showAccessibilityAuthenticationAlert()
+        }
 
         // Show Login Item
         if !AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.loginItem) && !AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {

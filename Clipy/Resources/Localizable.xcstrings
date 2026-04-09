@@ -966,37 +966,37 @@
         }
       }
     },
-    "To perform this action, please enable “Accessibility” in the “Security & Privacy” preferences in System Preferences." : {
+    "BoltClip requires Accessibility permission to paste clipboard items. Please enable \"Accessibility\" in the \"Security & Privacy\" preferences in System Settings." : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Um diese Aktion auszuführen, aktivieren Sie bitte „Barrierefreiheit“ in den Einstellungen unter „Sicherheit & Datenschutz“ in den Systemeinstellungen."
+            "value" : "BoltClip benötigt die Berechtigung \"Barrierefreiheit\", um Zwischenablage-Einträge einzufügen. Bitte aktivieren Sie \"Barrierefreiheit\" in den \"Sicherheit & Datenschutz\"-Einstellungen in den Systemeinstellungen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To perform this action, please enable “Accessibility” in the “Security & Privacy” preferences in System Preferences."
+            "value" : "BoltClip requires Accessibility permission to paste clipboard items. Please enable \"Accessibility\" in the \"Security & Privacy\" preferences in System Settings."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per eseguire questa operazione, attiva l'opzione «Accessibilità» nelle preferenze «Sicurezza e privacy» delle Preferenze di Sistema."
+            "value" : "BoltClip richiede l’autorizzazione \"Accessibilità\" per incollare gli elementi degli appunti. Attiva \"Accessibilità\" nelle preferenze \"Sicurezza e privacy\" delle Impostazioni di Sistema."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "この動作を行うためにはシステム環境設定の\"セキュリティとプライバシー\"環境設定で、\"アクセシビリティ\"を許可してください。"
+            "value" : "BoltClipはクリップボードの内容を貼り付けるためにアクセシビリティの許可が必要です。システム設定の\"セキュリティとプライバシー\"で\"アクセシビリティ\"を許可してください。"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "要执行此操作，请在“系统偏好设置”中的“安全与隐私”偏好设置中启用“辅助功能”。"
+            "value" : "BoltClip 需要\"辅助功能\"权限以粘贴剪贴板内容。请在\"系统设置\"中的\"安全与隷私\"设置中启用\"辅助功能\"。"
           }
         }
       }

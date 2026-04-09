@@ -30,7 +30,7 @@ extension AccessibilityService {
     func showAccessibilityAuthenticationAlert() {
         let alert = NSAlert()
         alert.messageText = String(localized: "Please allow Accessibility")
-        alert.informativeText = String(localized: "To perform this action, please enable “Accessibility” in the “Security & Privacy” preferences in System Preferences.")
+        alert.informativeText = String(localized: "BoltClip requires Accessibility permission to paste clipboard items. Please enable \"Accessibility\" in the \"Security & Privacy\" preferences in System Settings.")
         alert.addButton(withTitle: String(localized: "Open System Preferences"))
         NSApp.activate(ignoringOtherApps: true)
 
