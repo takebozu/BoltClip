@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		74730A912F877FF4004DFDDD /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 74730A902F877FF4004DFDDD /* Sparkle */; };
+		74FF1B432F87DD5F000F28D2 /* CPYUpdatesPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF1B422F87DD5F000F28D2 /* CPYUpdatesPreferenceViewController.swift */; };
 		B70197952F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70197942F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift */; };
 		B75A99ED2F77C0A400BE3012 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B75A99EC2F77C0A400BE3012 /* Localizable.xcstrings */; };
 		B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F312F6A7DE300AE1E52 /* PINCache */; };
@@ -117,6 +118,7 @@
 
 /* Begin PBXFileReference section */
 		314B299D1EC49AD5004DD070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CPYSnippetsEditorWindowController.xib; sourceTree = "<group>"; };
+		74FF1B422F87DD5F000F28D2 /* CPYUpdatesPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPYUpdatesPreferenceViewController.swift; sourceTree = "<group>"; };
 		B70197942F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CPYSnippetsEditorWindowController+DataSource.swift"; sourceTree = "<group>"; };
 		B75A99EC2F77C0A400BE3012 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B75A99EE2F77C74500BE3012 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/CPYTypePreferenceViewController.xcstrings; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				FA1DB4FD1DDCB4C0007F95C8 /* CPYMenuPreferenceViewController.xib */,
 				FA1DB4FF1DDCB4C0007F95C8 /* CPYShortcutsPreferenceViewController.xib */,
 				FA1DB5011DDCB4C0007F95C8 /* CPYTypePreferenceViewController.xib */,
+				74FF1B422F87DD5F000F28D2 /* CPYUpdatesPreferenceViewController.swift */,
 			);
 			path = Panels;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				FA1DB4A31DDCB433007F95C8 /* Constants.swift in Sources */,
 				FA1DB4D61DDCB479007F95C8 /* CPYFolder.swift in Sources */,
 				FA1DB4B41DDCB452007F95C8 /* NSBundle+Version.swift in Sources */,
+				74FF1B432F87DD5F000F28D2 /* CPYUpdatesPreferenceViewController.swift in Sources */,
 				FA1DB5171DDCB4C0007F95C8 /* CPYTypePreferenceViewController.swift in Sources */,
 				FA1DB4A21DDCB433007F95C8 /* AppDelegate.swift in Sources */,
 				FA1DB5141DDCB4C0007F95C8 /* CPYBetaPreferenceViewController.swift in Sources */,
