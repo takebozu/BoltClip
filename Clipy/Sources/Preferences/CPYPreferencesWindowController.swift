@@ -7,6 +7,7 @@
 //  Created by Econa77 on 2016/02/25.
 //
 //  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2026 Satoshi Takezawa
 //
 
 import Cocoa
@@ -38,11 +39,12 @@ final class CPYPreferencesWindowController: NSWindowController {
         CPYTypePreferenceViewController(nibName: "CPYTypePreferenceViewController", bundle: nil),
         CPYExcludeAppPreferenceViewController(nibName: "CPYExcludeAppPreferenceViewController", bundle: nil),
         CPYShortcutsPreferenceViewController(nibName: "CPYShortcutsPreferenceViewController", bundle: nil),
+        CPYUpdatesPreferenceViewController(),
         CPYBetaPreferenceViewController(nibName: "CPYBetaPreferenceViewController", bundle: nil)
     ]
 
     private enum Tab: Int, CaseIterable {
-        case general, menu, type, exclude, shortcuts, beta
+        case general, menu, type, exclude, shortcuts, updates, beta
 
         var identifier: NSToolbarItem.Identifier {
             switch self {
@@ -51,6 +53,7 @@ final class CPYPreferencesWindowController: NSWindowController {
             case .type:      return .init("type")
             case .exclude:   return .init("exclude")
             case .shortcuts: return .init("shortcuts")
+            case .updates:   return .init("updates")
             case .beta:      return .init("beta")
             }
         }
@@ -62,6 +65,7 @@ final class CPYPreferencesWindowController: NSWindowController {
             case .type:      return String(localized: "Type")
             case .exclude:   return String(localized: "Exclude")
             case .shortcuts: return String(localized: "Shortcuts")
+            case .updates:   return String(localized: "Updates")
             case .beta:      return String(localized: "Beta")
             }
         }
@@ -73,6 +77,7 @@ final class CPYPreferencesWindowController: NSWindowController {
             case .type:      return "doc.on.clipboard"
             case .exclude:   return "minus.circle"
             case .shortcuts: return "command"
+            case .updates:   return "arrow.triangle.2.circlepath"
             case .beta:      return "flask"
             }
         }

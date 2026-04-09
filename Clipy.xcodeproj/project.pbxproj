@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74730A912F877FF4004DFDDD /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 74730A902F877FF4004DFDDD /* Sparkle */; };
+		74FF1B432F87DD5F000F28D2 /* CPYUpdatesPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FF1B422F87DD5F000F28D2 /* CPYUpdatesPreferenceViewController.swift */; };
 		B70197952F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70197942F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift */; };
 		B75A99ED2F77C0A400BE3012 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B75A99EC2F77C0A400BE3012 /* Localizable.xcstrings */; };
 		B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F312F6A7DE300AE1E52 /* PINCache */; };
@@ -116,6 +118,7 @@
 
 /* Begin PBXFileReference section */
 		314B299D1EC49AD5004DD070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CPYSnippetsEditorWindowController.xib; sourceTree = "<group>"; };
+		74FF1B422F87DD5F000F28D2 /* CPYUpdatesPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPYUpdatesPreferenceViewController.swift; sourceTree = "<group>"; };
 		B70197942F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CPYSnippetsEditorWindowController+DataSource.swift"; sourceTree = "<group>"; };
 		B75A99EC2F77C0A400BE3012 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B75A99EE2F77C74500BE3012 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/CPYTypePreferenceViewController.xcstrings; sourceTree = "<group>"; };
@@ -202,6 +205,7 @@
 				B7DB3F532F6A845300AE1E52 /* RxScreeen in Frameworks */,
 				B7DB3F662F6A8CBA00AE1E52 /* SwiftHEXColors in Frameworks */,
 				FAC43E2B1B35DFDF00C06102 /* WebKit.framework in Frameworks */,
+				74730A912F877FF4004DFDDD /* Sparkle in Frameworks */,
 				FAC43E291B35DFDA00C06102 /* Cocoa.framework in Frameworks */,
 				B7DB3F442F6A816600AE1E52 /* Sauce in Frameworks */,
 				B7DB3F502F6A825700AE1E52 /* KeyHolder in Frameworks */,
@@ -420,6 +424,7 @@
 				FA1DB4FD1DDCB4C0007F95C8 /* CPYMenuPreferenceViewController.xib */,
 				FA1DB4FF1DDCB4C0007F95C8 /* CPYShortcutsPreferenceViewController.xib */,
 				FA1DB5011DDCB4C0007F95C8 /* CPYTypePreferenceViewController.xib */,
+				74FF1B422F87DD5F000F28D2 /* CPYUpdatesPreferenceViewController.swift */,
 			);
 			path = Panels;
 			sourceTree = "<group>";
@@ -582,6 +587,7 @@
 				B7DB3F642F6A8CBA00AE1E52 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */,
 				B7DB3F672F6A8E8B00AE1E52 /* XCRemoteSwiftPackageReference "AEXML" */,
 				B75A99F72F78B01F00BE3012 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				74730A8F2F877FF4004DFDDD /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = FAC43DC71B35D8B100C06102 /* Products */;
 			projectDirPath = "";
@@ -642,6 +648,7 @@
 				FA1DB4A31DDCB433007F95C8 /* Constants.swift in Sources */,
 				FA1DB4D61DDCB479007F95C8 /* CPYFolder.swift in Sources */,
 				FA1DB4B41DDCB452007F95C8 /* NSBundle+Version.swift in Sources */,
+				74FF1B432F87DD5F000F28D2 /* CPYUpdatesPreferenceViewController.swift in Sources */,
 				FA1DB5171DDCB4C0007F95C8 /* CPYTypePreferenceViewController.swift in Sources */,
 				FA1DB4A21DDCB433007F95C8 /* AppDelegate.swift in Sources */,
 				FA1DB5141DDCB4C0007F95C8 /* CPYBetaPreferenceViewController.swift in Sources */,
@@ -918,24 +925,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				AUTOMATION_APPLE_EVENTS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 28DN5D9UXX;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
-				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
 				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
 				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
 				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
 				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
-				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
-				ENABLE_RESOURCE_ACCESS_USB = NO;
-				ENABLE_USER_SELECTED_FILES = readwrite;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -953,6 +957,12 @@
 				PRODUCT_NAME = BoltClip;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -1046,6 +1056,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		74730A8F2F877FF4004DFDDD /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 		B75A99F72F78B01F00BE3012 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
@@ -1201,6 +1219,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		74730A902F877FF4004DFDDD /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74730A8F2F877FF4004DFDDD /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
 		B75A99F82F78B27B00BE3012 /* SwiftLintBuildToolPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B75A99F72F78B01F00BE3012 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;

@@ -7,6 +7,7 @@
 //  Created by Econa77 on 2016/02/26.
 //
 //  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2026 Satoshi Takezawa
 //
 
 import Cocoa

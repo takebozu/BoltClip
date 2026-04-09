@@ -7,6 +7,7 @@
 //  Created by Econa77 on 2015/06/21.
 //
 //  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2026 Satoshi Takezawa
 //
 
 import Cocoa
@@ -17,12 +18,14 @@ import Magnet
 import Screeen
 import RxScreeen
 import SwiftData
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSMenuItemValidation {
 
     // MARK: - Properties
     let screenshotObserver = ScreenShotObserver()
+    let updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
     let disposeBag = DisposeBag()
 
     // MARK: - NSMenuItem Validation
@@ -168,7 +171,9 @@ extension AppDelegate: NSApplicationDelegate {
         // UserDefaults
         CPYUtilities.registerUserDefaultKeys()
         // Check Accessibility Permission
-        AppEnvironment.current.accessibilityService.isAccessibilityEnabled(isPrompt: true)
+        if !AppEnvironment.current.accessibilityService.isAccessibilityEnabled(isPrompt: false) {
+            AppEnvironment.current.accessibilityService.showAccessibilityAuthenticationAlert()
+        }
 
         // Show Login Item
         if !AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.loginItem) && !AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {

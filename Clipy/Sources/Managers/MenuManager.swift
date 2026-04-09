@@ -7,6 +7,7 @@
 //  Created by Econa77 on 2016/03/08.
 //
 //  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2026 Satoshi Takezawa
 //
 
 import Cocoa
@@ -186,6 +187,7 @@ private extension MenuManager {
 
         clipMenu?.addItem(NSMenuItem(title: String(localized: "Edit Snippets"), action: #selector(AppDelegate.showSnippetEditorWindow)))
         clipMenu?.addItem(NSMenuItem(title: String(localized: "Preferences"), action: #selector(AppDelegate.showPreferenceWindow)))
+
         clipMenu?.addItem(NSMenuItem.separator())
         clipMenu?.addItem(NSMenuItem(title: String(localized: "Quit BoltClip"), action: #selector(AppDelegate.terminate)))
 

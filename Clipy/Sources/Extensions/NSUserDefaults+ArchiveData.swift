@@ -7,6 +7,7 @@
 //  Created by Econa77 on 2016/06/23.
 //
 //  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2026 Satoshi Takezawa
 //
 
 import Foundation
