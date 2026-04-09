@@ -11,6 +11,41 @@ BoltClip is a Clipboard extension app for macOS.
 
 __Requirement__: macOS 14.6 Sonoma or higher
 
+## Installation
+
+### Download from Releases
+
+1. Go to [GitHub Releases](https://github.com/takebozu/BoltClip/releases)
+
+2. Download the latest `BoltClip.zip`
+
+3. Extract the zip file
+
+4. Drag and drop `BoltClip.app` to your **Applications** folder
+
+### Build from Source
+
+1. Clone the repository:
+```bash
+git clone https://github.com/takebozu/BoltClip.git
+cd BoltClip
+```
+
+2. Open the project in Xcode:
+```bash
+open Clipy.xcodeproj
+```
+
+3. Select the **BoltClip** scheme from the scheme selector
+
+4. Build and run the project:
+   - Press `Cmd + R` to build and run
+   - Or go to **Product** > **Run** in the menu
+
+5. The app will launch automatically. You can quit it and access BoltClip from the menu bar.
+
+6. To install, drag and drop `BoltClip.app` from the build output to your **Applications** folder
+
 ### Development Environment
 * macOS 26.4 Tahoe
 * Xcode 26.4
