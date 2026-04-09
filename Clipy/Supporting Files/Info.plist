@@ -36,5 +36,9 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SUFeedURL</key>
+	<string>https://takebozu.github.io/BoltClip/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>NQFNyJ/fu2p8+5F7K3FrPao6F709RLrK1NiiEBy0auU=</string>
 </dict>
 </plist>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74730A912F877FF4004DFDDD /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 74730A902F877FF4004DFDDD /* Sparkle */; };
 		B70197952F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70197942F7BEAE7002EEFA7 /* CPYSnippetsEditorWindowController+DataSource.swift */; };
 		B75A99ED2F77C0A400BE3012 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B75A99EC2F77C0A400BE3012 /* Localizable.xcstrings */; };
 		B7DB3F322F6A7DE300AE1E52 /* PINCache in Frameworks */ = {isa = PBXBuildFile; productRef = B7DB3F312F6A7DE300AE1E52 /* PINCache */; };
@@ -202,6 +203,7 @@
 				B7DB3F532F6A845300AE1E52 /* RxScreeen in Frameworks */,
 				B7DB3F662F6A8CBA00AE1E52 /* SwiftHEXColors in Frameworks */,
 				FAC43E2B1B35DFDF00C06102 /* WebKit.framework in Frameworks */,
+				74730A912F877FF4004DFDDD /* Sparkle in Frameworks */,
 				FAC43E291B35DFDA00C06102 /* Cocoa.framework in Frameworks */,
 				B7DB3F442F6A816600AE1E52 /* Sauce in Frameworks */,
 				B7DB3F502F6A825700AE1E52 /* KeyHolder in Frameworks */,
@@ -582,6 +584,7 @@
 				B7DB3F642F6A8CBA00AE1E52 /* XCRemoteSwiftPackageReference "SwiftHEXColors" */,
 				B7DB3F672F6A8E8B00AE1E52 /* XCRemoteSwiftPackageReference "AEXML" */,
 				B75A99F72F78B01F00BE3012 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				74730A8F2F877FF4004DFDDD /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = FAC43DC71B35D8B100C06102 /* Products */;
 			projectDirPath = "";
@@ -1049,6 +1052,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		74730A8F2F877FF4004DFDDD /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 		B75A99F72F78B01F00BE3012 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
@@ -1204,6 +1215,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		74730A902F877FF4004DFDDD /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74730A8F2F877FF4004DFDDD /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
 		B75A99F82F78B27B00BE3012 /* SwiftLintBuildToolPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B75A99F72F78B01F00BE3012 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;

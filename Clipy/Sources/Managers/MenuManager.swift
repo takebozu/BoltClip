@@ -15,6 +15,7 @@ import PINCache
 import SwiftData
 import RxCocoa
 import RxSwift
+import Sparkle
 
 final class MenuManager: NSObject {
 
@@ -187,6 +188,11 @@ private extension MenuManager {
 
         clipMenu?.addItem(NSMenuItem(title: String(localized: "Edit Snippets"), action: #selector(AppDelegate.showSnippetEditorWindow)))
         clipMenu?.addItem(NSMenuItem(title: String(localized: "Preferences"), action: #selector(AppDelegate.showPreferenceWindow)))
+
+        let checkForUpdatesItem = NSMenuItem(title: String(localized: "Check for Updates..."), action: #selector(SPUStandardUpdaterController.checkForUpdates(_:)), keyEquivalent: "")
+        checkForUpdatesItem.target = (NSApp.delegate as? AppDelegate)?.updaterController
+        clipMenu?.addItem(checkForUpdatesItem)
+
         clipMenu?.addItem(NSMenuItem.separator())
         clipMenu?.addItem(NSMenuItem(title: String(localized: "Quit BoltClip"), action: #selector(AppDelegate.terminate)))
 

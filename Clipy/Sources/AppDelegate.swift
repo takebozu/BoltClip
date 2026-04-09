@@ -18,12 +18,14 @@ import Magnet
 import Screeen
 import RxScreeen
 import SwiftData
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSMenuItemValidation {
 
     // MARK: - Properties
     let screenshotObserver = ScreenShotObserver()
+    let updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
     let disposeBag = DisposeBag()
 
     // MARK: - NSMenuItem Validation
