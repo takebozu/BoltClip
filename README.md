@@ -7,6 +7,8 @@
 
 BoltClip is a Clipboard extension app for macOS.
 
+![Screenshots](./Resources/screenshots.gif)
+
 ---
 
 __Requirement__: macOS 14.6 Sonoma or higher
